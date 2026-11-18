@@ -52,7 +52,7 @@ struct ReportView: View {
     private var builder: some View {
         Card {
             Text("Period").font(.headline)
-            OptionRow(options: [4, 8, 12], selection: $weeks) { "\($0) weeks" }
+            OptionRow(options: [4, 8, 12], selection: $weeks) { String(localized: "\($0) weeks") }
             let summary = makeData().summary
             Text("\(summary.daysLogged) of \(summary.daysInRange) days logged")
                 .font(.subheadline).foregroundStyle(Theme.muted)
@@ -200,10 +200,10 @@ struct PaywallView: View {
                     }
                 }
                 if let yearly {
-                    planRow(yearly, title: "Yearly", detail: "\(yearly.displayPrice) a year", badge: saving(yearly: yearly, monthly: monthly))
+                    planRow(yearly, title: String(localized: "Yearly"), detail: String(localized: "\(yearly.displayPrice) a year"), badge: saving(yearly: yearly, monthly: monthly))
                 }
                 if let monthly {
-                    planRow(monthly, title: "Monthly", detail: "\(monthly.displayPrice) a month", badge: nil)
+                    planRow(monthly, title: String(localized: "Monthly"), detail: String(localized: "\(monthly.displayPrice) a month"), badge: nil)
                 }
 
                 Button(busy ? "Opening the App Store…" : "Continue") {
@@ -220,8 +220,9 @@ struct PaywallView: View {
 
                 Card(spacing: 6) {
                     Text("Always free").font(.headline)
-                    ForEach(["Daily check-ins and quick logs", "History, cycle and patterns", "The report on screen", "iCloud backup and export of all your data"], id: \.self) { item in
-                        Label(item, systemImage: "checkmark").font(.subheadline)
+                    let free: [LocalizedStringKey] = ["Daily check-ins and quick logs", "History, cycle and patterns", "The report on screen", "iCloud backup and export of all your data"]
+                    ForEach(free.indices, id: \.self) { i in
+                        Label(free[i], systemImage: "checkmark").font(.subheadline)
                     }
                 }
 
@@ -248,12 +249,12 @@ struct PaywallView: View {
                 Image(systemName: selected ? "largecircle.fill.circle" : "circle")
                     .foregroundStyle(selected ? Theme.accent : Theme.chipBorder)
                 VStack(alignment: .leading) {
-                    Text(title).font(.headline).foregroundStyle(Theme.ink)
-                    Text(detail).font(.subheadline).foregroundStyle(Theme.secondary)
+                    Text(verbatim: title).font(.headline).foregroundStyle(Theme.ink)
+                    Text(verbatim: detail).font(.subheadline).foregroundStyle(Theme.secondary)
                 }
                 Spacer()
                 if let badge {
-                    Text(badge).font(.caption.bold())
+                    Text(verbatim: badge).font(.caption.bold())
                         .padding(.horizontal, 8).padding(.vertical, 4)
                         .foregroundStyle(Theme.onAccent)
                         .background(Theme.accent, in: Capsule())
@@ -271,7 +272,7 @@ struct PaywallView: View {
         guard let monthly, monthly.price > 0 else { return nil }
         let full = monthly.price * 12
         let percent = NSDecimalNumber(decimal: (full - yearly.price) / full * 100).intValue
-        return percent > 0 ? "Save \(percent)%" : nil
+        return percent > 0 ? String(localized: "Save \(percent)%") : nil
     }
 }
 

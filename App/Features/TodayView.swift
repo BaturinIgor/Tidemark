@@ -104,7 +104,7 @@ struct TodayView: View {
                 ForEach(sorted, id: \.key) { pair in
                     SeverityTag(text: "\(Symptom.label(for: pair.key)) · \(pair.value.label)", severity: pair.value)
                 }
-                if mild > 0 { SeverityTag(text: "+\(mild) mild", severity: .mild) }
+                if mild > 0 { SeverityTag(text: String(localized: "+\(mild) mild"), severity: .mild) }
             }
         }
     }
@@ -122,7 +122,7 @@ struct SeverityTag: View {
     let text: String
     let severity: Severity
     var body: some View {
-        Text(text)
+        Text(verbatim: text)
             .font(.footnote)
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
@@ -159,10 +159,10 @@ struct BackupBanner: View {
 
     private var title: String {
         switch reason {
-        case .iCloudSignedOut: "iCloud backup is off"
-        case .iCloudFull: "Your iCloud is full"
-        case .noBackupFor(let hours): "No backup for \(max(1, hours / 24)) day\(hours >= 48 ? "s" : "")"
-        case .neverBackedUp: "Not backed up yet"
+        case .iCloudSignedOut: String(localized: "iCloud backup is off")
+        case .iCloudFull: String(localized: "Your iCloud is full")
+        case .noBackupFor(let hours): String(localized: "No backup for \(max(1, hours / 24)) days")
+        case .neverBackedUp: String(localized: "Not backed up yet")
         }
     }
 }
@@ -175,7 +175,7 @@ struct MissedDaysCard: View {
     var body: some View {
         if !dismissed {
             Card {
-                Text("You missed \(days.count) day\(days.count == 1 ? "" : "s")").font(.headline)
+                Text("You missed \(days.count) days").font(.headline)
                 Text("Fill them in while you remember. You can add up to \(MissedDays.maxDaysBack) days back, so the report stays honest.")
                     .font(.subheadline).foregroundStyle(Theme.secondary)
                 ForEach(days) { day in
@@ -229,12 +229,12 @@ struct VisitCard: View {
 
     var body: some View {
         let days = today.days(until: visit.day)
-        let who = visit.clinician.isEmpty ? (model.profile?.region.doctorTerm ?? "Doctor") : visit.clinician
         Card {
             HStack(alignment: .firstTextBaseline) {
-                Text(days == 0 ? "\(who) visit today" : "\(who) visit in \(days) day\(days == 1 ? "" : "s")").font(.headline)
+                Text(days == 0 ? String(localized: "Appointment today") : String(localized: "Appointment in \(days) days")).font(.headline)
                 Spacer()
-                Text(visit.day.short).font(.footnote).foregroundStyle(Theme.muted)
+                Text(verbatim: visit.clinician.isEmpty ? visit.day.short : "\(visit.clinician) · \(visit.day.short)")
+                    .font(.footnote).foregroundStyle(Theme.muted)
             }
             switch ReportReadiness.evaluate(checkIns: checkIns, questionnaires: 0) {
             case .locked(let soFar, let needed):
@@ -280,7 +280,7 @@ struct WeekStrip: View {
                         .font(.caption).foregroundStyle(Theme.muted)
                 }
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel("\(day.short): \(level?.label ?? "no check-in")")
+                .accessibilityLabel(Text(verbatim: "\(day.short): \(level?.label ?? String(localized: "no check-in"))"))
             }
         }
     }

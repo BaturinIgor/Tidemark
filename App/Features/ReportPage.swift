@@ -63,9 +63,9 @@ struct ReportPage: View {
         VStack(alignment: .leading, spacing: 3) {
             Text("Symptom summary for my \(region.doctorTerm)").font(.system(size: 18, weight: .bold))
             Text([
-                data.profile.age.map { "Age \($0)" },
-                "\(summary.from.medium) to \(summary.to.medium)",
-                "\(summary.daysLogged) of \(summary.daysInRange) days logged",
+                data.profile.age.map { String(localized: "Age \($0)") },
+                String(localized: "\(summary.from.medium) to \(summary.to.medium)"),
+                String(localized: "\(summary.daysLogged) of \(summary.daysInRange) days logged"),
             ].compactMap { $0 }.joined(separator: " · "))
             .font(.system(size: 10))
             Text("Recorded by me in the Tidemark app.").font(.system(size: 9)).foregroundStyle(Color.gray)
@@ -102,13 +102,13 @@ struct ReportPage: View {
         block(Questionnaire.scaleName) {
             if let last = summary.questionnaires.last, let total = last.total {
                 Text("\(total) of \(Questionnaire.maxScore) on \(last.day.medium)").font(.system(size: 11, weight: .semibold))
-                ForEach([(QuestionnaireItem.Domain.somatic, "Physical"), (.psychological, "Mood and mind"), (.urogenital, "Intimate and urinary")], id: \.0) { pair in
+                ForEach([(QuestionnaireItem.Domain.somatic, String(localized: "Physical")), (.psychological, String(localized: "Mood and mind")), (.urogenital, String(localized: "Intimate and urinary"))], id: \.0) { pair in
                     if let sub = last.subscore(pair.0) {
                         Text("\(pair.1): \(sub.score) of \(sub.max)").font(.system(size: 10))
                     }
                 }
                 if summary.questionnaires.count > 1 {
-                    Text("Earlier: " + summary.questionnaires.dropLast().suffix(3).map { "\($0.total ?? 0) on \($0.day.short)" }.joined(separator: ", "))
+                    Text("Earlier: \(summary.questionnaires.dropLast().suffix(3).map { String(localized: "\($0.total ?? 0) on \($0.day.short)") }.joined(separator: ", "))")
                         .font(.system(size: 9))
                 }
             } else {
@@ -162,14 +162,14 @@ struct ReportPage: View {
 
     private func trendText(_ trend: Trend?) -> String {
         switch trend {
-        case .higherThanUsual: "↑ higher"
-        case .lowerThanUsual: "↓ lower"
-        case .aboutTheSame: "→ about the same"
-        case nil: "not enough days"
+        case .higherThanUsual: String(localized: "↑ higher")
+        case .lowerThanUsual: String(localized: "↓ lower")
+        case .aboutTheSame: String(localized: "→ about the same")
+        case nil: String(localized: "not enough days")
         }
     }
 
-    private func block<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
+    private func block<Content: View>(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 3) {
             Text(title).font(.system(size: 11, weight: .bold)).foregroundStyle(Color(red: 0.055, green: 0.43, blue: 0.42))
             content()

@@ -41,7 +41,7 @@ struct CheckInView: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(subtitle(visit: visit)).font(.subheadline).foregroundStyle(Theme.muted)
-                    Text(day == .today ? "Today" : day.short).font(.largeTitle.bold())
+                    Text(day == .today ? String(localized: "Today") : day.short).font(.largeTitle.bold())
                 }
                 Spacer()
                 Button("Same as yesterday") { copyYesterday() }
@@ -54,7 +54,7 @@ struct CheckInView: View {
                     HStack {
                         Text(Symptom.label(for: id)).font(.body.weight(.semibold))
                         Spacer()
-                        Text(checkIn.ratings[id]?.label ?? "Not rated").font(.footnote).foregroundStyle(Theme.muted)
+                        Text(checkIn.ratings[id]?.label ?? String(localized: "Not rated")).font(.footnote).foregroundStyle(Theme.muted)
                     }
                     SeverityPicker(value: rating(id))
                 }
@@ -112,10 +112,9 @@ struct CheckInView: View {
 
     private func subtitle(visit: Visit?) -> String {
         var parts = [day.short]
-        if let started = model.repository.trackingStarted() { parts.append("Day \(started.days(until: day) + 1)") }
+        if let started = model.repository.trackingStarted() { parts.append(String(localized: "Day \(started.days(until: day) + 1)")) }
         if let visit, visit.day >= day {
-            let who = visit.clinician.isEmpty ? (model.profile?.region.doctorTerm ?? "Doctor") : visit.clinician
-            parts.append("\(who) visit in \(day.days(until: visit.day)) days")
+            parts.append(String(localized: "Appointment in \(day.days(until: visit.day)) days"))
         }
         return parts.joined(separator: " · ")
     }
@@ -138,10 +137,10 @@ struct CheckInView: View {
 extension DailyImpact {
     var shortLabel: String {
         switch self {
-        case .notAtAll: "No"
-        case .aLittle: "A little"
-        case .quiteABit: "Quite a bit"
-        case .aLot: "A lot"
+        case .notAtAll: String(localized: "No", comment: "How much symptoms got in the way of the day")
+        case .aLittle: String(localized: "A little", comment: "How much symptoms got in the way of the day")
+        case .quiteABit: String(localized: "Quite a bit", comment: "How much symptoms got in the way of the day")
+        case .aLot: String(localized: "A lot", comment: "How much symptoms got in the way of the day")
         }
     }
 }
@@ -149,11 +148,11 @@ extension DailyImpact {
 extension Bleeding {
     var label: String {
         switch self {
-        case .none: "None"
-        case .spotting: "Spotting"
-        case .light: "Light"
-        case .medium: "Medium"
-        case .heavy: "Heavy"
+        case .none: String(localized: "None", comment: "Amount of bleeding")
+        case .spotting: String(localized: "Spotting", comment: "Amount of bleeding")
+        case .light: String(localized: "Light", comment: "Amount of bleeding")
+        case .medium: String(localized: "Medium", comment: "Amount of bleeding")
+        case .heavy: String(localized: "Heavy", comment: "Amount of bleeding")
         }
     }
 }
@@ -188,7 +187,7 @@ struct CheckInSavedView: View {
                 Card {
                     Text("Compared with your last 2 weeks").font(.headline)
                     ForEach(trends, id: \.0) { item in
-                        Text("\(Symptom.label(for: item.0)): \(item.1.rawValue)").font(.subheadline)
+                        Text(verbatim: "\(Symptom.label(for: item.0)): \(item.1.label)").font(.subheadline)
                     }
                     Text("A pattern, not a verdict. Your doctor will see the same numbers.").font(.caption).foregroundStyle(Theme.muted)
                 }
@@ -212,8 +211,8 @@ struct CheckInSavedView: View {
     }
 
     private func savedLine(count: Int, visit: Visit?) -> String {
-        var line = "\(count) check-in\(count == 1 ? "" : "s") so far."
-        if let visit, visit.day >= checkIn.day { line += " Your report for \(visit.day.short) is up to date." }
+        var line = String(localized: "\(count) check-ins so far.")
+        if let visit, visit.day >= checkIn.day { line += " " + String(localized: "Your report for \(visit.day.short) is up to date.") }
         return line
     }
 }

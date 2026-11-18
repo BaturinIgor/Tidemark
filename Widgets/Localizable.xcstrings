@@ -1,0 +1,875 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "Aches in joints, rheumatic-like complaints": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aches in joints, rheumatic-like complaints"
+          }
+        }
+      }
+    },
+    "Alcohol": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alcohol"
+          }
+        }
+      }
+    },
+    "Anxiety": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anxiety"
+          }
+        }
+      }
+    },
+    "Bladder problems": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bladder problems"
+          }
+        }
+      }
+    },
+    "Bleeding after 12 months without a period shouldn't wait for your appointment. Contact your doctor now.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bleeding after 12 months without a period shouldn't wait for your appointment. Contact your doctor now."
+          }
+        }
+      }
+    },
+    "Blood tests": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Blood tests"
+          }
+        }
+      }
+    },
+    "Body": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Body"
+          }
+        }
+      }
+    },
+    "Brain fog": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brain fog"
+          }
+        }
+      }
+    },
+    "Caffeine": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caffeine"
+          }
+        }
+      }
+    },
+    "Change in desire, activity or satisfaction": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change in desire, activity or satisfaction"
+          }
+        }
+      }
+    },
+    "Come back later": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come back later"
+          }
+        }
+      }
+    },
+    "Could these symptoms be perimenopause, given my age and cycle changes?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could these symptoms be perimenopause, given my age and cycle changes?"
+          }
+        }
+      }
+    },
+    "Cycle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cycle"
+          }
+        }
+      }
+    },
+    "Do I need a blood test, or can we decide based on my symptoms?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do I need a blood test, or can we decide based on my symptoms?"
+          }
+        }
+      }
+    },
+    "Dryness or burning, difficulty with intercourse": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dryness or burning, difficulty with intercourse"
+          }
+        }
+      }
+    },
+    "Episodes of feeling hot, sweating": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Episodes of feeling hot, sweating"
+          }
+        }
+      }
+    },
+    "Exercise": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exercise"
+          }
+        }
+      }
+    },
+    "Fatigue": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fatigue"
+          }
+        }
+      }
+    },
+    "Feeling down, sad, close to tears, lack of drive": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feeling down, sad, close to tears, lack of drive"
+          }
+        }
+      }
+    },
+    "Feeling nervous, tense, aggressive": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feeling nervous, tense, aggressive"
+          }
+        }
+      }
+    },
+    "Forgetting words": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forgetting words"
+          }
+        }
+      }
+    },
+    "GP": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GP"
+          }
+        }
+      }
+    },
+    "HRT": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HRT"
+          }
+        }
+      }
+    },
+    "Headaches": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Headaches"
+          }
+        }
+      }
+    },
+    "Heart discomfort": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heart discomfort"
+          }
+        }
+      }
+    },
+    "Heavy bleeding": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heavy bleeding"
+          }
+        }
+      }
+    },
+    "Hot flushes": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hot flushes"
+          }
+        }
+      }
+    },
+    "Hot flushes or sweating": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hot flushes or sweating"
+          }
+        }
+      }
+    },
+    "Hot weather": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hot weather"
+          }
+        }
+      }
+    },
+    "Inner restlessness, feeling panicky": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inner restlessness, feeling panicky"
+          }
+        }
+      }
+    },
+    "Intimate and urinary": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intimate and urinary"
+          }
+        }
+      }
+    },
+    "Irregular periods": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Irregular periods"
+          }
+        }
+      }
+    },
+    "Irritability": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Irritability"
+          }
+        }
+      }
+    },
+    "Is there anything else we should rule out, such as thyroid or iron levels?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Is there anything else we should rule out, such as thyroid or iron levels?"
+          }
+        }
+      }
+    },
+    "Itchy skin": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Itchy skin"
+          }
+        }
+      }
+    },
+    "Joint aches": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Joint aches"
+          }
+        }
+      }
+    },
+    "Joint and muscle discomfort": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Joint and muscle discomfort"
+          }
+        }
+      }
+    },
+    "Low libido": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Low libido"
+          }
+        }
+      }
+    },
+    "Low mood": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Low mood"
+          }
+        }
+      }
+    },
+    "Lower performance, poor memory and concentration": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lower performance, poor memory and concentration"
+          }
+        }
+      }
+    },
+    "Menopause Rating Scale (MRS)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menopause Rating Scale (MRS)"
+          }
+        }
+      }
+    },
+    "Mild": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mild"
+          }
+        }
+      }
+    },
+    "Moderate": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moderate"
+          }
+        }
+      }
+    },
+    "Mood and mind": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mood and mind"
+          }
+        }
+      }
+    },
+    "Needing to pee often": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Needing to pee often"
+          }
+        }
+      }
+    },
+    "Needing to pee often, urgency, leaking": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Needing to pee often, urgency, leaking"
+          }
+        }
+      }
+    },
+    "Night sweats": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Night sweats"
+          }
+        }
+      }
+    },
+    "None": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None"
+          }
+        }
+      }
+    },
+    "Nothing yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing yet"
+          }
+        }
+      }
+    },
+    "Palpitations": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Palpitations"
+          }
+        }
+      }
+    },
+    "Physical and mental exhaustion": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Physical and mental exhaustion"
+          }
+        }
+      }
+    },
+    "Poor sleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Poor sleep"
+          }
+        }
+      }
+    },
+    "Referral": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Referral"
+          }
+        }
+      }
+    },
+    "Severe": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Severe"
+          }
+        }
+      }
+    },
+    "Sexual problems": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sexual problems"
+          }
+        }
+      }
+    },
+    "Sleep and energy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep and energy"
+          }
+        }
+      }
+    },
+    "Sleep problems": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sleep problems"
+          }
+        }
+      }
+    },
+    "Spicy food": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spicy food"
+          }
+        }
+      }
+    },
+    "Spotting": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spotting"
+          }
+        }
+      }
+    },
+    "Started treatment": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Started treatment"
+          }
+        }
+      }
+    },
+    "Stress": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stress"
+          }
+        }
+      }
+    },
+    "Trouble falling asleep": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trouble falling asleep"
+          }
+        }
+      }
+    },
+    "Trouble falling asleep, waking at night or too early": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trouble falling asleep, waking at night or too early"
+          }
+        }
+      }
+    },
+    "Unusual awareness of heartbeat, racing, tightness": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unusual awareness of heartbeat, racing, tightness"
+          }
+        }
+      }
+    },
+    "Vaginal dryness": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vaginal dryness"
+          }
+        }
+      }
+    },
+    "Very heavy bleeding shouldn't wait for your appointment. Contact your doctor now.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Very heavy bleeding shouldn't wait for your appointment. Contact your doctor now."
+          }
+        }
+      }
+    },
+    "Very severe": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Very severe"
+          }
+        }
+      }
+    },
+    "Waking at night": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waking at night"
+          }
+        }
+      }
+    },
+    "Weight change": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weight change"
+          }
+        }
+      }
+    },
+    "What are my treatment options, including %@, and what are the risks for me?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What are my treatment options, including %@, and what are the risks for me?"
+          }
+        }
+      }
+    },
+    "What can help with my sleep right now?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What can help with my sleep right now?"
+          }
+        }
+      }
+    },
+    "When should we review how things are going?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "When should we review how things are going?"
+          }
+        }
+      }
+    },
+    "Who should I see if this does not improve?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Who should I see if this does not improve?"
+          }
+        }
+      }
+    },
+    "Worse PMS": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Worse PMS"
+          }
+        }
+      }
+    },
+    "about the same": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "about the same"
+          }
+        }
+      }
+    },
+    "doctor": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "doctor"
+          }
+        }
+      }
+    },
+    "higher than usual": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "higher than usual"
+          }
+        }
+      }
+    },
+    "hormone therapy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "hormone therapy"
+          }
+        }
+      }
+    },
+    "lower than usual": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lower than usual"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

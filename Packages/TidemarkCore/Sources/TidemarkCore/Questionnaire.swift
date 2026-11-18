@@ -8,15 +8,26 @@ public struct QuestionnaireItem: Sendable, Identifiable, Equatable {
     public enum Domain: String, Sendable { case somatic, psychological, urogenital }
 
     public let id: Int
-    public let title: String
-    public let hint: String
+    /// English wording; also the catalog key. Other languages must use the official MRS translation.
+    public let englishTitle: String
+    public let englishHint: String
     public let domain: Domain
+
+    init(id: Int, title: String, hint: String, domain: Domain) {
+        self.id = id
+        self.englishTitle = title
+        self.englishHint = hint
+        self.domain = domain
+    }
+
+    public var title: String { L10n.text(englishTitle) }
+    public var hint: String { L10n.text(englishHint) }
 }
 
 extension Questionnaire {
-    public static let scaleName = "Menopause Rating Scale (MRS)"
+    public static var scaleName: String { L10n.text("Menopause Rating Scale (MRS)") }
     public static let intervalDays = 14
-    public static let answerLabels = ["None", "Mild", "Moderate", "Severe", "Very severe"]
+    public static var answerLabels: [String] { ["None", "Mild", "Moderate", "Severe", "Very severe"].map(L10n.text) }
 
     public static let items: [QuestionnaireItem] = [
         .init(id: 0, title: "Hot flushes or sweating", hint: "Episodes of feeling hot, sweating", domain: .somatic),

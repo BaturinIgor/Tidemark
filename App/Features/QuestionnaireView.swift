@@ -268,9 +268,9 @@ struct AfterVisitView: View {
 extension Visit.Feeling {
     var label: String {
         switch self {
-        case .yes: "Yes"
-        case .partly: "Partly"
-        case .no: "No"
+        case .yes: String(localized: "Yes", comment: "Did you feel taken seriously")
+        case .partly: String(localized: "Partly", comment: "Did you feel taken seriously")
+        case .no: String(localized: "No", comment: "Did you feel taken seriously")
         }
     }
 }

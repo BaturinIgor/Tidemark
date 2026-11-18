@@ -5,6 +5,8 @@ public enum Trend: String, Sendable, Equatable {
     case higherThanUsual = "higher than usual"
     case aboutTheSame = "about the same"
     case lowerThanUsual = "lower than usual"
+
+    public var label: String { L10n.text(rawValue) }
 }
 
 public enum Comparison {

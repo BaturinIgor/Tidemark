@@ -21,8 +21,10 @@ public enum Region: String, Codable, CaseIterable, Sendable {
     public var paper: Paper { self == .unitedStates || self == .canada ? .letter : .a4 }
 
     /// Words used on the report so it reads like local practice.
-    public var doctorTerm: String { self == .unitedKingdom ? "GP" : "doctor" }
-    public var hormoneTherapyTerm: String { self == .unitedKingdom ? "HRT" : "hormone therapy" }
+    /// In English these follow UK or US usage. Other languages translate "doctor" and "hormone therapy";
+    /// translations may write the word into the sentence directly where grammar needs a different form.
+    public var doctorTerm: String { L10n.text(self == .unitedKingdom ? "GP" : "doctor") }
+    public var hormoneTherapyTerm: String { L10n.text(self == .unitedKingdom ? "HRT" : "hormone therapy") }
 }
 
 public enum Paper: Sendable {

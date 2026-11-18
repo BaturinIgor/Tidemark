@@ -12,7 +12,7 @@ struct OnboardingView: View {
     @State private var daily: [String] = []
     @State private var hasDate = true
     @State private var visitDate = Calendar.current.date(byAdding: .day, value: 14, to: Date()) ?? Date()
-    @State private var clinician = "GP"
+    @State private var clinician = ""
     @State private var checkingBackup = true
     @State private var backupFound = false
 
@@ -123,7 +123,7 @@ struct OnboardingView: View {
             }
             ForEach(Symptom.groups, id: \.self) { group in
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(group).font(.headline)
+                    Text(Symptom.groupLabel(group)).font(.headline)
                     FlowLayout {
                         ForEach(Symptom.catalog.filter { $0.group == group }) { symptom in
                             Chip(title: symptom.label, selected: noticed.contains(symptom.id)) {
@@ -142,9 +142,9 @@ struct OnboardingView: View {
 
     private var dailyHint: String {
         if noticed.count > Symptom.dailyLimit {
-            return "\(noticed.count) selected. Your first \(Symptom.dailyLimit) go in the daily check-in; change them anytime in Settings."
+            return String(localized: "\(noticed.count) selected. Your first \(Symptom.dailyLimit) go in the daily check-in; change them anytime in Settings.")
         }
-        return "\(noticed.count) selected. You will rate these each day. Change them anytime."
+        return String(localized: "\(noticed.count) selected. You will rate these each day. Change them anytime.")
     }
 
     private func toggle(_ id: String) {
@@ -171,7 +171,7 @@ struct OnboardingView: View {
                 Toggle("Yes, I have a date", isOn: $hasDate).tint(Theme.accent)
                 if hasDate {
                     DatePicker("Date", selection: $visitDate, in: Date()..., displayedComponents: .date)
-                    TextField("With (for example GP)", text: $clinician)
+                    TextField("Who you're seeing (optional)", text: $clinician)
                 } else {
                     Text("Not yet. We will remind you to book in 2 weeks.").font(.subheadline).foregroundStyle(Theme.secondary)
                 }
@@ -238,12 +238,12 @@ struct RestoreView: View {
 extension Region {
     var displayName: String {
         switch self {
-        case .unitedStates: "United States"
-        case .unitedKingdom: "United Kingdom"
-        case .canada: "Canada"
-        case .australia: "Australia"
-        case .europe: "Europe"
-        case .other: "Other"
+        case .unitedStates: String(localized: "United States")
+        case .unitedKingdom: String(localized: "United Kingdom")
+        case .canada: String(localized: "Canada")
+        case .australia: String(localized: "Australia")
+        case .europe: String(localized: "Europe")
+        case .other: String(localized: "Other")
         }
     }
 }

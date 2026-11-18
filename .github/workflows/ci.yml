@@ -51,6 +51,16 @@ jobs:
             echo "::endgroup::"
           fi
           exit $status
+      - name: Check every string is translated
+        run: |
+          xcodebuild -exportLocalizations \
+            -project Tidemark.xcodeproj \
+            -localizationPath "$RUNNER_TEMP/loc" \
+            -exportLanguage en \
+            -sdk iphonesimulator > export.log 2>&1 || { tail -80 export.log; exit 1; }
+          python3 tools/l10n.py keys "$RUNNER_TEMP/loc/en.xcloc/Localized Contents/en.xliff" > keys.txt
+          echo "$(wc -l < keys.txt) keys exported from the app"
+          python3 tools/l10n.py check keys.txt
       - name: Upload build log
         if: failure()
         uses: actions/upload-artifact@v4

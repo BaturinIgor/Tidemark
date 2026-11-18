@@ -129,7 +129,7 @@ struct SeverityPicker: View {
                 Button {
                     value = level
                 } label: {
-                    Text(typeSize.isAccessibilitySize || level != .moderate ? level.label : "Mod.")
+                    Text(verbatim: typeSize.isAccessibilitySize || level != .moderate ? level.label : String(localized: "Mod.", comment: "Short for Moderate on a narrow button"))
                         .font(.footnote.weight(selected ? .bold : .regular))
                         .frame(maxWidth: .infinity, minHeight: 44)
                         .foregroundStyle(selected ? Theme.onFill(level) : Theme.secondary)
@@ -155,7 +155,7 @@ struct OptionRow<Option: Hashable>: View {
             ForEach(options, id: \.self) { option in
                 let selected = option == selection
                 Button { selection = option } label: {
-                    Text(label(option))
+                    Text(verbatim: label(option))
                         .font(.footnote.weight(selected ? .bold : .regular))
                         .lineLimit(1)
                         .minimumScaleFactor(0.8)
@@ -176,9 +176,10 @@ struct Chip: View {
     let selected: Bool
     let action: () -> Void
 
+    /// Titles come from already-localized labels (symptoms, factors, decisions).
     var body: some View {
         Button(action: action) {
-            Text(selected ? "✓ \(title)" : title)
+            Text(verbatim: selected ? "✓ \(title)" : title)
                 .font(.subheadline.weight(selected ? .semibold : .regular))
                 .padding(.horizontal, 14)
                 .frame(minHeight: 40)
@@ -227,32 +228,49 @@ struct FlowLayout: Layout {
     }
 }
 
+/// Like `Text`, a string literal is looked up in the string catalog and a `String` value is shown as is.
 struct ScreenHeader: View {
-    let title: String
-    var subtitle: String?
+    let title: Text
+    var subtitle: Text?
+
+    init(title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil) {
+        self.title = Text(title)
+        self.subtitle = subtitle.map { Text($0) }
+    }
+
+    @_disfavoredOverload
+    init(title: String, subtitle: String? = nil) {
+        self.title = Text(verbatim: title)
+        self.subtitle = subtitle.map { Text(verbatim: $0) }
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             if let subtitle {
-                Text(subtitle).font(.subheadline).foregroundStyle(Theme.muted)
+                subtitle.font(.subheadline).foregroundStyle(Theme.muted)
             }
-            Text(title).font(.largeTitle.bold()).foregroundStyle(Theme.ink)
+            title.font(.largeTitle.bold()).foregroundStyle(Theme.ink)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct SectionLabel: View {
-    let text: String
+    let text: Text
+
+    init(text: LocalizedStringKey) { self.text = Text(text) }
+    @_disfavoredOverload
+    init(text: String) { self.text = Text(verbatim: text) }
+
     var body: some View {
-        Text(text).font(.footnote.weight(.semibold)).foregroundStyle(Theme.muted)
+        text.font(.footnote.weight(.semibold)).foregroundStyle(Theme.muted)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, 4)
     }
 }
 
 struct Disclaimer: View {
-    var text = "This app records what you report. It does not diagnose or give medical advice."
+    var text: LocalizedStringKey = "This app records what you report. It does not diagnose or give medical advice."
     var body: some View {
         Text(text).font(.caption).foregroundStyle(Theme.muted)
     }

@@ -18,7 +18,7 @@ struct HistoryView: View {
 
         Page {
             ScreenHeader(title: "History")
-            OptionRow(options: [4, 8, 12], selection: $weeks) { "\($0) weeks" }
+            OptionRow(options: [4, 8, 12], selection: $weeks) { String(localized: "\($0) weeks") }
 
             Card {
                 Text("Day by day").font(.headline)
@@ -47,11 +47,11 @@ struct HistoryView: View {
             }
 
             Card(spacing: 0, padding: 0) {
-                NavRow(title: "Cycle", detail: nil) { CycleView() }
-                NavRow(title: "Patterns", detail: nil) { PatternsView() }
-                NavRow(title: "Medicines and supplements", detail: "\(medications.filter { $0.stopped == nil }.count) active") { MedicationsView() }
-                NavRow(title: "Visit notes", detail: visits.isEmpty ? "None yet" : "\(visits.count)") { VisitNotesView() }
-                NavRow(title: "Your week", detail: nil, last: true) { WeeklySummaryView() }
+                NavRow(title: String(localized: "Cycle"), detail: nil) { CycleView() }
+                NavRow(title: String(localized: "Patterns"), detail: nil) { PatternsView() }
+                NavRow(title: String(localized: "Medicines and supplements"), detail: String(localized: "\(medications.filter { $0.stopped == nil }.count) active")) { MedicationsView() }
+                NavRow(title: String(localized: "Visit notes"), detail: visits.isEmpty ? String(localized: "None yet") : visits.count.formatted()) { VisitNotesView() }
+                NavRow(title: String(localized: "Your week"), detail: nil, last: true) { WeeklySummaryView() }
             }
         }
         .navigationBarHidden(true)
@@ -68,9 +68,9 @@ struct NavRow<Destination: View>: View {
         VStack(spacing: 0) {
             NavigationLink(destination: destination) {
                 HStack {
-                    Text(title).foregroundStyle(Theme.ink)
+                    Text(verbatim: title).foregroundStyle(Theme.ink)
                     Spacer()
-                    if let detail { Text(detail).font(.subheadline).foregroundStyle(Theme.muted) }
+                    if let detail { Text(verbatim: detail).font(.subheadline).foregroundStyle(Theme.muted) }
                     Image(systemName: "chevron.right").font(.footnote).foregroundStyle(Theme.muted)
                 }
                 .frame(minHeight: 50)
@@ -96,7 +96,7 @@ struct HeatMap: View {
         VStack(alignment: .leading, spacing: 6) {
             ForEach(symptomIDs + ["bleeding"], id: \.self) { id in
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(id == "bleeding" ? "Bleeding" : Symptom.label(for: id)).font(.caption).foregroundStyle(Theme.secondary)
+                    Text(id == "bleeding" ? String(localized: "Bleeding") : Symptom.label(for: id)).font(.caption).foregroundStyle(Theme.secondary)
                     HStack(spacing: 1) {
                         ForEach(0..<count, id: \.self) { offset in
                             let day = from.adding(days: offset)
@@ -132,10 +132,10 @@ struct HeatMap: View {
 
     private func summary(for id: String) -> String {
         if id == "bleeding" {
-            return "Bleeding on \(checkIns.filter { $0.bleeding != Bleeding.none }.count) days"
+            return String(localized: "Bleeding on \(checkIns.filter { $0.bleeding != Bleeding.none }.count) days")
         }
         let rated = checkIns.compactMap { $0.ratings[id] }
-        return "\(Symptom.label(for: id)): moderate or severe on \(rated.filter { $0 >= .moderate }.count) of \(rated.count) days"
+        return String(localized: "\(Symptom.label(for: id)): moderate or severe on \(rated.filter { $0 >= .moderate }.count) of \(rated.count) days")
     }
 }
 
@@ -194,6 +194,12 @@ struct MonthCalendar: View {
     let month: DayKey
     let bleeding: [DayKey: Bleeding]
 
+    /// Monday-first single-letter weekday names in the user's language.
+    static var weekdayInitials: [String] {
+        let symbols = Calendar.current.veryShortStandaloneWeekdaySymbols // Sunday first
+        return Array(symbols[1...]) + [symbols[0]]
+    }
+
     var body: some View {
         let first = DayKey(year: month.year, month: month.month, day: 1)
         let next = first.adding(days: 32)
@@ -206,11 +212,11 @@ struct MonthCalendar: View {
             HStack {
                 Text(first.referenceDate.formatted(Date.FormatStyle(timeZone: TimeZone(identifier: "UTC")!).month(.wide))).font(.headline)
                 Spacer()
-                Text("\(spotting) spotting day\(spotting == 1 ? "" : "s")").font(.footnote).foregroundStyle(Theme.muted)
+                Text("\(spotting) spotting days").font(.footnote).foregroundStyle(Theme.muted)
             }
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 4), count: 7), spacing: 4) {
-                ForEach(["M", "T", "W", "T", "F", "S", "S"].indices, id: \.self) { i in
-                    Text(["M", "T", "W", "T", "F", "S", "S"][i]).font(.caption2.weight(.semibold)).foregroundStyle(Theme.muted)
+                ForEach(Self.weekdayInitials.indices, id: \.self) { i in
+                    Text(verbatim: Self.weekdayInitials[i]).font(.caption2.weight(.semibold)).foregroundStyle(Theme.muted)
                 }
                 ForEach(0..<lead, id: \.self) { _ in Color.clear.frame(height: 32) }
                 ForEach(1...daysInMonth, id: \.self) { d in
@@ -253,8 +259,8 @@ struct PatternsView: View {
                     Text("\(p.factor.label.uppercased()) · \(p.nextDay ? "THE DAY BEFORE" : "THE SAME DAY")")
                         .font(.caption.weight(.semibold)).foregroundStyle(Theme.muted)
                     Text("\(Symptom.label(for: p.symptomID)) was moderate or worse").font(.headline)
-                    RateBar(label: "With \(p.factor.label.lowercased())", hits: p.withFactorHits, days: p.withFactorDays, color: Theme.accent)
-                    RateBar(label: "Other days", hits: p.withoutFactorHits, days: p.withoutFactorDays, color: Theme.muted)
+                    RateBar(label: String(localized: "With \(Locale.current.language.languageCode == .english ? p.factor.label.lowercased() : p.factor.label)"), hits: p.withFactorHits, days: p.withFactorDays, color: Theme.accent)
+                    RateBar(label: String(localized: "Other days"), hits: p.withoutFactorHits, days: p.withoutFactorDays, color: Theme.muted)
                 }
             }
         }
@@ -270,7 +276,7 @@ struct RateBar: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Text(label).font(.footnote).frame(width: 100, alignment: .leading)
+            Text(verbatim: label).font(.footnote).frame(width: 100, alignment: .leading)
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Capsule().fill(Theme.line)
@@ -281,7 +287,7 @@ struct RateBar: View {
             Text("\(hits) of \(days)").font(.footnote.weight(.semibold)).monospacedDigit().fixedSize()
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(label): \(hits) of \(days) days")
+        .accessibilityLabel(Text(verbatim: label + ": " + String(localized: "\(hits) of \(days) days")))
     }
 }
 
@@ -305,12 +311,12 @@ struct MedicationsView: View {
     }
 
     @ViewBuilder
-    private func section(_ title: String, _ items: [Medication]) -> some View {
+    private func section(_ title: LocalizedStringKey, _ items: [Medication]) -> some View {
         if !items.isEmpty {
             SectionLabel(text: title)
             Card(spacing: 0, padding: 0) {
                 ForEach(items) { m in
-                    NavRow(title: m.name, detail: m.stopped.map { "Stopped \($0.short)" } ?? "since \(m.started.short)", last: m.id == items.last?.id) {
+                    NavRow(title: m.name, detail: m.stopped.map { String(localized: "Stopped \($0.short)") } ?? String(localized: "since \(m.started.short)"), last: m.id == items.last?.id) {
                         TreatmentCheckView(medication: m)
                     }
                 }
@@ -429,7 +435,7 @@ struct ValueCell: View {
     let value: Double?
     var body: some View {
         let level = value.map { Severity(rawValue: min(3, Int($0.rounded()))) ?? Severity.none } ?? Severity.none
-        Text(value.map { String(format: "%.1f", $0) } ?? "–")
+        Text(verbatim: value.map { $0.formatted(.number.precision(.fractionLength(1))) } ?? "–")
             .font(.subheadline.weight(.semibold))
             .frame(width: 48, height: 30)
             .foregroundStyle(Theme.onFill(level))
@@ -488,11 +494,11 @@ struct WeeklySummaryView: View {
                 }
             }
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
-                Stat(value: "\(summary.checkInCount) of 7", title: "Check-ins", detail: nil)
-                Stat(value: "\(count(flushes, thisWeek))", title: "Hot flushes", detail: "Last week \(count(flushes, lastWeek))")
-                Stat(value: "\(count(sweats, thisWeek))", title: "Night sweats", detail: "Last week \(count(sweats, lastWeek))")
+                Stat(value: String(localized: "\(summary.checkInCount) of 7"), title: String(localized: "Check-ins"), detail: nil)
+                Stat(value: count(flushes, thisWeek).formatted(), title: String(localized: "Hot flushes"), detail: String(localized: "Last week \(count(flushes, lastWeek))"))
+                Stat(value: count(sweats, thisWeek).formatted(), title: String(localized: "Night sweats"), detail: String(localized: "Last week \(count(sweats, lastWeek))"))
                 if let visit = model.repository.currentVisit(), visit.day >= today {
-                    Stat(value: "\(today.days(until: visit.day)) days", title: "To your visit", detail: visit.day.short)
+                    Stat(value: String(localized: "\(today.days(until: visit.day)) days"), title: String(localized: "To your visit"), detail: visit.day.short)
                 }
             }
             Text("A pattern, not a verdict.").font(.caption).foregroundStyle(Theme.muted)
@@ -508,8 +514,8 @@ struct Stat: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(value).font(.title2.bold())
-            Text(title).font(.subheadline.weight(.semibold))
+            Text(verbatim: value).font(.title2.bold())
+            Text(verbatim: title).font(.subheadline.weight(.semibold))
             if let detail { Text(detail).font(.caption).foregroundStyle(Theme.muted) }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
