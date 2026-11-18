@@ -229,6 +229,11 @@ struct PaywallView: View {
                     .frame(maxWidth: .infinity)
                 Text("Renews automatically until you cancel in Settings › Apple ID › Subscriptions. Your data stays yours if you cancel.")
                     .font(.caption).foregroundStyle(Theme.muted)
+                HStack(spacing: 16) {
+                    Link("Terms of Use", destination: Links.terms)
+                    Link("Privacy Policy", destination: Links.privacy)
+                }
+                .font(.caption)
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Not now") { dismiss() } }
@@ -268,4 +273,10 @@ struct PaywallView: View {
         let percent = NSDecimalNumber(decimal: (full - yearly.price) / full * 100).intValue
         return percent > 0 ? "Save \(percent)%" : nil
     }
+}
+
+/// Public pages the App Store requires links to (Guideline 3.1.2). Replace `privacy` with the published policy page.
+enum Links {
+    static let terms = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+    static let privacy = URL(string: "https://github.com/BaturinIgor/Tidemark/blob/main/docs/privacy-policy.md")!
 }
