@@ -44,7 +44,10 @@ final class BackupMonitor {
 
     var isEnabled: Bool { container != nil }
 
+    /// CKContainer traps when the process has no iCloud entitlement (unit tests, unsigned builds),
+    /// so every CloudKit call is skipped unless the store is actually mirrored.
     func refresh() {
+        guard isEnabled else { return }
         Task {
             let status = try? await CKContainer(identifier: PersistenceController.cloudContainer).accountStatus()
             signedIn = status == .available
@@ -58,6 +61,7 @@ final class BackupMonitor {
 
     /// D3: before onboarding, look for data already in the user's iCloud.
     func hasExistingBackup() async -> Bool {
+        guard isEnabled else { return false }
         guard let status = try? await CKContainer(identifier: PersistenceController.cloudContainer).accountStatus(),
               status == .available else { return false }
         let zone = CKRecordZone.ID(zoneName: "com.apple.coredata.cloudkit.zone")
