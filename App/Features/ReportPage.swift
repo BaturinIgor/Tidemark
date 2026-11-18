@@ -141,7 +141,7 @@ struct ReportPage: View {
     private var medicines: some View {
         block("Medicines and supplements") {
             ForEach(data.medications.prefix(6)) { m in
-                Text("\(m.name), \(m.howTaken), since \(m.started.medium)\(m.stopped.map { ", stopped \($0.medium)" } ?? "")")
+                Text(verbatim: m.stopped.map { String(localized: "\(m.name), \(m.howTaken), \(m.started.medium) to \($0.medium)") } ?? String(localized: "\(m.name), \(m.howTaken), since \(m.started.medium)"))
                     .font(.system(size: 10))
             }
         }

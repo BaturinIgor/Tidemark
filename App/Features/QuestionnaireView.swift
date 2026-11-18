@@ -203,7 +203,7 @@ struct AfterVisitView: View {
     var body: some View {
         NavigationStack {
             Page {
-                ScreenHeader(title: "How did it go?", subtitle: "\(visit.clinician.isEmpty ? "Visit" : visit.clinician + " visit") · \(visit.day.short)")
+                ScreenHeader(title: "How did it go?", subtitle: visit.clinician.isEmpty ? String(localized: "Visit · \(visit.day.short)") : String(localized: "Visit with \(visit.clinician) · \(visit.day.short)"))
 
                 Card {
                     Text("Did you feel taken seriously?").font(.headline)

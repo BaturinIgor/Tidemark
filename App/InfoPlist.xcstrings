@@ -4,10 +4,106 @@
     "NSFaceIDUsageDescription": {
       "extractionState": "manual",
       "localizations": {
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brug Face ID til at holde din symptomdagbog privat."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nutze Face ID, damit dein Symptomtagebuch privat bleibt."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Use Face ID to keep your symptom log private."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa Face ID para mantener privado tu diario de síntomas."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pidä oirepäiväkirjasi yksityisenä Face ID:n avulla."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utilisez Face ID pour garder votre journal de symptômes privé."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa Face ID per tenere privato il tuo diario dei sintomi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Face IDで症状の記録を他の人に見られないようにします。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Face ID로 증상 기록을 비공개로 보호하세요."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bruk Face ID for å holde symptomdagboken din privat."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gebruik Face ID om je klachtendagboek privé te houden."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Użyj Face ID, aby Twój dziennik objawów pozostał prywatny."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use o Face ID para manter seu diário de sintomas privado."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Используйте Face ID, чтобы дневник симптомов оставался личным."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Använd Face ID för att hålla din symtomdagbok privat."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belirti günlüğünü gizli tutmak için Face ID kullan."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用面容 ID 保护你的症状记录。"
           }
         }
       }
@@ -15,10 +111,106 @@
     "NSHealthShareUsageDescription": {
       "extractionState": "manual",
       "localizations": {
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark læser kun de Sundhed-data, du tillader, for at vise dem ved siden af dine egne registreringer."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark liest nur Apple-Health-Daten, die du erlaubst, um sie neben deinen Einträgen zu zeigen."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Tidemark only reads Apple Health data you allow, to show it next to your own check-ins."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark solo lee los datos de Salud que permitas, para mostrarlos junto a tus registros."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark lukee vain sallimiasi Terveys-tietoja ja näyttää ne omien merkintöjesi vieressä."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark ne lit que les données Santé que vous autorisez, pour les afficher à côté de vos relevés."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark legge solo i dati di Salute che autorizzi, per mostrarli accanto alle tue registrazioni."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemarkは、許可されたヘルスケアのデータだけを読み取り、あなたの記録の横に表示します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark는 허용한 건강 데이터만 읽어 내 기록 옆에 보여 줍니다."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark leser bare Helse-data du tillater, for å vise dem ved siden av dine egne registreringer."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark leest alleen de Gezondheid-gegevens die je toestaat, om ze naast je eigen invoer te tonen."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark odczytuje tylko te dane z aplikacji Zdrowie, na które pozwolisz, aby pokazać je obok Twoich wpisów."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Tidemark só lê os dados do Saúde que você permitir, para mostrá-los ao lado dos seus registros."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark читает только те данные из «Здоровья», которые вы разрешите, чтобы показать их рядом с вашими отметками."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark läser bara de Hälsa-data du tillåter, för att visa dem bredvid dina egna registreringar."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark yalnızca izin verdiğin Sağlık verilerini okur ve kendi kayıtlarının yanında gösterir."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark 只读取你允许的“健康”数据，并显示在你的记录旁边。"
           }
         }
       }
@@ -26,10 +218,106 @@
     "NSHealthUpdateUsageDescription": {
       "extractionState": "manual",
       "localizations": {
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark kan gemme dine gener i Sundhed, så de ligger et sted mere, som du styrer."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark kann deine Beschwerden in Apple Health sichern, damit sie an einem weiteren Ort liegen, den du kontrollierst."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
             "value": "Tidemark can save your symptoms to Apple Health, so they are kept in one more place you control."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark puede guardar tus síntomas en Salud, para que estén en otro lugar que tú controlas."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark voi tallentaa oireesi Terveys-appiin, jolloin ne ovat tallessa vielä yhdessä paikassa, jota hallitset."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark peut enregistrer vos symptômes dans Santé, pour qu'ils soient conservés à un autre endroit que vous contrôlez."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark può salvare i tuoi sintomi in Salute, così sono conservati in un altro posto che controlli tu."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemarkは症状をヘルスケアに保存できます。あなたが管理するもう一つの場所に記録が残ります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark는 증상을 건강 앱에 저장해, 내가 관리하는 또 다른 곳에 보관할 수 있습니다."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark kan lagre plagene dine i Helse, slik at de finnes på enda et sted du kontrollerer."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark kan je klachten in Gezondheid bewaren, zodat ze nog op een plek staan die jij beheert."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark może zapisywać Twoje objawy w aplikacji Zdrowie, aby były przechowywane w kolejnym miejscu, które kontrolujesz."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O Tidemark pode salvar seus sintomas no Saúde, para ficarem em mais um lugar que você controla."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark может сохранять ваши симптомы в «Здоровье», чтобы они хранились еще в одном месте под вашим контролем."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark kan spara dina besvär i Hälsa, så att de finns på ytterligare ett ställe som du styr över."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark belirtilerini Sağlık uygulamasına kaydedebilir; böylece kontrolündeki bir yerde daha saklanır."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidemark 可以将你的症状保存到“健康”，让它们多保存在一个由你掌控的地方。"
           }
         }
       }

@@ -456,7 +456,7 @@ struct VisitNotesView: View {
             }
             ForEach(Array(visits)) { visit in
                 Card {
-                    Text("\(visit.clinician.isEmpty ? "Visit" : visit.clinician) · \(visit.day.short)").font(.headline)
+                    Text(verbatim: visit.clinician.isEmpty ? String(localized: "Visit · \(visit.day.short)") : "\(visit.clinician) · \(visit.day.short)").font(.headline)
                     if !visit.decisions.isEmpty {
                         Text(visit.decisions.map(\.label).sorted().joined(separator: ", ")).font(.subheadline)
                     }

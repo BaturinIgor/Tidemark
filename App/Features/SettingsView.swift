@@ -37,7 +37,7 @@ struct SettingsView: View {
                 NavigationLink {
                     AppointmentView()
                 } label: {
-                    LabeledContent("Next appointment", value: visit.map { $0.day >= .today ? $0.day.short : "Add" } ?? "Add")
+                    LabeledContent("Next appointment", value: visit.map { $0.day >= .today ? $0.day.short : String(localized: "Add") } ?? String(localized: "Add"))
                 }
                 Picker("Region", selection: Binding(
                     get: { profile.region },
@@ -66,10 +66,10 @@ struct SettingsView: View {
 
             Section("Report subscription") {
                 if model.subscription.isSubscribed {
-                    LabeledContent("Status", value: "Active")
+                    LabeledContent("Status", value: String(localized: "Active"))
                     Button("Manage subscription") { manageSubscription = true }
                 } else {
-                    LabeledContent("Status", value: "Free")
+                    LabeledContent("Status", value: String(localized: "Free"))
                     Button("See report plans") { showPaywall = true }
                 }
                 Button("Restore purchase") { Task { await model.subscription.restore() } }
