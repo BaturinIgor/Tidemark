@@ -76,11 +76,11 @@ public struct Visit: Codable, Equatable, Sendable, Identifiable {
 
         public var label: String {
             switch self {
-            case .startedTreatment: "Started treatment"
-            case .bloodTests: "Blood tests"
-            case .referral: "Referral"
-            case .comeBackLater: "Come back later"
-            case .nothingYet: "Nothing yet"
+            case .startedTreatment: L10n.text("Started treatment")
+            case .bloodTests: L10n.text("Blood tests")
+            case .referral: L10n.text("Referral")
+            case .comeBackLater: L10n.text("Come back later")
+            case .nothingYet: L10n.text("Nothing yet")
             }
         }
     }
@@ -142,13 +142,13 @@ extension DoctorQuestion {
     /// Prompts other women often bring. They are questions to ask, not answers.
     public static func suggestions(for region: Region) -> [String] {
         [
-            "Could these symptoms be perimenopause, given my age and cycle changes?",
-            "What are my treatment options, including \(region.hormoneTherapyTerm), and what are the risks for me?",
-            "Is there anything else we should rule out, such as thyroid or iron levels?",
-            "Do I need a blood test, or can we decide based on my symptoms?",
-            "What can help with my sleep right now?",
-            "Who should I see if this does not improve?",
-            "When should we review how things are going?",
+            L10n.text("Could these symptoms be perimenopause, given my age and cycle changes?"),
+            L10n.format("What are my treatment options, including %@, and what are the risks for me?", region.hormoneTherapyTerm),
+            L10n.text("Is there anything else we should rule out, such as thyroid or iron levels?"),
+            L10n.text("Do I need a blood test, or can we decide based on my symptoms?"),
+            L10n.text("What can help with my sleep right now?"),
+            L10n.text("Who should I see if this does not improve?"),
+            L10n.text("When should we review how things are going?"),
         ]
     }
 }

@@ -1,6 +1,6 @@
 # App Store listing (draft)
 
-English, for the US and UK storefronts. Character limits are App Store Connect limits.
+English, for the US and UK storefronts. Character limits are App Store Connect limits. The other 16 languages are in `docs/app-store/<language>.md`, same sections.
 
 ## Name (30)
 

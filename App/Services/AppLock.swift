@@ -30,9 +30,9 @@ final class AppLock {
 
     func unlock() async {
         let context = LAContext()
-        context.localizedFallbackTitle = "Use passcode"
+        context.localizedFallbackTitle = String(localized: "Use passcode")
         do {
-            let ok = try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Unlock your symptom log")
+            let ok = try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: String(localized: "Unlock your symptom log"))
             if ok { isLocked = false }
         } catch {
             isLocked = true

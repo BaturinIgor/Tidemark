@@ -203,7 +203,7 @@ struct AfterVisitView: View {
     var body: some View {
         NavigationStack {
             Page {
-                ScreenHeader(title: "How did it go?", subtitle: "\(visit.clinician.isEmpty ? "Visit" : visit.clinician + " visit") · \(visit.day.short)")
+                ScreenHeader(title: "How did it go?", subtitle: visit.clinician.isEmpty ? String(localized: "Visit · \(visit.day.short)") : String(localized: "Visit with \(visit.clinician) · \(visit.day.short)"))
 
                 Card {
                     Text("Did you feel taken seriously?").font(.headline)
@@ -268,9 +268,9 @@ struct AfterVisitView: View {
 extension Visit.Feeling {
     var label: String {
         switch self {
-        case .yes: "Yes"
-        case .partly: "Partly"
-        case .no: "No"
+        case .yes: String(localized: "Yes", comment: "Did you feel taken seriously")
+        case .partly: String(localized: "Partly", comment: "Did you feel taken seriously")
+        case .no: String(localized: "No", comment: "Did you feel taken seriously")
         }
     }
 }

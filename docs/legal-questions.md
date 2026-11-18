@@ -16,6 +16,7 @@ Tidemark: iOS app, US and UK first. Users log perimenopause symptoms; the app ma
 ## 2. Questionnaire licence
 
 5. The Menopause Rating Scale (MRS) is used with an 11-item, 0–4 scoring. What licence or permission do we need to show the items in a paid app, and what attribution? (Fallback: our own non-scored checklist.)
+5a. The app ships in 17 languages. Does the licence cover showing the MRS in all of them, and can we get the validated official translations? Until then the items are our own translations.
 6. Can we mention NICE guideline NG23 on the UK report footer ("UK guidance on menopause: NICE guideline NG23")?
 
 ## 3. Data protection
@@ -42,3 +43,7 @@ Tidemark: iOS app, US and UK first. Users log perimenopause symptoms; the app ma
 ## 7. Company
 
 16. Which entity publishes the app (individual or company), and in which country? This affects the App Store seller name, the privacy policy and tax.
+
+## 8. Countries beyond the US and UK
+
+17. The app is translated into 17 languages, but we only have to open the storefronts we choose. Which countries can we open in 1.0 without extra work? Notes: EU countries bring MDR and GDPR (questions 2 and 7); mainland China requires an ICP filing number for new apps and has its own rules for health apps; South Korea and Japan have their own medical device and privacy laws. Should the privacy policy and terms be translated where we open?

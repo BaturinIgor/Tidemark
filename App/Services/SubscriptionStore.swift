@@ -44,14 +44,14 @@ final class SubscriptionStore {
                 await transaction.finish()
                 await refreshEntitlements()
             case .success(.unverified):
-                purchaseError = "We couldn't verify the purchase with the App Store. You were not charged twice; try Restore."
+                purchaseError = String(localized: "We couldn't verify the purchase with the App Store. You were not charged twice; try Restore.")
             case .pending, .userCancelled:
                 break
             @unknown default:
                 break
             }
         } catch {
-            purchaseError = "The App Store didn't respond. Check your connection and try again."
+            purchaseError = String(localized: "The App Store didn't respond. Check your connection and try again.")
         }
     }
 

@@ -10,8 +10,8 @@ enum Reminders {
 
     static func scheduleDaily(hour: Int, minute: Int) async {
         let content = UNMutableNotificationContent()
-        content.title = "30-second check-in"
-        content.body = "How was today? Your report updates as you go."
+        content.title = String(localized: "30-second check-in")
+        content.body = String(localized: "How was today? Your report updates as you go.")
         let trigger = UNCalendarNotificationTrigger(dateMatching: DateComponents(hour: hour, minute: minute), repeats: true)
         try? await UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "daily", content: content, trigger: trigger))
     }
@@ -26,8 +26,8 @@ enum Reminders {
         when.calendar = Calendar.current
         guard let fire = when.date, fire > Date() else { return }
         let content = UNMutableNotificationContent()
-        content.title = "Appointment tomorrow"
-        content.body = "Your report is ready. Open it to check your questions."
+        content.title = String(localized: "Appointment tomorrow")
+        content.body = String(localized: "Your report is ready. Open it to check your questions.")
         try? await center.add(UNNotificationRequest(identifier: "visit", content: content,
                                                     trigger: UNCalendarNotificationTrigger(dateMatching: when, repeats: false)))
     }
@@ -38,8 +38,8 @@ enum Reminders {
 
     static func scheduleWeeklySummary() async {
         let content = UNMutableNotificationContent()
-        content.title = "Your week"
-        content.body = "See how this week compared with last week."
+        content.title = String(localized: "Your week")
+        content.body = String(localized: "See how this week compared with last week.")
         let trigger = UNCalendarNotificationTrigger(dateMatching: DateComponents(hour: 18, weekday: 1), repeats: true)
         try? await UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "weekly", content: content, trigger: trigger))
     }

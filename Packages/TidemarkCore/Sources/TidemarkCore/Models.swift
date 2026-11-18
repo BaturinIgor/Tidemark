@@ -8,10 +8,10 @@ public enum Severity: Int, Codable, CaseIterable, Comparable, Sendable {
 
     public var label: String {
         switch self {
-        case .none: "None"
-        case .mild: "Mild"
-        case .moderate: "Moderate"
-        case .severe: "Severe"
+        case .none: L10n.text("None")
+        case .mild: L10n.text("Mild")
+        case .moderate: L10n.text("Moderate")
+        case .severe: L10n.text("Severe")
         }
     }
 }
@@ -35,13 +35,13 @@ public enum Factor: String, Codable, CaseIterable, Sendable {
 
     public var label: String {
         switch self {
-        case .alcohol: "Alcohol"
-        case .caffeine: "Caffeine"
-        case .stress: "Stress"
-        case .spicyFood: "Spicy food"
-        case .hotWeather: "Hot weather"
-        case .exercise: "Exercise"
-        case .poorSleep: "Poor sleep"
+        case .alcohol: L10n.text("Alcohol")
+        case .caffeine: L10n.text("Caffeine")
+        case .stress: L10n.text("Stress")
+        case .spicyFood: L10n.text("Spicy food")
+        case .hotWeather: L10n.text("Hot weather")
+        case .exercise: L10n.text("Exercise")
+        case .poorSleep: L10n.text("Poor sleep")
         }
     }
 }
@@ -49,16 +49,23 @@ public enum Factor: String, Codable, CaseIterable, Sendable {
 /// A symptom the user can track. Built-in ids are stable strings, so renaming a label never breaks stored data.
 public struct Symptom: Hashable, Codable, Sendable, Identifiable {
     public let id: String
-    public let label: String
+    /// English name; also the key into the string catalog.
+    public let name: String
+    /// Stable group key (English). Show `groupLabel(_:)` to the user.
     public let group: String
 
     public init(id: String, label: String, group: String = "Other") {
         self.id = id
-        self.label = label
+        self.name = label
         self.group = group
     }
 
+    /// The symptom's name in the user's language.
+    public var label: String { L10n.text(name) }
+
     public static let groups = ["Sleep and energy", "Mood and mind", "Body", "Cycle", "Intimate and urinary"]
+
+    public static func groupLabel(_ group: String) -> String { L10n.text(group) }
 
     public static let catalog: [Symptom] = [
         .init(id: "trouble_falling_asleep", label: "Trouble falling asleep", group: "Sleep and energy"),

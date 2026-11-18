@@ -37,7 +37,7 @@ struct SettingsView: View {
                 NavigationLink {
                     AppointmentView()
                 } label: {
-                    LabeledContent("Next appointment", value: visit.map { $0.day >= .today ? $0.day.short : "Add" } ?? "Add")
+                    LabeledContent("Next appointment", value: visit.map { $0.day >= .today ? $0.day.short : String(localized: "Add") } ?? String(localized: "Add"))
                 }
                 Picker("Region", selection: Binding(
                     get: { profile.region },
@@ -66,10 +66,10 @@ struct SettingsView: View {
 
             Section("Report subscription") {
                 if model.subscription.isSubscribed {
-                    LabeledContent("Status", value: "Active")
+                    LabeledContent("Status", value: String(localized: "Active"))
                     Button("Manage subscription") { manageSubscription = true }
                 } else {
-                    LabeledContent("Status", value: "Free")
+                    LabeledContent("Status", value: String(localized: "Free"))
                     Button("See report plans") { showPaywall = true }
                 }
                 Button("Restore purchase") { Task { await model.subscription.restore() } }
@@ -141,13 +141,13 @@ struct SettingsView: View {
     }
 
     private var backupText: String {
-        guard model.backup.isEnabled else { return "Not available" }
+        guard model.backup.isEnabled else { return String(localized: "Not available") }
         switch model.backup.health {
-        case .ok(let date): return "Backed up \(date.formatted(.relative(presentation: .named)))"
-        case .warning(.iCloudSignedOut): return "Off: not signed in to iCloud"
-        case .warning(.iCloudFull): return "Paused: iCloud is full"
-        case .warning(.neverBackedUp): return "Waiting for first backup"
-        case .warning(.noBackupFor(let hours)): return "Last backup \(hours / 24) days ago"
+        case .ok(let date): return String(localized: "Backed up \(date.formatted(.relative(presentation: .named)))")
+        case .warning(.iCloudSignedOut): return String(localized: "Off: not signed in to iCloud")
+        case .warning(.iCloudFull): return String(localized: "Paused: iCloud is full")
+        case .warning(.neverBackedUp): return String(localized: "Waiting for first backup")
+        case .warning(.noBackupFor(let hours)): return String(localized: "Last backup \(hours / 24) days ago")
         }
     }
 }
@@ -166,7 +166,7 @@ struct SymptomsEditorView: View {
                 .foregroundStyle(Theme.secondary)
             Text("\(selected.count) of \(Symptom.dailyLimit) chosen").font(.subheadline.weight(.semibold)).foregroundStyle(Theme.accentInk)
             ForEach(Symptom.groups, id: \.self) { group in
-                SectionLabel(text: group)
+                SectionLabel(text: Symptom.groupLabel(group))
                 FlowLayout {
                     ForEach(Symptom.catalog.filter { $0.group == group }) { symptom in
                         let isOn = selected.contains(symptom.id)
