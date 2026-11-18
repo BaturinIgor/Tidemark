@@ -1,0 +1,24 @@
+# Xcode
+*.xcodeproj
+!Tidemark.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# SwiftPM
+.build/
+.swiftpm/
+Packages/*/Package.resolved
+
+# macOS
+.DS_Store
+
+# Secrets
+*.p8
+*.p12
+*.mobileprovision
+Secrets.xcconfig
