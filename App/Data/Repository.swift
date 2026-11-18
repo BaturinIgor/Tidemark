@@ -44,8 +44,106 @@ final class Repository {
         row.region = profile.region.rawValue
         row.age = Int16(profile.age ?? 0)
         row.trackedSymptoms = profile.trackedSymptomIDs.joined(separator: ",")
+        if row.trackingStarted == nil { row.trackingStarted = DayKey(Date()).description }
         row.updatedAt = Date()
         commit()
+    }
+
+    /// First day of tracking. Days before it are never offered as "missed".
+    func trackingStarted() -> DayKey? {
+        let request = CDProfile.fetchRequest()
+        return (try? context.fetch(request).first)?.trackingStarted.flatMap(DayKey.init(string:))
+    }
+
+    // MARK: Visits and questions
+
+    func visits() -> [Visit] {
+        let request = CDVisit.fetchRequest()
+        request.predicate = NSPredicate(format: "deletedAt == nil")
+        return ((try? context.fetch(request)) ?? []).compactMap { row in
+            guard let id = row.id, let day = row.day.flatMap(DayKey.init(string:)) else { return nil }
+            let feeling: Visit.Feeling? = switch row.takenSeriously {
+            case 0: .no
+            case 1: .partly
+            case 2: .yes
+            default: nil
+            }
+            return Visit(
+                id: id, day: day, clinician: row.clinician ?? "", reason: row.reason ?? "",
+                takenSeriously: feeling,
+                decisions: Set((row.decisions ?? "").split(separator: ",").compactMap { Visit.Decision(rawValue: String($0)) }),
+                outcome: row.outcome ?? "", followUp: row.followUp.flatMap(DayKey.init(string:))
+            )
+        }
+        .sorted { $0.day < $1.day }
+    }
+
+    /// The next appointment that has not happened yet, or the last one still waiting for "How did it go?".
+    func currentVisit(today: DayKey = DayKey(Date())) -> Visit? {
+        let all = visits()
+        if let pending = all.last(where: { $0.day < today && $0.takenSeriously == nil }) { return pending }
+        return all.first { $0.day >= today }
+    }
+
+    func save(visit: Visit) {
+        let request = CDVisit.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", visit.id as CVarArg)
+        let row = (try? context.fetch(request).first) ?? CDVisit(context: context)
+        row.id = visit.id
+        row.day = visit.day.description
+        row.clinician = visit.clinician
+        row.reason = visit.reason
+        row.takenSeriously = switch visit.takenSeriously {
+        case .no: 0
+        case .partly: 1
+        case .yes: 2
+        case nil: -1
+        }
+        row.decisions = visit.decisions.map(\.rawValue).sorted().joined(separator: ",")
+        row.outcome = visit.outcome
+        row.followUp = visit.followUp?.description
+        row.updatedAt = Date()
+        commit()
+    }
+
+    func questions() -> [DoctorQuestion] {
+        let request = CDQuestion.fetchRequest()
+        request.predicate = NSPredicate(format: "deletedAt == nil")
+        return ((try? context.fetch(request)) ?? []).compactMap { row in
+            guard let id = row.id, let text = row.text else { return nil }
+            return DoctorQuestion(id: id, text: text, rank: Int(row.rank), asked: row.asked)
+        }
+        .sorted { $0.rank < $1.rank }
+    }
+
+    func save(question: DoctorQuestion) {
+        let request = CDQuestion.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", question.id as CVarArg)
+        let row = (try? context.fetch(request).first) ?? CDQuestion(context: context)
+        row.id = question.id
+        row.text = question.text
+        row.rank = Int16(question.rank)
+        row.asked = question.asked
+        row.deletedAt = nil
+        row.updatedAt = Date()
+        commit()
+    }
+
+    /// D7: questions are soft-deleted like everything else.
+    func delete(question: DoctorQuestion) {
+        let request = CDQuestion.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", question.id as CVarArg)
+        for row in (try? context.fetch(request)) ?? [] {
+            row.deletedAt = Date()
+            row.updatedAt = Date()
+        }
+        commit()
+    }
+
+    func stop(medication: Medication, on day: DayKey) {
+        var stopped = medication
+        stopped.stopped = day
+        save(medication: stopped)
     }
 
     // MARK: Check-ins
@@ -157,6 +255,37 @@ final class Repository {
         commit()
     }
 
+    static let deletableEntities = ["CDDay", "CDRating", "CDEpisode", "CDQuestionnaire", "CDMedication", "CDQuestion", "CDVisit"]
+
+    /// "Delete all data" is a soft delete of every row with one timestamp, so it can be undone for 30 days.
+    /// The profile stays, so the app does not restart onboarding and the backup keeps the region and symptom list.
+    @discardableResult
+    func deleteAll(now: Date = Date()) -> Date {
+        for entity in Self.deletableEntities {
+            let request = NSFetchRequest<NSManagedObject>(entityName: entity)
+            request.predicate = NSPredicate(format: "deletedAt == nil")
+            for row in (try? context.fetch(request)) ?? [] {
+                row.setValue(now, forKey: "deletedAt")
+                row.setValue(now, forKey: "updatedAt")
+            }
+        }
+        commit()
+        return now
+    }
+
+    /// Undoes `deleteAll` for the rows it deleted. Rows deleted one by one before it stay deleted.
+    func restoreAll(deletedAt stamp: Date) {
+        for entity in Self.deletableEntities {
+            let request = NSFetchRequest<NSManagedObject>(entityName: entity)
+            request.predicate = NSPredicate(format: "deletedAt == %@", stamp as NSDate)
+            for row in (try? context.fetch(request)) ?? [] {
+                row.setValue(nil, forKey: "deletedAt")
+                row.setValue(Date(), forKey: "updatedAt")
+            }
+        }
+        commit()
+    }
+
     func recentlyDeletedDays(now: Date = Date()) -> [(day: DayKey, daysLeft: Int)] {
         let request = CDDay.fetchRequest()
         request.predicate = NSPredicate(format: "deletedAt != nil")
@@ -181,8 +310,8 @@ final class Repository {
         }
     }
 
-    func logEpisode(_ kind: Episode.Kind, intensity: Severity) {
-        try? EpisodeLogger.log(kind, intensity: intensity, source: .app, in: context)
+    func logEpisode(_ kind: Episode.Kind, intensity: Severity, at time: Date = Date()) {
+        try? EpisodeLogger.log(kind, intensity: intensity, at: time, source: .app, in: context)
     }
 
     func medications() -> [Medication] {
@@ -239,7 +368,8 @@ final class Repository {
         return ExportFile(
             exportedAt: Date(), appVersion: appVersion, profile: profile,
             checkIns: allCheckIns(), episodes: episodes(),
-            questionnaires: questionnaires(), medications: medications()
+            questionnaires: questionnaires(), medications: medications(),
+            questions: questions(), visits: visits()
         )
     }
 
@@ -256,6 +386,14 @@ final class Repository {
         let knownDays = Set(questionnaires().map(\.day))
         for questionnaire in file.questionnaires where !knownDays.contains(questionnaire.day) {
             save(questionnaire: questionnaire)
+        }
+        let knownQuestions = Set(questions().map(\.id))
+        for question in file.questions where !knownQuestions.contains(question.id) {
+            save(question: question)
+        }
+        let knownVisits = Set(visits().map(\.id))
+        for visit in file.visits where !knownVisits.contains(visit.id) {
+            save(visit: visit)
         }
         let knownEpisodes = Set(episodes().map(\.id))
         for episode in file.episodes where !knownEpisodes.contains(episode.id) {

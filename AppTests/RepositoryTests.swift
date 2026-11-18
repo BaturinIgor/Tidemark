@@ -59,4 +59,40 @@ struct RepositoryTests {
         #expect(target.medications() == source.medications())
         #expect(target.profile() == source.profile())
     }
+
+    @Test("D7: delete all is a soft delete that can be undone")
+    func deleteAllAndRestore() {
+        let repo = makeRepository()
+        repo.save(profile: Profile(region: .unitedKingdom, age: 49, trackedSymptomIDs: ["fatigue"]))
+        repo.save(checkIn: CheckIn(day: day, ratings: ["fatigue": .mild]))
+        repo.save(checkIn: CheckIn(day: day.adding(days: -1), ratings: ["fatigue": .severe]))
+        repo.delete(day: day.adding(days: -1))
+        repo.save(question: DoctorQuestion(text: "Is HRT an option for me?", rank: 0))
+        repo.save(visit: Visit(day: day.adding(days: 10), clinician: "Dr Shah"))
+        repo.logEpisode(.hotFlush, intensity: .moderate)
+
+        let stamp = repo.deleteAll()
+        #expect(repo.allCheckIns().isEmpty)
+        #expect(repo.questions().isEmpty)
+        #expect(repo.visits().isEmpty)
+        #expect(repo.episodes().isEmpty)
+        #expect(repo.profile() != nil)
+
+        repo.restoreAll(deletedAt: stamp)
+        #expect(repo.allCheckIns().map(\.day) == [day])
+        #expect(repo.questions().count == 1)
+        #expect(repo.visits().first?.clinician == "Dr Shah")
+        #expect(repo.episodes().count == 1)
+        // The day deleted on its own before stays in Recently deleted.
+        #expect(repo.recentlyDeletedDays().map(\.day) == [day.adding(days: -1)])
+    }
+
+    @Test("Visit fields survive a save and read")
+    func visitRoundTrip() {
+        let repo = makeRepository()
+        let visit = Visit(day: day, clinician: "Dr Shah", reason: "Sleep", takenSeriously: .partly,
+                          decisions: [.bloodTests, .comeBackLater], outcome: "Bloods next week", followUp: day.adding(days: 28))
+        repo.save(visit: visit)
+        #expect(repo.visits() == [visit])
+    }
 }

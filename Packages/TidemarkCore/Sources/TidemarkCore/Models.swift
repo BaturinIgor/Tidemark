@@ -50,39 +50,47 @@ public enum Factor: String, Codable, CaseIterable, Sendable {
 public struct Symptom: Hashable, Codable, Sendable, Identifiable {
     public let id: String
     public let label: String
+    public let group: String
 
-    public init(id: String, label: String) {
+    public init(id: String, label: String, group: String = "Other") {
         self.id = id
         self.label = label
+        self.group = group
     }
 
+    public static let groups = ["Sleep and energy", "Mood and mind", "Body", "Cycle", "Intimate and urinary"]
+
     public static let catalog: [Symptom] = [
-        .init(id: "hot_flushes", label: "Hot flushes"),
-        .init(id: "night_sweats", label: "Night sweats"),
-        .init(id: "waking_at_night", label: "Waking at night"),
-        .init(id: "fatigue", label: "Fatigue"),
-        .init(id: "brain_fog", label: "Brain fog"),
-        .init(id: "irritability", label: "Irritability"),
-        .init(id: "low_mood", label: "Low mood"),
-        .init(id: "anxiety", label: "Anxiety"),
-        .init(id: "joint_aches", label: "Joint aches"),
-        .init(id: "headaches", label: "Headaches"),
-        .init(id: "palpitations", label: "Heart palpitations"),
-        .init(id: "irregular_periods", label: "Irregular periods"),
-        .init(id: "heavy_periods", label: "Heavy periods"),
-        .init(id: "breast_tenderness", label: "Breast tenderness"),
-        .init(id: "vaginal_dryness", label: "Vaginal dryness"),
-        .init(id: "low_libido", label: "Low libido"),
-        .init(id: "bladder_urgency", label: "Bladder urgency"),
-        .init(id: "dry_skin", label: "Dry or itchy skin"),
-        .init(id: "hair_thinning", label: "Hair thinning"),
-        .init(id: "weight_change", label: "Weight change"),
-        .init(id: "dizziness", label: "Dizziness"),
-        .init(id: "tinnitus", label: "Tinnitus"),
+        .init(id: "trouble_falling_asleep", label: "Trouble falling asleep", group: "Sleep and energy"),
+        .init(id: "waking_at_night", label: "Waking at night", group: "Sleep and energy"),
+        .init(id: "fatigue", label: "Fatigue", group: "Sleep and energy"),
+        .init(id: "night_sweats", label: "Night sweats", group: "Sleep and energy"),
+        .init(id: "irritability", label: "Irritability", group: "Mood and mind"),
+        .init(id: "anxiety", label: "Anxiety", group: "Mood and mind"),
+        .init(id: "low_mood", label: "Low mood", group: "Mood and mind"),
+        .init(id: "brain_fog", label: "Brain fog", group: "Mood and mind"),
+        .init(id: "forgetting_words", label: "Forgetting words", group: "Mood and mind"),
+        .init(id: "hot_flushes", label: "Hot flushes", group: "Body"),
+        .init(id: "joint_aches", label: "Joint aches", group: "Body"),
+        .init(id: "headaches", label: "Headaches", group: "Body"),
+        .init(id: "palpitations", label: "Palpitations", group: "Body"),
+        .init(id: "weight_change", label: "Weight change", group: "Body"),
+        .init(id: "dry_skin", label: "Itchy skin", group: "Body"),
+        .init(id: "irregular_periods", label: "Irregular periods", group: "Cycle"),
+        .init(id: "heavy_periods", label: "Heavy bleeding", group: "Cycle"),
+        .init(id: "spotting", label: "Spotting", group: "Cycle"),
+        .init(id: "worse_pms", label: "Worse PMS", group: "Cycle"),
+        .init(id: "vaginal_dryness", label: "Vaginal dryness", group: "Intimate and urinary"),
+        .init(id: "low_libido", label: "Low libido", group: "Intimate and urinary"),
+        .init(id: "bladder_urgency", label: "Needing to pee often", group: "Intimate and urinary"),
     ]
 
     /// The daily check-in shows at most this many symptoms so it stays at about 30 seconds.
     public static let dailyLimit = 8
+
+    public static func label(for id: String) -> String {
+        catalog.first { $0.id == id }?.label ?? id
+    }
 }
 
 /// One day of the daily check-in.

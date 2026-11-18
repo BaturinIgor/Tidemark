@@ -70,18 +70,86 @@ public struct DoctorQuestion: Codable, Equatable, Sendable, Identifiable {
 }
 
 public struct Visit: Codable, Equatable, Sendable, Identifiable {
+    public enum Feeling: String, Codable, Sendable, CaseIterable { case yes, partly, no }
+    public enum Decision: String, Codable, Sendable, CaseIterable {
+        case startedTreatment, bloodTests, referral, comeBackLater, nothingYet
+
+        public var label: String {
+            switch self {
+            case .startedTreatment: "Started treatment"
+            case .bloodTests: "Blood tests"
+            case .referral: "Referral"
+            case .comeBackLater: "Come back later"
+            case .nothingYet: "Nothing yet"
+            }
+        }
+    }
+
     public var id: UUID
     public var day: DayKey
-    public var takenSeriously: Bool?
+    /// Free text: "GP", "gynaecologist", "menopause clinic".
+    public var clinician: String
+    /// In the user's words, shown at the top of the report.
+    public var reason: String
+    public var takenSeriously: Feeling?
+    public var decisions: Set<Decision>
     public var outcome: String
     public var followUp: DayKey?
 
-    public init(id: UUID = UUID(), day: DayKey, takenSeriously: Bool? = nil, outcome: String = "", followUp: DayKey? = nil) {
+    public init(
+        id: UUID = UUID(), day: DayKey, clinician: String = "", reason: String = "",
+        takenSeriously: Feeling? = nil, decisions: Set<Decision> = [], outcome: String = "", followUp: DayKey? = nil
+    ) {
         self.id = id
         self.day = day
+        self.clinician = clinician
+        self.reason = reason
         self.takenSeriously = takenSeriously
+        self.decisions = decisions
         self.outcome = outcome
         self.followUp = followUp
+    }
+
+    private enum CodingKeys: String, CodingKey { case id, day, clinician, reason, takenSeriously, decisions, outcome, followUp }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        day = try c.decode(DayKey.self, forKey: .day)
+        clinician = try c.decodeIfPresent(String.self, forKey: .clinician) ?? ""
+        reason = try c.decodeIfPresent(String.self, forKey: .reason) ?? ""
+        takenSeriously = try c.decodeIfPresent(Feeling.self, forKey: .takenSeriously)
+        decisions = Set(try c.decodeIfPresent([Decision].self, forKey: .decisions) ?? [])
+        outcome = try c.decodeIfPresent(String.self, forKey: .outcome) ?? ""
+        followUp = try c.decodeIfPresent(DayKey.self, forKey: .followUp)
+    }
+
+    /// Decisions are written sorted so the same data always gives the same file.
+    public func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(id, forKey: .id)
+        try c.encode(day, forKey: .day)
+        try c.encode(clinician, forKey: .clinician)
+        try c.encode(reason, forKey: .reason)
+        try c.encodeIfPresent(takenSeriously, forKey: .takenSeriously)
+        try c.encode(decisions.map(\.rawValue).sorted().compactMap(Decision.init(rawValue:)), forKey: .decisions)
+        try c.encode(outcome, forKey: .outcome)
+        try c.encodeIfPresent(followUp, forKey: .followUp)
+    }
+}
+
+extension DoctorQuestion {
+    /// Prompts other women often bring. They are questions to ask, not answers.
+    public static func suggestions(for region: Region) -> [String] {
+        [
+            "Could these symptoms be perimenopause, given my age and cycle changes?",
+            "What are my treatment options, including \(region.hormoneTherapyTerm), and what are the risks for me?",
+            "Is there anything else we should rule out, such as thyroid or iron levels?",
+            "Do I need a blood test, or can we decide based on my symptoms?",
+            "What can help with my sleep right now?",
+            "Who should I see if this does not improve?",
+            "When should we review how things are going?",
+        ]
     }
 }
 
