@@ -62,6 +62,9 @@
         <attribute name="outcome" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
         <attribute name="takenSeriously" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+        <attribute name="clinician" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="decisions" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="reason" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
     </entity>
     <entity name="CDProfile" representedClassName="CDProfile" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
@@ -70,5 +73,6 @@
         <attribute name="reminderMinutes" optional="YES" attributeType="Integer 16" defaultValueString="1260" usesScalarValueType="YES"/>
         <attribute name="trackedSymptoms" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+        <attribute name="trackingStarted" optional="YES" attributeType="String"/>
     </entity>
 </model>

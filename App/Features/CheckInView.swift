@@ -7,6 +7,7 @@ struct CheckInView: View {
     @Environment(\.dismiss) private var dismiss
     let day: DayKey
     @State private var checkIn: CheckIn
+    @State private var loaded = false
     @State private var saved = false
 
     init(day: DayKey) {
@@ -14,126 +15,205 @@ struct CheckInView: View {
         _checkIn = State(initialValue: CheckIn(day: day))
     }
 
-    private var symptoms: [Symptom] {
-        let ids = model.profile?.trackedSymptomIDs ?? []
-        return ids.compactMap { id in Symptom.catalog.first { $0.id == id } }
-    }
-
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
-                    Button("Same as yesterday") { copyYesterday() }
-                }
-                Section("How was it today?") {
-                    ForEach(symptoms) { symptom in
-                        VStack(alignment: .leading) {
-                            Text(symptom.label)
-                            Picker(symptom.label, selection: rating(symptom.id)) {
-                                ForEach(Severity.allCases, id: \.self) { Text($0.label).tag($0) }
-                            }
-                            .pickerStyle(.segmented)
-                            .labelsHidden()
-                        }
-                    }
-                }
-                Section("Did symptoms get in the way of your day?") {
-                    Picker("Impact", selection: $checkIn.impact) {
-                        Text("Not at all").tag(DailyImpact?.some(.notAtAll))
-                        Text("A little").tag(DailyImpact?.some(.aLittle))
-                        Text("Quite a bit").tag(DailyImpact?.some(.quiteABit))
-                        Text("A lot").tag(DailyImpact?.some(.aLot))
-                    }
-                    .pickerStyle(.segmented)
-                }
-                Section("Bleeding today") {
-                    Picker("Bleeding", selection: $checkIn.bleeding) {
-                        Text("None").tag(Bleeding.none)
-                        Text("Spotting").tag(Bleeding.spotting)
-                        Text("Light").tag(Bleeding.light)
-                        Text("Medium").tag(Bleeding.medium)
-                        Text("Heavy").tag(Bleeding.heavy)
-                    }
-                    .pickerStyle(.segmented)
-                }
-                Section("Anything else today? Optional") {
-                    FactorChips(selection: $checkIn.factors)
-                }
-                Section("Note for your doctor (optional)") {
-                    TextField("For example: woke up 3 times", text: $checkIn.note, axis: .vertical)
-                }
-                if saved {
-                    SavedSummary(checkIn: checkIn)
-                }
+            if saved {
+                CheckInSavedView(checkIn: checkIn) { dismiss() }
+            } else {
+                form
             }
-            .navigationTitle("Today")
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button(saved ? "Done" : "Save") {
-                        if saved { dismiss() } else { persist(); saved = true }
-                    }
-                }
-            }
-            .onAppear { if let existing = model.repository.checkIn(for: day) { checkIn = existing } }
-            .onChange(of: checkIn) { _, _ in persist() }
+        }
+        .onAppear {
+            guard !loaded else { return }
+            if let existing = model.repository.checkIn(for: day) { checkIn = existing }
+            loaded = true
+        }
+        .onChange(of: checkIn) { _, newValue in
+            guard loaded else { return }
+            model.repository.save(checkIn: newValue)
         }
     }
 
-    private func rating(_ id: String) -> Binding<Severity> {
-        Binding(get: { checkIn.ratings[id] ?? .none }, set: { checkIn.ratings[id] = $0 })
+    private var form: some View {
+        let ids = model.profile?.trackedSymptomIDs ?? []
+        let visit = model.repository.currentVisit()
+        return Page(spacing: 12) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(subtitle(visit: visit)).font(.subheadline).foregroundStyle(Theme.muted)
+                    Text(day == .today ? "Today" : day.short).font(.largeTitle.bold())
+                }
+                Spacer()
+                Button("Same as yesterday") { copyYesterday() }
+                    .font(.subheadline.weight(.semibold))
+                    .padding(.top, 8)
+            }
+
+            ForEach(ids, id: \.self) { id in
+                Card(spacing: 8, padding: 14) {
+                    HStack {
+                        Text(Symptom.label(for: id)).font(.body.weight(.semibold))
+                        Spacer()
+                        Text(checkIn.ratings[id]?.label ?? "Not rated").font(.footnote).foregroundStyle(Theme.muted)
+                    }
+                    SeverityPicker(value: rating(id))
+                }
+            }
+
+            Card(spacing: 8, padding: 14) {
+                Text("Did symptoms get in the way of your day?").font(.body.weight(.semibold))
+                OptionRow(options: DailyImpact.allCases, selection: impact) { $0.shortLabel }
+            }
+
+            Card(spacing: 8, padding: 14) {
+                Text("Bleeding today").font(.body.weight(.semibold))
+                OptionRow(options: Bleeding.allCases, selection: $checkIn.bleeding) { $0.label }
+            }
+
+            Card(spacing: 8, padding: 14) {
+                HStack {
+                    Text("Anything else today?").font(.body.weight(.semibold))
+                    Spacer()
+                    Text("Optional").font(.footnote).foregroundStyle(Theme.muted)
+                }
+                FlowLayout {
+                    ForEach(Factor.allCases, id: \.self) { factor in
+                        Chip(title: factor.label, selected: checkIn.factors.contains(factor)) {
+                            if checkIn.factors.contains(factor) { checkIn.factors.remove(factor) } else { checkIn.factors.insert(factor) }
+                        }
+                    }
+                }
+                Text("Tags help you spot what happens together. They show up in Patterns after 5 days.")
+                    .font(.caption).foregroundStyle(Theme.muted)
+            }
+
+            Card(spacing: 8, padding: 14) {
+                Text("Note for your doctor (optional)").font(.body.weight(.semibold))
+                TextField("For example: woke at 3 and couldn't get back to sleep", text: $checkIn.note, axis: .vertical)
+                    .lineLimit(2...5)
+            }
+
+            Button("Save check-in") {
+                saved = true
+                if UserDefaults.standard.bool(forKey: "healthWrite") {
+                    let day = checkIn
+                    Task { await model.health.write(day) }
+                }
+            }
+                .buttonStyle(PrimaryButtonStyle())
+                .disabled(checkIn.ratings.isEmpty)
+        }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Close") { dismiss() }
+            }
+        }
+    }
+
+    private func subtitle(visit: Visit?) -> String {
+        var parts = [day.short]
+        if let started = model.repository.trackingStarted() { parts.append("Day \(started.days(until: day) + 1)") }
+        if let visit, visit.day >= day {
+            let who = visit.clinician.isEmpty ? (model.profile?.region.doctorTerm ?? "Doctor") : visit.clinician
+            parts.append("\(who) visit in \(day.days(until: visit.day)) days")
+        }
+        return parts.joined(separator: " · ")
+    }
+
+    private func rating(_ id: String) -> Binding<Severity?> {
+        Binding(get: { checkIn.ratings[id] }, set: { checkIn.ratings[id] = $0 })
+    }
+
+    private var impact: Binding<DailyImpact> {
+        Binding(get: { checkIn.impact ?? .notAtAll }, set: { checkIn.impact = $0 })
     }
 
     private func copyYesterday() {
         guard let yesterday = model.repository.checkIn(for: day.adding(days: -1)) else { return }
-        checkIn.ratings = yesterday.ratings
-    }
-
-    private func persist() {
-        model.repository.save(checkIn: checkIn)
+        let tracked = Set(model.profile?.trackedSymptomIDs ?? [])
+        checkIn.ratings = yesterday.ratings.filter { tracked.contains($0.key) }
     }
 }
 
-struct FactorChips: View {
-    @Binding var selection: Set<Factor>
+extension DailyImpact {
+    var shortLabel: String {
+        switch self {
+        case .notAtAll: "No"
+        case .aLittle: "A little"
+        case .quiteABit: "Quite a bit"
+        case .aLot: "A lot"
+        }
+    }
+}
 
-    var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 110))], alignment: .leading) {
-            ForEach(Factor.allCases, id: \.self) { factor in
-                let on = selection.contains(factor)
-                Button(factor.label) {
-                    if on { selection.remove(factor) } else { selection.insert(factor) }
-                }
-                .buttonStyle(.bordered)
-                .tint(on ? Theme.accent : .secondary)
-                .accessibilityAddTraits(on ? .isSelected : [])
-            }
+extension Bleeding {
+    var label: String {
+        switch self {
+        case .none: "None"
+        case .spotting: "Spotting"
+        case .light: "Light"
+        case .medium: "Medium"
+        case .heavy: "Heavy"
         }
     }
 }
 
 /// After saving: compare with the last two weeks and show bleeding warnings. Describes, never diagnoses.
-struct SavedSummary: View {
+struct CheckInSavedView: View {
     @Environment(AppModel.self) private var model
     let checkIn: CheckIn
+    let done: () -> Void
+    @State private var addQuestion = false
 
     var body: some View {
         let history = model.repository.allCheckIns()
-        let flags = RedFlags.check(today: checkIn, cycle: CycleStats.summary(of: bleedingMap(history)))
-        Section("Compared with your last 2 weeks") {
-            ForEach(checkIn.ratings.keys.sorted(), id: \.self) { id in
-                if let trend = Comparison.trend(symptomID: id, today: checkIn, history: history) {
-                    Text("\(Symptom.catalog.first { $0.id == id }?.label ?? id): \(trend.rawValue)")
+        let bleeding = Dictionary(history.map { ($0.day, $0.bleeding) }, uniquingKeysWith: { _, last in last })
+        let flags = RedFlags.check(today: checkIn, cycle: CycleStats.summary(of: bleeding))
+        let trends = checkIn.ratings.keys.sorted().compactMap { id in
+            Comparison.trend(symptomID: id, today: checkIn, history: history).map { (id, $0) }
+        }
+        let visit = model.repository.currentVisit()
+
+        Page(spacing: 16) {
+            Image(systemName: "checkmark.circle.fill")
+                .font(.system(size: 56))
+                .foregroundStyle(Theme.accent)
+                .frame(maxWidth: .infinity)
+                .padding(.top, 40)
+            Text("Saved").font(.largeTitle.bold()).frame(maxWidth: .infinity)
+            Text(savedLine(count: history.count, visit: visit))
+                .foregroundStyle(Theme.secondary).multilineTextAlignment(.center).frame(maxWidth: .infinity)
+
+            if !trends.isEmpty {
+                Card {
+                    Text("Compared with your last 2 weeks").font(.headline)
+                    ForEach(trends, id: \.0) { item in
+                        Text("\(Symptom.label(for: item.0)): \(item.1.rawValue)").font(.subheadline)
+                    }
+                    Text("A pattern, not a verdict. Your doctor will see the same numbers.").font(.caption).foregroundStyle(Theme.muted)
                 }
             }
-            Text("A pattern, not a verdict. Your doctor will see the same numbers.")
-                .font(.footnote).foregroundStyle(.secondary)
+
+            ForEach(flags, id: \.self) { flag in
+                WarningCard(systemImage: "exclamationmark.triangle") {
+                    Text(flag.message).font(.subheadline.weight(.semibold))
+                }
+            }
+
+            Button("Done") {
+                model.dataChanged()
+                done()
+            }
+            .buttonStyle(PrimaryButtonStyle())
+            Button("Add a question for your doctor") { addQuestion = true }
+                .buttonStyle(OutlineButtonStyle())
         }
-        ForEach(flags, id: \.self) { flag in
-            Section { Label(flag.message, systemImage: "exclamationmark.triangle.fill").foregroundStyle(Theme.danger) }
-        }
+        .sheet(isPresented: $addQuestion) { NavigationStack { QuestionsView() } }
     }
 
-    private func bleedingMap(_ history: [CheckIn]) -> [DayKey: Bleeding] {
-        Dictionary(history.map { ($0.day, $0.bleeding) }, uniquingKeysWith: { _, last in last })
+    private func savedLine(count: Int, visit: Visit?) -> String {
+        var line = "\(count) check-in\(count == 1 ? "" : "s") so far."
+        if let visit, visit.day >= checkIn.day { line += " Your report for \(visit.day.short) is up to date." }
+        return line
     }
 }

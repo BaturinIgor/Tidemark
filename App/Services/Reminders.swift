@@ -15,6 +15,10 @@ enum Reminders {
         try? await UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "daily", content: content, trigger: trigger))
     }
 
+    static func cancelDaily() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["daily"])
+    }
+
     static func scheduleWeeklySummary() async {
         let content = UNMutableNotificationContent()
         content.title = "Your week"
