@@ -77,6 +77,8 @@ struct SettingsView: View {
 
             Section {
                 Disclaimer()
+                Link("Privacy Policy", destination: Links.privacy)
+                Link("Terms of Use", destination: Links.terms)
                 LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "–")
             }
         }

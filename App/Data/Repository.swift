@@ -104,6 +104,8 @@ final class Repository {
         row.followUp = visit.followUp?.description
         row.updatedAt = Date()
         commit()
+        let next = visits().first { $0.day > DayKey(Date()) }?.day
+        Task { await Reminders.scheduleVisitEve(for: next) }
     }
 
     func questions() -> [DoctorQuestion] {

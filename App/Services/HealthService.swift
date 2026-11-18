@@ -29,10 +29,8 @@ final class HealthService {
 
     func requestAccess(write: Bool) async -> Bool {
         guard isAvailable else { return false }
-        let read: Set<HKObjectType> = [
-            HKCategoryType(.sleepAnalysis),
-            HKCategoryType(.menstrualFlow),
-        ]
+        // Reading sleep and cycle is planned; until it is built, ask for nothing we do not use.
+        let read: Set<HKObjectType> = []
         let share: Set<HKSampleType> = write ? Set(Self.symptomTypes.values.map { HKCategoryType($0) }) : []
         do {
             try await store.requestAuthorization(toShare: share, read: read)

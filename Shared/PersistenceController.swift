@@ -11,6 +11,9 @@ final class PersistenceController: @unchecked Sendable {
     enum Mode { case app, widget, inMemory }
 
     let container: NSPersistentContainer
+    /// Set when the store could not be opened. The app then shows an error screen and writes nothing,
+    /// so nothing typed in is silently dropped and onboarding never starts over an existing store.
+    private(set) var loadError: String?
     private let log = Logger(subsystem: "app.tidemark", category: "persistence")
 
     static var storeURL: URL {
@@ -50,12 +53,15 @@ final class PersistenceController: @unchecked Sendable {
 
         if mode != .inMemory { MigrationSnapshot.takeIfNeeded(storeURL: Self.storeURL, model: Self.model) }
 
+        var failure: String?
         container.loadPersistentStores { [log] _, error in
             if let error {
                 // D6: do not delete or recreate the store. The snapshot stays on disk for recovery.
                 log.fault("Store failed to load: \(error.localizedDescription, privacy: .public)")
+                failure = (error as NSError).domain + " \((error as NSError).code)"
             }
         }
+        loadError = failure
         container.viewContext.automaticallyMergesChangesFromParent = true
         // D8: newest value wins per attribute, not per record.
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy

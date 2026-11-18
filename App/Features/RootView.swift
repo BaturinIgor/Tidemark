@@ -6,7 +6,9 @@ struct RootView: View {
 
     var body: some View {
         ZStack {
-            if model.needsOnboarding && model.isRestoring {
+            if model.storeUnavailable {
+                StoreErrorView(code: model.persistence.loadError ?? "")
+            } else if model.needsOnboarding && model.isRestoring {
                 VStack(spacing: 16) {
                     ProgressView()
                     Text("Bringing your data back from iCloud…").font(.headline)
@@ -60,5 +62,21 @@ struct LockView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Theme.background.ignoresSafeArea())
         .task { if model.lock.isLocked { await model.lock.unlock() } }
+    }
+}
+
+/// Shown when the data store can't be opened. Never offers to reset or start over.
+struct StoreErrorView: View {
+    let code: String
+
+    var body: some View {
+        Page(spacing: 16) {
+            Image(systemName: "exclamationmark.triangle").font(.largeTitle).foregroundStyle(Theme.danger)
+            Text("Tidemark can't open your data right now").font(.title2.bold())
+            Text("Nothing has been deleted. Your check-ins are still on this iPhone and in your iCloud backup.")
+            Text("Please don't delete the app, because that would remove the copy on this iPhone. Close Tidemark and open it again, restart your iPhone, or update the app from the App Store.")
+            Text("If this keeps happening, contact us and quote this code: \(code)")
+                .font(.footnote).foregroundStyle(Theme.muted)
+        }
     }
 }

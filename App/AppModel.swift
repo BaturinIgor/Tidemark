@@ -36,6 +36,9 @@ final class AppModel {
 
     var needsOnboarding: Bool { profile == nil }
 
+    /// The data store could not be opened. Nothing may be written until it can.
+    var storeUnavailable: Bool { persistence.loadError != nil }
+
     func completeOnboarding(_ profile: Profile) {
         repository.save(profile: profile)
         self.profile = profile
