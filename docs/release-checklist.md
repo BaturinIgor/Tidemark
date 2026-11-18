@@ -12,6 +12,7 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 - [x] iPhone only (`TARGETED_DEVICE_FAMILY = 1`)
 - [x] Reminder the evening before an appointment
 - [x] If the data store can't be opened, the app shows an error and writes nothing
+- [x] 17 languages: en, de, fr, es, it, nl, pt-BR, sv, nb, da, fi, pl, ja, ko, zh-Hans, tr, ru (PR #5). The phone's language picks one; CI fails if any string is untranslated
 - [ ] Real Team ID and bundle/iCloud/app group IDs in `project.yml` (Claude, after Igor sends the Team ID)
 - [ ] Point `Links.privacy` at the published policy page (Claude)
 - [ ] Screenshots 6.9" (1320 × 2868) with sample data (Claude can produce them from the simulator in CI)
@@ -20,7 +21,7 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 
 - [ ] Paid Apps agreement, tax and bank details (subscriptions can't go live without them)
 - [ ] App ID with iCloud (CloudKit), HealthKit, App Groups, Push Notifications; iCloud container and app group created
-- [ ] App record: name, subtitle, description, keywords from `docs/app-store.md`
+- [ ] App record: name, subtitle, description, keywords from `docs/app-store.md` (English) and `docs/app-store/<language>.md` (16 more languages)
 - [ ] Subscription group "Tidemark report" with `…report.yearly` ($39.99) and `…report.monthly` ($6.99), review screenshot of the paywall
 - [ ] CloudKit Console: deploy the schema from Development to Production (otherwise backup does not work in the App Store build)
 - [ ] App Privacy: "Data Not Collected"; age rating questionnaire; export compliance (no non-exempt encryption)
@@ -36,10 +37,16 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 - [ ] Purchase in the sandbox, restore, cancel; PDF prints on Letter (US) and A4 (UK)
 - [ ] Face ID lock, reminders, Apple Health write
 - [ ] Largest text size and dark mode on every screen
+- [ ] Every language: switch in Settings › Tidemark › Language, check that no text is cut off on Today, Check-in, Report and the PDF (German and Finnish are the longest)
+
+## Translations (Igor)
+
+- [ ] Native-speaker review of the app texts (`Localization/<language>.json`) and store listings (`docs/app-store/`), at least for the languages of the storefronts opened first
+- [ ] Official Menopause Rating Scale translations from the licence holder replace our own wording of the 11 items in every language
 
 ## Legal (Igor with a lawyer, see `docs/legal-questions.md`)
 
-- [ ] Menopause Rating Scale licence for a paid app (fallback: own checklist without a score)
+- [ ] Menopause Rating Scale licence for a paid app, including the official translations (fallback: own checklist without a score)
 - [ ] Not a medical device in the US and UK; red-flag wording approved
 - [ ] Privacy policy reviewed; seller entity decided
 - [ ] "Tidemark" trademark check, classes 9 and 44
