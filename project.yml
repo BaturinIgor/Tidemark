@@ -1,0 +1,102 @@
+name: Tidemark
+options:
+  bundleIdPrefix: app.tidemark
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+settings:
+  base:
+    SWIFT_VERSION: "5.0"            # app targets; TidemarkCore already builds in Swift 6 mode
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""            # set your Apple team id locally
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_STRICT_CONCURRENCY: targeted
+packages:
+  TidemarkCore:
+    path: Packages/TidemarkCore
+targets:
+  Tidemark:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+      - path: Shared
+    dependencies:
+      - package: TidemarkCore
+      - target: TidemarkWidgets
+        embed: true
+      - sdk: HealthKit.framework
+      - sdk: CloudKit.framework
+    entitlements:
+      path: App/Tidemark.entitlements
+      properties:
+        com.apple.developer.icloud-container-identifiers: [iCloud.app.tidemark]
+        com.apple.developer.icloud-services: [CloudKit]
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        com.apple.security.application-groups: [group.app.tidemark]
+        aps-environment: development
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Tidemark
+        UILaunchScreen: {}
+        UIBackgroundModes: [remote-notification]
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        ITSAppUsesNonExemptEncryption: false
+        NSHealthShareUsageDescription: Tidemark reads your sleep and cycle so you log less by hand. It never leaves your iPhone and your own iCloud.
+        NSHealthUpdateUsageDescription: Tidemark can save your symptoms to Apple Health, so they are kept in one more place you control.
+        NSFaceIDUsageDescription: Use Face ID to keep your symptom log private.
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.Tidemark
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+
+  TidemarkWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Widgets
+      - path: Shared
+    dependencies:
+      - package: TidemarkCore
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    entitlements:
+      path: Widgets/TidemarkWidgets.entitlements
+      properties:
+        com.apple.security.application-groups: [group.app.tidemark]
+    info:
+      path: Widgets/Info.plist
+      properties:
+        CFBundleDisplayName: Tidemark
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.Tidemark.Widgets
+
+  TidemarkTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: AppTests
+    dependencies:
+      - target: Tidemark
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.TidemarkTests
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  Tidemark:
+    build:
+      targets:
+        Tidemark: all
+        TidemarkTests: [test]
+    test:
+      targets:
+        - TidemarkTests
+      gatherCoverageData: true
