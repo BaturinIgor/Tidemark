@@ -45,6 +45,11 @@ jobs:
             -destination "id=${{ steps.sim.outputs.udid }}" \
             CODE_SIGNING_ALLOWED=NO > xcodebuild.log 2>&1 || status=$?
           grep -E "error:|Test (Suite|Case)|✔|✘|\*\* " xcodebuild.log | tail -200 || true
+          if [ "$status" -ne 0 ]; then
+            echo "::group::Last 150 lines of xcodebuild.log"
+            tail -150 xcodebuild.log
+            echo "::endgroup::"
+          fi
           exit $status
       - name: Upload build log
         if: failure()
