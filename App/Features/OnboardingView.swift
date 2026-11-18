@@ -193,7 +193,7 @@ struct OnboardingView: View {
         let ordered = Array(daily.prefix(Symptom.dailyLimit))
         let profile = Profile(region: region, age: Int(age), trackedSymptomIDs: ordered)
         if hasDate {
-            model.repository.save(visit: Visit(day: DayKey(visitDate), clinician: clinician.isEmpty ? region.doctorTerm : clinician))
+            model.repository.save(visit: Visit(day: DayKey(visitDate), clinician: clinician.trimmingCharacters(in: .whitespaces)))
         }
         model.completeOnboarding(profile)
         guard reminder else { return }

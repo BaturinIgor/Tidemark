@@ -99,7 +99,7 @@ struct ReportPage: View {
 
     @ViewBuilder
     private var questionnaire: some View {
-        block(Questionnaire.scaleName) {
+        block(LocalizedStringKey(Questionnaire.scaleName)) {
             if let last = summary.questionnaires.last, let total = last.total {
                 Text("\(total) of \(Questionnaire.maxScore) on \(last.day.medium)").font(.system(size: 11, weight: .semibold))
                 ForEach([(QuestionnaireItem.Domain.somatic, String(localized: "Physical")), (.psychological, String(localized: "Mood and mind")), (.urogenital, String(localized: "Intimate and urinary"))], id: \.0) { pair in
