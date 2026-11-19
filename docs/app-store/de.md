@@ -4,13 +4,13 @@
 Tidemark: Wechseljahre-Tracker
 
 ## Subtitle (30)
-Beschwerde-Bericht für Ärzte
+Bericht für deinen Arzttermin
 
 ## Promotional text (170)
 Erfasse Beschwerden der Perimenopause in 30 Sekunden am Tag und nimm eine klare Seite mit zum Termin. Deine Daten bleiben auf deinem iPhone und in deiner iCloud.
 
 ## Keywords (100)
-Perimenopause,Menopause,Hitzewallung,Nachtschweiß,Periode,Zyklus,Hormontherapie,Tagebuch,Symptome
+Perimenopause,Menopause,Hitzewallung,Nachtschweiß,Periode,Zyklus,Hormontherapie,Tagebuch,Beschwerden
 
 ## Description (4000)
 Geh mit Fakten in deinen Termin, nicht mit einer verschwommenen Erinnerung an schlechte Wochen.
@@ -20,7 +20,7 @@ Mit Tidemark führst du ein einfaches tägliches Protokoll deiner Beschwerden in
 IN 30 SEKUNDEN ERFASST
 • Bewerte bis zu 8 selbst gewählte Symptome: keine, leicht, mittel oder stark
 • Notiere, wie sehr dich die Beschwerden im Alltag gestört haben, Blutungen und Faktoren wie Stress, Alkohol oder schlechten Schlaf
-• Erfasse eine Hitzewallung oder Nachtschweiß mit einem Tipp, auch über das Widget auf dem Sperrbildschirm
+• Erfasse eine Hitzewallung oder Nachtschweiß mit einmal Tippen, auch über das Widget auf dem Sperrbildschirm
 • Einen Tag verpasst? Trag die letzten drei nach
 
 DEINE EIGENEN MUSTER
@@ -39,11 +39,11 @@ DEINE DATEN GEHÖREN DIR
 • Gespeichert auf deinem iPhone und verschlüsselt in deiner eigenen iCloud gesichert. Wir sehen sie nie
 • Kein Konto, keine Werbung, kein Datenverkauf
 • Exportiere jederzeit alles in eine Datei und importiere es wieder
-• Gelöschte Tage bleiben 30 Tage unter Zuletzt gelöscht
+• Gelöschte Tage bleiben 30 Tage unter „Zuletzt gelöscht“
 • Optional Sperre mit Face ID und Abgleich mit Apple Health
 
 KOSTENLOS UND IM ABO
-Tägliches Erfassen, Verlauf, Muster, Backup, Export und der Bericht auf dem Bildschirm sind kostenlos. Ein Abo ergänzt den PDF-Bericht zum Drucken oder Senden, monatlich oder jährlich (Preise je nach Land). Die Zahlung erfolgt über deine Apple-ID und verlängert sich automatisch, wenn du nicht mindestens 24 Stunden vor Ablauf kündigst. Verwalten oder kündigen kannst du in den Einstellungen deiner Apple-ID.
+Tägliches Erfassen, Verlauf, Muster, Backup, Export und der Bericht auf dem Bildschirm sind kostenlos. Ein Abo ergänzt den PDF-Bericht zum Drucken oder Senden, monatlich oder jährlich (Preise je nach Land). Die Zahlung erfolgt über deine Apple-ID. Das Abo verlängert sich automatisch, wenn du nicht mindestens 24 Stunden vor Ende des Zeitraums kündigst. Verwalten oder kündigen kannst du in den Einstellungen deiner Apple-ID.
 
 Tidemark hält fest, was du angibst. Die App stellt keine Diagnosen, schlägt keine Behandlung vor und gibt keinen medizinischen Rat. Wenn dir ein Symptom Sorgen macht, wende dich an deine Ärztin oder deinen Arzt.
 

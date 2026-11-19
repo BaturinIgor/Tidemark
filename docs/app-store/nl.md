@@ -10,23 +10,23 @@ Klachtenoverzicht voor je arts
 Houd perimenopauzeklachten bij in 30 seconden per dag en neem een helder overzicht van één pagina mee naar je afspraak. Je gegevens blijven op je iPhone en in je iCloud.
 
 ## Keywords (100)
-perimenopauze,menopauze,overgang,opvliegers,nachtzweten,menstruatie,cyclus,klachten,dagboek,hormonen
+perimenopauze,menopauze,overgangsklachten,opvliegers,nachtzweten,menstruatie,cyclus,dagboek,hormonen
 
 ## Description (4000)
-Ga je afspraak in met feiten, niet met een vage herinnering aan slechte weken.
+Ga naar je afspraak met feiten, niet met een vage herinnering aan slechte weken.
 
 Met Tidemark houd je eenvoudig dagelijks je klachten in de perimenopauze en overgang bij. De app maakt er een overzicht van één pagina van dat je aan je arts of huisarts kunt laten zien.
 
 IN 30 SECONDEN BIJGEHOUDEN
 • Beoordeel tot 8 klachten die je zelf kiest: geen, licht, matig of ernstig
-• Noteer hoeveel last je ervan had, bloedingen en factoren als stress, alcohol of slecht slapen
+• Noteer hoeveel last je ervan had, bloedverlies en factoren als stress, alcohol of slecht slapen
 • Registreer een opvlieger of nachtzweten met één tik, ook via de widget op het toegangsscherm
 • Een dag gemist? Vul de laatste drie in
 
 JE EIGEN PATRONEN
 • Een dag-voor-dag-grafiek van je klachten over 4, 8 of 12 weken
 • Een cycluskalender met menstruatie- en spottingdagen
-• Hoe vaak een klacht volgde op alcohol of slecht slapen, als gewone telling
+• Hoe vaak een klacht samen voorkwam met alcohol of slecht slapen, als gewone telling
 • Je cijfers voor en na de start van een medicijn of supplement
 • Elke zondag een kort weekoverzicht
 
@@ -55,7 +55,7 @@ Eerste versie.
 
 ## Screenshot captions
 1. Je klachten op één pagina, klaar voor je afspraak
-2. Check in in 30 seconden per dag
+2. Je check-in in 30 seconden per dag
 3. Registreer een opvlieger vanaf het toegangsscherm
 4. Weken in één oogopslag
 5. Jouw gegevens, jouw iCloud. Wij zien ze nooit

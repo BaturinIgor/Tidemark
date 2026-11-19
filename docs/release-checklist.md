@@ -41,12 +41,14 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 
 ## Translations (Igor)
 
+- [x] Independent AI review of all 16 languages, fixes applied (`docs/translation-review.md`)
 - [ ] Native-speaker review of the app texts (`Localization/<language>.json`) and store listings (`docs/app-store/`), at least for the languages of the storefronts opened first
 - [ ] Official Menopause Rating Scale translations from the licence holder replace our own wording of the 11 items in every language
 
 ## Legal (Igor with a lawyer, see `docs/legal-questions.md`)
 
 - [ ] Menopause Rating Scale licence for a paid app, including the official translations (fallback: own checklist without a score)
+  - 19 Nov 2026: permission request sent to ZEG Berlin (info@zeg-berlin.de), waiting for an answer
 - [ ] Not a medical device in the US and UK; red-flag wording approved
 - [ ] Privacy policy reviewed; seller entity decided
 - [ ] "Tidemark" trademark check, classes 9 and 44

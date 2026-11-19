@@ -10,7 +10,7 @@ Resoconto per il tuo medico
 Registra i sintomi della perimenopausa in 30 secondi al giorno e porta alla visita un riepilogo chiaro di una pagina. I tuoi dati restano sul tuo iPhone e nel tuo iCloud.
 
 ## Keywords (100)
-perimenopausa,menopausa,vampate,sudorazione,ciclo,mestruazioni,sintomi,diario,ormoni,registro
+perimenopausa,premenopausa,vampate,caldane,sudorazione,ciclo,mestruazioni,sintomi,ormoni,climaterio
 
 ## Description (4000)
 Arriva alla visita con i fatti, non con il ricordo confuso di settimane difficili.
@@ -43,7 +43,7 @@ I TUOI DATI RESTANO TUOI
 • Blocco con Face ID e sincronizzazione con Apple Salute facoltativi
 
 GRATIS E IN ABBONAMENTO
-Registrazione giornaliera, cronologia, andamenti, backup, esportazione e resoconto sullo schermo sono gratuiti. Un abbonamento mensile o annuale aggiunge il resoconto PDF da stampare o inviare (i prezzi variano in base al paese). Il pagamento viene addebitato sul tuo ID Apple e si rinnova automaticamente se non annulli almeno 24 ore prima della fine del periodo. Gestisci o annulla nelle impostazioni del tuo ID Apple.
+Registrazione giornaliera, cronologia, andamenti, backup, esportazione e resoconto sullo schermo sono gratuiti. Un abbonamento mensile o annuale aggiunge il resoconto PDF da stampare o inviare (i prezzi variano in base al paese). Il pagamento viene addebitato sul tuo ID Apple. L’abbonamento si rinnova automaticamente se non lo annulli almeno 24 ore prima della fine del periodo. Gestisci o annulla nelle impostazioni del tuo ID Apple.
 
 Tidemark registra ciò che indichi. Non fa diagnosi, non suggerisce trattamenti e non dà consigli medici. Se un sintomo ti preoccupa, contatta il medico.
 

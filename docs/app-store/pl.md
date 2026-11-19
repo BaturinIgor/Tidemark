@@ -10,7 +10,7 @@ Raport objawów dla lekarza
 Zapisuj objawy perimenopauzy w 30 sekund dziennie i zabierz na wizytę przejrzyste podsumowanie na jednej stronie. Dane zostają na Twoim iPhonie i w Twoim iCloud.
 
 ## Keywords (100)
-perimenopauza,menopauza,klimakterium,uderzenia gorąca,poty,miesiączka,cykl,objawy,dziennik,hormony
+perimenopauza,menopauza,klimakterium,przekwitanie,uderzenia gorąca,uderzenia ciepła,nocne poty,HTZ
 
 ## Description (4000)
 Idź na wizytę z faktami, a nie z mglistym wspomnieniem złych tygodni.
@@ -43,7 +43,7 @@ TWOJE DANE NALEŻĄ DO CIEBIE
 • Opcjonalna blokada Face ID i synchronizacja z Apple Zdrowie
 
 ZA DARMO I W SUBSKRYPCJI
-Codzienne wpisy, historia, wzorce, kopia zapasowa, eksport i raport na ekranie są za darmo. Subskrypcja miesięczna lub roczna dodaje raport PDF do wydruku lub wysłania (ceny zależą od kraju). Płatność pobierana jest z konta Apple ID i odnawia się automatycznie, jeśli nie anulujesz jej co najmniej 24 godziny przed końcem okresu. Zarządzaj nią lub anuluj w ustawieniach Apple ID.
+Codzienne wpisy, historia, wzorce, kopia zapasowa, eksport i raport na ekranie są za darmo. Subskrypcja miesięczna lub roczna dodaje raport PDF do wydruku lub wysłania (ceny zależą od kraju). Płatność zostanie pobrana z konta Apple ID, a subskrypcja odnawia się automatycznie, jeśli nie anulujesz jej co najmniej 24 godziny przed końcem okresu. Zarządzaj nią lub anuluj w ustawieniach Apple ID.
 
 Tidemark zapisuje to, co podajesz. Aplikacja nie stawia diagnozy, nie proponuje leczenia i nie udziela porad medycznych. Jeśli niepokoi Cię jakiś objaw, skontaktuj się z lekarzem.
 
@@ -57,6 +57,6 @@ Pierwsza wersja.
 1. Twoje objawy na jednej stronie, gotowe na wizytę
 2. Wpis w 30 sekund dziennie
 3. Zapisz uderzenie gorąca z ekranu blokady
-4. Tygodnie w jednym spojrzeniu
+4. Tygodnie na pierwszy rzut oka
 5. Twoje dane, Twój iCloud. Nigdy ich nie widzimy
 6. Zapisz, co postanowiono po każdej wizycie

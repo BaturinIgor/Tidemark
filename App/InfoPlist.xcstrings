@@ -13,7 +13,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nutze Face ID, damit dein Symptomtagebuch privat bleibt."
+            "value": "Nutze Face ID, damit dein Beschwerdetagebuch privat bleibt."
           }
         },
         "en": {
@@ -144,7 +144,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tidemark ne lit que les données Santé que vous autorisez, pour les afficher à côté de vos relevés."
+            "value": "Tidemark ne lit que les données Santé que vous autorisez, pour les afficher à côté de vos suivis."
           }
         },
         "it": {
@@ -198,7 +198,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tidemark läser bara de Hälsa-data du tillåter, för att visa dem bredvid dina egna registreringar."
+            "value": "Tidemark läser bara de uppgifter i Hälsa som du tillåter, för att visa dem bredvid dina egna registreringar."
           }
         },
         "tr": {
@@ -251,7 +251,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tidemark peut enregistrer vos symptômes dans Santé, pour qu'ils soient conservés à un autre endroit que vous contrôlez."
+            "value": "Tidemark peut enregistrer vos symptômes dans Santé, pour qu’ils soient conservés à un autre endroit que vous contrôlez."
           }
         },
         "it": {
@@ -281,7 +281,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tidemark kan je klachten in Gezondheid bewaren, zodat ze nog op een plek staan die jij beheert."
+            "value": "Tidemark kan je klachten in Gezondheid bewaren, zodat ze ook op een andere plek staan die jij beheert."
           }
         },
         "pl": {

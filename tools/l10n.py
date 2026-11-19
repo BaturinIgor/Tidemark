@@ -3,6 +3,7 @@
 
   python3 tools/l10n.py build              write App/, Widgets/ and TidemarkCore catalogs
   python3 tools/l10n.py check KEYS_FILE    fail if a key from the app export or the core sources is missing
+  python3 tools/l10n.py lint               fail if a translation changes the placeholders of its key
   python3 tools/l10n.py keys XLIFF         print the source keys of an Xcode .xliff export, one JSON string per line
 
 Localization/<lang>.json holds {"strings": {key: value}, "infoplist": {plist key: value}}.
@@ -96,6 +97,44 @@ def translatable(key):
     return re.search(r"[A-Za-z]", re.sub(r"%(\d\$)?(lld|ld|d|@|lf|f)", "", key)) is not None
 
 
+# Strings that may drop the doctor-term %@ and spell the word out in the right grammatical form.
+MAY_DROP_ARG = {
+    "A week of check-ins shows your %@ a pattern, not one bad day. Missed a day? You can fill in the last 3 days from Today.",
+    "For your %@",
+    "Save the one-page PDF to print, email or upload to your %@'s portal.",
+    "Symptom summary for my %@",
+    "You can ask for a second opinion. Keep checking in and take an updated report to another %@ or a menopause clinic.",
+}
+# Plural forms whose "one" category means exactly 1, so the number may be left out.
+ONE_IS_ONE = {"en", "de", "es", "it", "nl", "sv", "nb", "da", "fi"}
+
+
+def specs(text):
+    """Placeholders of a format string as sorted (position, type) pairs, plus the count of stray % signs."""
+    text = text.replace("%%", "")
+    found = []
+    for n, m in enumerate(re.finditer(r"%(?:(\d)\$)?(lld|@)", text), start=1):
+        found.append((int(m.group(1)) if m.group(1) else n, m.group(2)))
+    return sorted(found), text.count("%") - len(found)
+
+
+def lint():
+    """Every translation keeps the placeholders of its English key."""
+    ok = True
+    for lang in LANGS:
+        for key, value in load(lang)["strings"].items():
+            want, _ = specs(key)
+            forms = value.items() if isinstance(value, dict) else [("", value)]
+            for cat, form in forms:
+                got, stray = specs(form)
+                fine = got == want or (key in MAY_DROP_ARG and not got) or \
+                    (cat == "one" and lang in ONE_IS_ONE and want == [(1, "lld")] and not got)
+                if not fine or stray or not form.strip():
+                    ok = False
+                    print(f"::error::{lang}: placeholders differ in {json.dumps(key, ensure_ascii=False)}: {json.dumps(form, ensure_ascii=False)}")
+    return ok
+
+
 def check(keys_file):
     with open(keys_file, encoding="utf-8") as f:
         app = {json.loads(line) for line in f if line.strip()}
@@ -110,6 +149,7 @@ def check(keys_file):
             print(f"::error::{lang}: {len(missing) + len(missing_plist)} strings not translated")
             for k in missing + missing_plist:
                 print(f"  {lang}\t{json.dumps(k, ensure_ascii=False)}")
+    ok = lint() and ok
     unused = sorted(set(load("en")["strings"]) - wanted)
     if unused:
         print(f"note: {len(unused)} keys in en.json are no longer used in code")
@@ -131,6 +171,8 @@ def main():
             print(json.dumps(k, ensure_ascii=False))
     elif cmd == "check":
         sys.exit(0 if check(sys.argv[2]) else 1)
+    elif cmd == "lint":
+        sys.exit(0 if lint() else 1)
     elif cmd == "core-keys":
         for k in sorted(core_keys()):
             print(json.dumps(k, ensure_ascii=False))

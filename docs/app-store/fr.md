@@ -4,13 +4,13 @@
 Tidemark : suivi ménopause
 
 ## Subtitle (30)
-Bilan de symptômes au médecin
+Résumé à montrer au médecin
 
 ## Promotional text (170)
 Notez vos symptômes de périménopause en 30 secondes par jour et apportez un résumé clair d’une page au rendez-vous. Vos données restent sur votre iPhone et iCloud.
 
 ## Keywords (100)
-périménopause,ménopause,bouffée,chaleur,sueurs,règles,cycle,symptômes,journal,hormones,suivi
+périménopause,préménopause,bouffée,chaleur,sueurs,règles,cycle,symptômes,journal,hormones,THS,gynéco
 
 ## Description (4000)
 Arrivez à votre rendez-vous avec des faits, pas avec le souvenir flou de semaines difficiles.
@@ -26,7 +26,7 @@ UN SUIVI EN 30 SECONDES
 VOS PROPRES TENDANCES
 • Un graphique jour par jour de vos symptômes sur 4, 8 ou 12 semaines
 • Un calendrier du cycle avec les jours de règles et de spotting
-• Combien de fois un symptôme a suivi l’alcool ou une mauvaise nuit, en simples comptes
+• Combien de fois un symptôme a suivi l’alcool ou une mauvaise nuit, en simple décompte
 • Vos chiffres avant et après le début d’un médicament ou d’un complément
 • Un court bilan de la semaine chaque dimanche
 
@@ -43,7 +43,7 @@ VOS DONNÉES VOUS APPARTIENNENT
 • Verrouillage Face ID et synchronisation avec Apple Santé en option
 
 GRATUIT ET ABONNEMENT
-Le suivi quotidien, l’historique, les tendances, la sauvegarde, l’export et le rapport à l’écran sont gratuits. Un abonnement mensuel ou annuel ajoute le rapport PDF à imprimer ou envoyer (prix selon le pays). Le paiement est débité sur votre identifiant Apple et se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période. Gérez ou résiliez dans les réglages de votre identifiant Apple.
+Le suivi quotidien, l’historique, les tendances, la sauvegarde, l’export et le rapport à l’écran sont gratuits. Un abonnement mensuel ou annuel ajoute le rapport PDF à imprimer ou envoyer (prix selon le pays). Le paiement est débité sur votre identifiant Apple. L’abonnement se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période. Gérez ou résiliez dans les réglages de votre identifiant Apple.
 
 Tidemark enregistre ce que vous indiquez. L’app ne pose pas de diagnostic, ne propose pas de traitement et ne donne pas d’avis médical. Si un symptôme vous inquiète, contactez votre médecin.
 

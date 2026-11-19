@@ -13,19 +13,19 @@ Kirjaa perimenopaussin oireet 30 sekunnissa päivässä ja vie selkeä yhden siv
 perimenopaussi,vaihdevuodet,menopaussi,kuumat aallot,yöhikoilu,kuukautiset,kierto,oireet,hormonit
 
 ## Description (4000)
-Mene vastaanotolle tosiasioiden kanssa, älä epämääräisen muistikuvan huonoista viikoista.
+Mene vastaanotolle faktat mukanasi, ei hämärä muistikuva huonoista viikoista.
 
 Tidemarkin avulla pidät yksinkertaista päivittäistä kirjaa perimenopaussin ja vaihdevuosien oireista. Sovellus tekee siitä yhden sivun yhteenvedon, jonka voit näyttää lääkärille.
 
 KIRJAUS 30 SEKUNNISSA
 • Arvioi enintään 8 itse valitsemaasi oiretta: ei oireita, lievä, kohtalainen tai vaikea
 • Merkitse, kuinka paljon oireet haittasivat päivää, vuoto ja tekijät kuten stressi, alkoholi tai huono uni
-• Kirjaa kuuma aalto tai yöhikoilu yhdellä napautuksella, myös lukitun näytön widgetistä
+• Kirjaa kuuma aalto tai yöhikoilu yhdellä napautuksella, myös lukitusnäytön widgetistä
 • Jäikö päivä väliin? Täytä kolme viimeisintä
 
 OMAT KUVIOSI
 • Päivä päivältä -kaavio oireistasi 4, 8 tai 12 viikon ajalta
-• Kiertokalenteri kuukautis- ja tiputteluvuotopäivineen
+• Kiertokalenteri kuukautis- ja tiputtelupäivineen
 • Kuinka usein oire seurasi alkoholia tai huonoa yötä, pelkkinä lukumäärinä
 • Lukusi ennen ja jälkeen lääkkeen tai ravintolisän aloittamisen
 • Lyhyt viikkokooste joka sunnuntai
@@ -43,7 +43,7 @@ TIETOSI OVAT SINUN
 • Valinnainen Face ID -lukitus ja synkronointi Apple Terveyteen
 
 ILMAINEN JA TILAUS
-Päivittäinen kirjaus, historia, kuviot, varmuuskopio, vienti ja raportti näytöllä ovat ilmaisia. Kuukausi- tai vuositilaus tuo PDF-raportin tulostettavaksi tai lähetettäväksi (hinnat vaihtelevat maittain). Maksu veloitetaan Apple ID:ltäsi, ja tilaus uusiutuu automaattisesti, ellei sitä peruta vähintään 24 tuntia ennen jakson päättymistä. Hallitse tai peru Apple ID:n asetuksissa.
+Päivittäinen kirjaus, historia, kuviot, varmuuskopio, vienti ja raportti ruudulla ovat ilmaisia. Kuukausi- tai vuositilaus tuo PDF-raportin tulostettavaksi tai lähetettäväksi (hinnat vaihtelevat maittain). Maksu veloitetaan Apple ID:ltäsi, ja tilaus uusiutuu automaattisesti, ellei sitä peruta vähintään 24 tuntia ennen jakson päättymistä. Hallitse tai peru Apple ID:n asetuksissa.
 
 Tidemark tallentaa sen, mitä kerrot. Sovellus ei diagnosoi, ehdota hoitoa eikä anna lääketieteellisiä neuvoja. Jos jokin oire huolestuttaa, ota yhteyttä lääkäriin.
 
@@ -56,7 +56,7 @@ Ensimmäinen versio.
 ## Screenshot captions
 1. Oireesi yhdellä sivulla, valmiina vastaanotolle
 2. Kirjaa 30 sekunnissa päivässä
-3. Kirjaa kuuma aalto lukitulta näytöltä
+3. Kirjaa kuuma aalto lukitusnäytöltä
 4. Viikot yhdellä silmäyksellä
 5. Sinun tietosi, sinun iCloudisi. Emme näe niitä koskaan
 6. Merkitse jokaisen käynnin jälkeen, mitä päätettiin
