@@ -41,6 +41,7 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 
 ## Translations (Igor)
 
+- [x] Independent AI review of all 16 languages, fixes applied (`docs/translation-review.md`)
 - [ ] Native-speaker review of the app texts (`Localization/<language>.json`) and store listings (`docs/app-store/`), at least for the languages of the storefronts opened first
 - [ ] Official Menopause Rating Scale translations from the licence holder replace our own wording of the 11 items in every language
 

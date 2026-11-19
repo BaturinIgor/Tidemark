@@ -23,12 +23,15 @@
       "one": "%lld päivä",
       "other": "%lld päivää"
     },
-    "%lld days ago · %lld days long": "%lld päivää sitten · kesto %lld päivää",
+    "%lld days ago · %lld days long": "%lld pv sitten · kesto %lld pv",
     "%lld days are already on this iPhone and stay as they are.": {
       "one": "%lld päivä on jo tässä iPhonessa ja pysyy ennallaan.",
       "other": "%lld päivää on jo tässä iPhonessa ja pysyy ennallaan."
     },
-    "%lld days between shortest and longest. Goes in the Cycle section of your report.": "Lyhimmän ja pisimmän ero %lld päivää. Näkyy raportin Kierto-osiossa.",
+    "%lld days between shortest and longest. Goes in the Cycle section of your report.": {
+      "one": "Lyhimmän ja pisimmän ero %lld päivä. Näkyy raportin Kierto-osiossa.",
+      "other": "Lyhimmän ja pisimmän ero %lld päivää. Näkyy raportin Kierto-osiossa."
+    },
     "%lld days left": {
       "one": "%lld päivä jäljellä",
       "other": "%lld päivää jäljellä"
@@ -42,14 +45,14 @@
     "%lld of %lld chosen": "%lld/%lld valittu",
     "%lld of %lld days": "%lld/%lld päivää",
     "%lld of %lld days logged": "%lld/%lld päivää kirjattu",
-    "%lld of %lld on %@": "%lld/%lld %@",
+    "%lld of %lld on %@": "%lld/%lld (%@)",
     "%lld of 7": "%lld/7",
-    "%lld on %@": "%lld %@",
+    "%lld on %@": "%lld (%@)",
     "%lld selected. You will rate these each day. Change them anytime.": "%lld valittu. Arvioit ne joka päivä. Voit muuttaa niitä milloin vain.",
     "%lld selected. Your first %lld go in the daily check-in; change them anytime in Settings.": "%lld valittu. Ensimmäiset %lld tulevat päivittäiseen kirjaukseen; voit muuttaa niitä milloin vain asetuksissa.",
     "%lld spotting days": {
-      "one": "%lld tiputteluvuotopäivä",
-      "other": "%lld tiputteluvuotopäivää"
+      "one": "%lld tiputtelupäivä",
+      "other": "%lld tiputtelupäivää"
     },
     "%lld today": "%lld tänään",
     "%lld weeks": {
@@ -57,7 +60,7 @@
       "other": "%lld viikkoa"
     },
     "%lld → %lld of %lld": "%lld → %lld/%lld",
-    "**Report ready:** %lld check-ins, %lld questionnaires, %lld questions saved.": "**Raportti valmis:** %lld kirjausta, %lld kyselyä, %lld kysymystä tallennettu.",
+    "**Report ready:** %lld check-ins, %lld questionnaires, %lld questions saved.": "**Raportti valmis:** kirjaukset %lld, kyselyt %lld, kysymykset %lld.",
     "**Your data stays yours.** Saved on this phone and backed up, encrypted, to your own iCloud. No account, no ads, no data sales.": "**Tietosi ovat sinun.** Tallennettu tähän puhelimeen ja varmuuskopioitu salattuna omaan iCloudiisi. Ei tiliä, ei mainoksia, ei tietojen myyntiä.",
     "+ Hot flush": "+ Kuuma aalto",
     "+ Night sweat": "+ Yöhikoilu",
@@ -84,7 +87,10 @@
     "Age %lld": "Ikä %lld",
     "Alcohol": "Alkoholi",
     "All of these can come with hormonal change, even with regular periods. Many women never have hot flushes.": "Kaikki nämä voivat liittyä hormonaalisiin muutoksiin, vaikka kuukautiset olisivat säännölliset. Monella naisella ei ole koskaan kuumia aaltoja.",
-    "Also %lld quick logs and medicines.": "Lisäksi %lld pikakirjausta ja lääkkeet.",
+    "Also %lld quick logs and medicines.": {
+      "one": "Lisäksi %lld pikakirjaus ja lääkkeet.",
+      "other": "Lisäksi %lld pikakirjausta ja lääkkeet."
+    },
     "Always free": "Aina ilmainen",
     "Answer now": "Vastaa nyt",
     "Answer the questionnaire every 2 weeks to see it change.": "Vastaa kyselyyn 2 viikon välein nähdäksesi muutoksen.",
@@ -150,7 +156,7 @@
     "Do you have an appointment booked?": "Onko sinulla aika varattuna?",
     "Done": "Valmis",
     "Dryness or burning, difficulty with intercourse": "Kuivuus tai kirvely, vaikeuksia yhdynnässä",
-    "Each check-in adds your ratings to Health. Editing a day replaces what Tidemark wrote for it.": "Jokainen kirjaus lisää arviosi Terveyteen. Päivän muokkaaminen korvaa sen, mitä Tidemark kirjoitti sille.",
+    "Each check-in adds your ratings to Health. Editing a day replaces what Tidemark wrote for it.": "Jokainen kirjaus lisää arviosi Terveys-appiin. Päivän muokkaaminen korvaa sen, mitä Tidemark kirjoitti sille.",
     "Earlier: %@": "Aiemmin: %@",
     "Edit": "Muokkaa",
     "Edit questions (%lld)": "Muokkaa kysymyksiä (%lld)",
@@ -232,7 +238,7 @@
     "Lock with Face ID": "Lukitse Face ID:llä",
     "Log a hot flush": "Kirjaa kuuma aalto",
     "Log a night sweat": "Kirjaa yöhikoilu",
-    "Log bleeding in your daily check-in. Cycle lengths appear after two periods.": "Kirjaa vuoto päivittäisessä kirjauksessa. Kiertojen pituudet näkyvät kahden kuukautisten jälkeen.",
+    "Log bleeding in your daily check-in. Cycle lengths appear after two periods.": "Kirjaa vuoto päivittäisessä kirjauksessa. Kiertojen pituudet näkyvät, kun olet kirjannut kahdet kuukautiset.",
     "Log how you feel in 30 seconds a day. Before your visit, get a one-page summary your doctor can read in a minute.": "Kirjaa vointisi 30 sekunnissa päivässä. Ennen käyntiä saat yhden sivun yhteenvedon, jonka lääkäri lukee minuutissa.",
     "Log one": "Kirjaa",
     "Low libido": "Vähäinen seksuaalinen halu",
@@ -256,7 +262,7 @@
     "My symptoms": "Oireeni",
     "Name": "Nimi",
     "Needing to pee often": "Tihentynyt virtsaamistarve",
-    "Needing to pee often, urgency, leaking": "Tihentynyt virtsaamistarve, pakko, vuoto",
+    "Needing to pee often, urgency, leaking": "Tihentynyt virtsaamistarve, virtsapakko, virtsankarkailu",
     "Next appointment": "Seuraava vastaanotto",
     "Next questionnaire in 2 weeks, on %@.": "Seuraava kysely 2 viikon päästä, %@.",
     "Next, iOS will ask to allow notifications.": "Seuraavaksi iOS pyytää sallimaan ilmoitukset.",
@@ -288,7 +294,7 @@
     "OK": "OK",
     "Off: not signed in to iCloud": "Pois: et ole kirjautunut iCloudiin",
     "One line at the top of the report, in your words.": "Yksi rivi raportin alussa, omin sanoin.",
-    "One tap saves a hot flush with the time.": "Yksi napautus tallentaa kuuman aallon kellonajan kanssa.",
+    "One tap saves a hot flush with the time.": "Yksi napautus tallentaa kuuman aallon ja kellonajan.",
     "Open Settings": "Avaa Asetukset",
     "Opening the App Store…": "Avataan App Storea…",
     "Optional": "Valinnainen",
@@ -316,8 +322,8 @@
     "Questions other women often ask": "Kysymyksiä, joita muut naiset usein kysyvät",
     "Quite a bit": "Melko paljon",
     "Rate how today felt for your %lld symptoms. It takes about 30 seconds.": {
-      "one": "Arvioi, miltä %lld oireesi tuntui tänään. Se vie noin 30 sekuntia.",
-      "other": "Arvioi, miltä %lld oirettasi tuntuivat tänään. Se vie noin 30 sekuntia."
+      "one": "Arvioi, miltä oireesi tuntui tänään. Se vie noin 30 sekuntia.",
+      "other": "Arvioi, miltä %lld oirettasi tuntui tänään. Se vie noin 30 sekuntia."
     },
     "Rate today only, not the worst day of the week. Missed a day? You can fill it in later.": "Arvioi vain tämä päivä, ei viikon huonointa päivää. Jäikö päivä väliin? Voit täyttää sen myöhemmin.",
     "Reason for visit": "Käynnin syy",
@@ -330,7 +336,7 @@
     "Report": "Raportti",
     "Report subscription": "Raporttitilaus",
     "Restore": "Palauta",
-    "Restore everything deleted on %@": "Palauta kaikki %@ poistettu",
+    "Restore everything deleted on %@": "Palauta kaikki, mikä poistettiin %@",
     "Restore my data": "Palauta tietoni",
     "Restore purchase": "Palauta osto",
     "STEP 1 OF 3": "VAIHE 1/3",
@@ -343,7 +349,7 @@
     "Save PDF to print or send": "Tallenna PDF tulostettavaksi tai lähetettäväksi",
     "Save and add new medicine": "Tallenna ja lisää toinen lääke",
     "Save check-in": "Tallenna kirjaus",
-    "Save symptoms to Health": "Tallenna oireet Terveyteen",
+    "Save symptoms to Health": "Tallenna oireet Terveys-appiin",
     "Save the one-page PDF to print, email or upload to your %@'s portal.": "Tallenna yhden sivun PDF tulostettavaksi, sähköpostitse lähetettäväksi tai lääkärisi portaaliin ladattavaksi.",
     "Saved": "Tallennettu",
     "Saves a hot flush with the current time.": "Tallentaa kuuman aallon nykyisellä kellonajalla.",
@@ -358,16 +364,16 @@
     "Share JSON file": "Jaa JSON-tiedosto",
     "Share copy": "Jaa kopio",
     "Share or print PDF": "Jaa tai tulosta PDF",
-    "Show on screen": "Näytä näytöllä",
-    "Showing the report on screen is always free.": "Raportin näyttäminen näytöllä on aina ilmaista.",
+    "Show on screen": "Näytä ruudulla",
+    "Showing the report on screen is always free.": "Raportin näyttäminen ruudulla on aina ilmaista.",
     "Shown on your report so your doctor sees everything you take. We never suggest medicines or doses.": "Näkyy raportissasi, jotta lääkäri näkee kaiken, mitä käytät. Emme koskaan ehdota lääkkeitä tai annoksia.",
     "Skip reminder": "Ohita muistutus",
     "Skip, they were ordinary days": "Ohita, ne olivat tavallisia päiviä",
     "Sleep and energy": "Uni ja jaksaminen",
     "Sleep problems": "Univaikeudet",
     "Spicy food": "Tulinen ruoka",
-    "Spotting": "Tiputteluvuoto",
-    "Spotting days: %lld · Heavy bleeding days: %lld": "Tiputteluvuotopäivät: %lld · Runsaan vuodon päivät: %lld",
+    "Spotting": "Tiputtelu",
+    "Spotting days: %lld · Heavy bleeding days: %lld": "Tiputtelupäivät: %lld · Runsaan vuodon päivät: %lld",
     "Start check-in": "Aloita kirjaus",
     "Start fresh instead": "Aloita mieluummin alusta",
     "Start today's check-in": "Aloita tämän päivän kirjaus",
@@ -395,7 +401,7 @@
     "The comparison needs %lld check-ins before and after the start date.": "Vertailu vaatii %lld kirjausta ennen aloituspäivää ja sen jälkeen.",
     "The day before, Tidemark reminds you to check your report. Nothing is shared with the practice.": "Edellisenä päivänä Tidemark muistuttaa tarkistamaan raporttisi. Mitään ei jaeta vastaanoton kanssa.",
     "The purchase didn't go through": "Osto ei onnistunut",
-    "The report on screen": "Raportti näytöllä",
+    "The report on screen": "Raportti ruudulla",
     "The score is for your doctor to interpret. It is not a diagnosis.": "Pisteet ovat lääkärisi tulkittavaksi. Ne eivät ole diagnoosi.",
     "This app keeps a record. It does not diagnose or give medical advice.": "Tämä appi pitää kirjaa. Se ei diagnosoi eikä anna lääketieteellisiä neuvoja.",
     "This app records what you report. It does not diagnose or give medical advice.": "Tämä appi tallentaa sen, mitä kerrot. Se ei diagnosoi eikä anna lääketieteellisiä neuvoja.",
@@ -428,7 +434,7 @@
     "Visit · %@": "Käynti · %@",
     "Waiting for first backup": "Odotetaan ensimmäistä varmuuskopiota",
     "Waking at night": "Heräily yöllä",
-    "Walk into your appointment with the full picture": "Mene vastaanotolle koko kuvan kanssa",
+    "Walk into your appointment with the full picture": "Mene vastaanotolle kokonaiskuva mukanasi",
     "We couldn't verify the purchase with the App Store. You were not charged twice; try Restore.": "Emme voineet vahvistaa ostoa App Storesta. Sinua ei veloitettu kahdesti; kokeile Palauta.",
     "We found your Tidemark backup in iCloud. Your check-ins, questionnaires, medicines and questions will come back to this iPhone.": "Löysimme Tidemark-varmuuskopiosi iCloudista. Kirjauksesi, kyselysi, lääkkeesi ja kysymyksesi palaavat tähän iPhoneen.",
     "We use your region for terms on the report (%@, %@).": "Käytämme aluettasi raportin termeihin (%@, %@).",
@@ -436,7 +442,7 @@
     "We will mark this visit on your charts so the next report shows before and after.": "Merkitsemme tämän käynnin kaavioihisi, jotta seuraava raportti näyttää tilanteen ennen ja jälkeen.",
     "Weight change": "Painon muutos",
     "Welcome back": "Tervetuloa takaisin",
-    "What are my treatment options, including %@, and what are the risks for me?": "Mitä hoitovaihtoehtoja minulla on, myös hormonihoito, ja mitä riskejä niihin liittyy minulle?",
+    "What are my treatment options, including %@, and what are the risks for me?": "Mitä hoitovaihtoehtoja minulla on, myös %@, ja mitä riskejä niihin liittyy minulle?",
     "What can help with my sleep right now?": "Mikä voisi auttaa untani nyt?",
     "What happened together in your %lld check-ins. Counts, not causes, and not advice.": {
       "one": "Mitä esiintyi yhdessä %lld kirjauksessasi. Määriä, ei syitä eikä neuvoja.",
@@ -455,7 +461,7 @@
     "Write your own": "Kirjoita oma",
     "Yearly": "Vuosittain",
     "Yes": "Kyllä",
-    "Yes, I have a date": "Kyllä, minulla on päivä",
+    "Yes, I have a date": "Kyllä, minulla on aika",
     "You can ask for a second opinion. Keep checking in and take an updated report to another %@ or a menopause clinic.": "Voit pyytää toisen mielipiteen. Jatka kirjaamista ja vie päivitetty raportti toiselle lääkärille tai vaihdevuosipoliklinikalle.",
     "You missed %lld days": {
       "one": "%lld päivä jäi väliin",
@@ -463,7 +469,7 @@
     },
     "Your %lld check-ins are safe on this iPhone, but they are not backed up. If you lose the phone, they are gone.": {
       "one": "%lld kirjauksesi on turvassa tässä iPhonessa, mutta sitä ei ole varmuuskopioitu. Jos puhelin katoaa, se menetetään.",
-      "other": "%lld kirjaustasi ovat turvassa tässä iPhonessa, mutta niitä ei ole varmuuskopioitu. Jos puhelin katoaa, ne menetetään."
+      "other": "%lld kirjaustasi on turvassa tässä iPhonessa, mutta niitä ei ole varmuuskopioitu. Jos puhelin katoaa, ne menetetään."
     },
     "Your age": "Ikäsi",
     "Your check-ins will appear here.": "Kirjauksesi näkyvät täällä.",
@@ -471,8 +477,8 @@
     "Your doctor will weigh these numbers. The app does not say whether a treatment works.": "Lääkärisi arvioi nämä luvut. Appi ei kerro, toimiiko hoito.",
     "Your first check-in": "Ensimmäinen kirjauksesi",
     "Your first report is %lld check-ins away": {
-      "one": "Ensimmäiseen raporttiisi on %lld kirjaus",
-      "other": "Ensimmäiseen raporttiisi on %lld kirjausta"
+      "one": "Ensimmäiseen raporttiisi on vielä %lld kirjaus",
+      "other": "Ensimmäiseen raporttiisi on vielä %lld kirjausta"
     },
     "Your iCloud is full": "iCloudisi on täynnä",
     "Your log is hidden until you unlock.": "Päiväkirjasi on piilossa, kunnes avaat sen.",

@@ -10,7 +10,7 @@ Doktorun için belirti raporu
 Perimenopoz belirtilerini günde 30 saniyede kaydet ve randevuna tek sayfalık net bir özet götür. Verilerin iPhone'unda ve kendi iCloud'unda kalır.
 
 ## Keywords (100)
-perimenopoz,menopoz,klimakteri,sıcak basması,terleme,adet,regl,döngü,belirti,günlük,hormon
+perimenopoz,klimakteryum,sıcak basması,gece terlemesi,terleme,adet,regl,döngü,belirti,günlük,hormon
 
 ## Description (4000)
 Randevuna kötü geçen haftaların bulanık hatırasıyla değil, gerçeklerle git.
@@ -38,7 +38,7 @@ RANDEVUYA HAZIR
 VERİLERİN SANA AİT
 • iPhone'unda saklanır ve şifrelenerek kendi iCloud'una yedeklenir. Biz asla görmeyiz
 • Hesap yok, reklam yok, veri satışı yok
-• İstediğin zaman her şeyi bir dosyaya aktar ve geri yükle
+• İstediğin zaman her şeyi bir dosyaya dışa aktar ve yeniden içe aktar
 • Silinen günler 30 gün boyunca Son Silinenler'de kalır
 • İsteğe bağlı Face ID kilidi ve Apple Sağlık eşzamanlaması
 

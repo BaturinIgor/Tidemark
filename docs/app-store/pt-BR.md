@@ -10,7 +10,7 @@ Relatório para o seu médico
 Registre os sintomas da perimenopausa em 30 segundos por dia e leve um resumo claro de uma página para a consulta. Seus dados ficam no seu iPhone e no seu iCloud.
 
 ## Keywords (100)
-perimenopausa,menopausa,climatério,fogacho,calorão,suor,menstruação,ciclo,sintomas,diário,hormônio
+perimenopausa,climatério,fogacho,calorão,ondas de calor,suor noturno,menstruação,sintomas,hormônio
 
 ## Description (4000)
 Chegue à consulta com fatos, não com uma lembrança confusa de semanas ruins.
@@ -26,7 +26,7 @@ REGISTRO EM 30 SEGUNDOS
 SEUS PRÓPRIOS PADRÕES
 • Um gráfico dia a dia dos seus sintomas em 4, 8 ou 12 semanas
 • Um calendário do ciclo com dias de menstruação e de escape
-• Quantas vezes um sintoma veio depois de álcool ou de uma noite ruim, só como contagem
+• Quantas vezes um sintoma apareceu junto com álcool ou uma noite ruim, só como contagem
 • Seus números antes e depois de começar um medicamento ou suplemento
 • Um resumo curto da semana todo domingo
 
@@ -57,6 +57,6 @@ Primeira versão.
 1. Seus sintomas em uma página, prontos para a consulta
 2. Registre em 30 segundos por dia
 3. Registre um fogacho pela Tela Bloqueada
-4. Semanas num relance
+4. Suas semanas de relance
 5. Seus dados, seu iCloud. Nós nunca vemos
 6. Anote o que foi decidido depois de cada consulta

@@ -10,7 +10,7 @@ Symptomrapport til lægen
 Registrer gener i perimenopausen på 30 sekunder om dagen, og tag et klart resumé på én side med til lægen. Dine data bliver på din iPhone og i din egen iCloud.
 
 ## Keywords (100)
-perimenopause,overgangsalder,menopause,hedeture,natlig sved,menstruation,cyklus,gener,dagbog,hormon
+perimenopause,klimakteriet,menopause,hedeture,nattesved,menstruation,cyklus,gener,symptomer,dagbog
 
 ## Description (4000)
 Mød op til din aftale med fakta, ikke med et sløret minde om dårlige uger.
@@ -20,7 +20,7 @@ Med Tidemark fører du en enkel daglig log over gener i perimenopause og overgan
 REGISTRER PÅ 30 SEKUNDER
 • Vurder op til 8 gener, du selv vælger: ingen, let, moderat eller svær
 • Noter, hvor meget generne var i vejen, blødning og faktorer som stress, alkohol eller dårlig søvn
-• Registrer en hedetur eller natlig sved med ét tryk, også fra widgetten på låseskærmen
+• Registrer en hedetur eller nattesved med ét tryk, også fra widgetten på låseskærmen
 • Har du sprunget en dag over? Udfyld de tre seneste
 
 DINE EGNE MØNSTRE
@@ -39,7 +39,7 @@ DINE DATA ER DINE
 • Gemt på din iPhone og sikkerhedskopieret, krypteret, til din egen iCloud. Vi ser dem aldrig
 • Ingen konto, ingen reklamer, intet salg af data
 • Eksporter alt til en fil når som helst, og importer det igen
-• Slettede dage ligger 30 dage i For nylig slettet
+• Slettede dage ligger 30 dage i Senest slettet
 • Valgfri lås med Face ID og synkronisering med Apple Sundhed
 
 GRATIS OG ABONNEMENT

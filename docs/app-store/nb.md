@@ -25,8 +25,8 @@ REGISTRER PÅ 30 SEKUNDER
 
 DINE EGNE MØNSTRE
 • Et dag-for-dag-diagram over plagene dine over 4, 8 eller 12 uker
-• En syklus-kalender med mens- og sporblødningsdager
-• Hvor ofte en plage kom etter alkohol eller dårlig søvn, som rene tall
+• En sykluskalender med mens- og sporblødningsdager
+• Hvor ofte en plage kom samtidig med alkohol eller dårlig søvn, som rene tall
 • Tallene dine før og etter at du startet med en medisin eller et kosttilskudd
 • Et kort ukesammendrag hver søndag
 
@@ -57,6 +57,6 @@ Første versjon.
 1. Plagene dine på én side, klare til timen
 2. Registrer på 30 sekunder om dagen
 3. Registrer en hetetokt fra låseskjermen
-4. Uker på et blikk
+4. Ukene dine med ett blikk
 5. Dine data, din iCloud. Vi ser dem aldri
 6. Noter hva som ble bestemt etter hver time

@@ -10,7 +10,7 @@ Besvärsrapport till läkaren
 Logga besvär i perimenopausen på 30 sekunder om dagen och ta med en tydlig sammanfattning på en sida till besöket. Din data stannar på din iPhone och i din iCloud.
 
 ## Keywords (100)
-perimenopaus,klimakteriet,menopaus,värmevallningar,nattsvett,mens,cykel,besvär,dagbok,hormoner
+perimenopaus,klimakteriet,övergångsåldern,menopaus,värmevallningar,vallningar,nattsvettningar,mens
 
 ## Description (4000)
 Gå till besöket med fakta, inte med ett suddigt minne av dåliga veckor.
@@ -20,13 +20,13 @@ Med Tidemark för du en enkel daglig logg över besvär i perimenopaus och klima
 LOGGA PÅ 30 SEKUNDER
 • Skatta upp till 8 besvär du själv väljer: inga, lätta, måttliga eller svåra
 • Notera hur mycket besvären påverkade dagen, blödning och faktorer som stress, alkohol eller dålig sömn
-• Logga en värmevallning eller nattsvett med ett tryck, även från widgeten på låsskärmen
+• Logga en värmevallning eller nattsvettning med ett tryck, även från widgeten på låsskärmen
 • Missat en dag? Fyll i de tre senaste
 
 DINA EGNA MÖNSTER
 • Ett dag-för-dag-diagram över dina besvär under 4, 8 eller 12 veckor
 • En cykelkalender med mens- och stänkblödningsdagar
-• Hur ofta ett besvär följde på alkohol eller dålig sömn, som enkla antal
+• Hur ofta ett besvär förekom samtidigt med alkohol eller dålig sömn, som enkla antal
 • Dina siffror före och efter att du började med ett läkemedel eller kosttillskott
 • En kort veckosammanfattning varje söndag
 
@@ -39,7 +39,7 @@ DIN DATA ÄR DIN
 • Sparas på din iPhone och säkerhetskopieras krypterat till din egen iCloud. Vi ser den aldrig
 • Inget konto, ingen reklam, ingen försäljning av data
 • Exportera allt till en fil när du vill och importera tillbaka
-• Raderade dagar ligger kvar i 30 dagar under Nyligen raderat
+• Raderade dagar ligger kvar i 30 dagar under Nyligen raderade
 • Valfritt lås med Face ID och synk med Apple Hälsa
 
 GRATIS OCH PRENUMERATION
@@ -57,6 +57,6 @@ Första versionen.
 1. Dina besvär på en sida, redo för besöket
 2. Checka in på 30 sekunder om dagen
 3. Logga en värmevallning från låsskärmen
-4. Veckor i en överblick
+4. Dina veckor i en överblick
 5. Din data, din iCloud. Vi ser den aldrig
 6. Notera vad som bestämdes efter varje besök

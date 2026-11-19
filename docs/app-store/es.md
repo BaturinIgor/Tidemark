@@ -4,18 +4,18 @@
 Tidemark: diario de menopausia
 
 ## Subtitle (30)
-Informe de síntomas al médico
+Tus síntomas para el médico
 
 ## Promotional text (170)
 Registra tus síntomas de perimenopausia en 30 segundos al día y lleva un resumen claro de una página a tu próxima cita. Tus datos se quedan en tu iPhone y en tu iCloud.
 
 ## Keywords (100)
-perimenopausia,menopausia,sofocos,sudores,regla,ciclo,síntomas,diario,hormonas,registro,climaterio
+perimenopausia,premenopausia,sofocos,bochornos,sudores,regla,ciclo,síntomas,hormonas,climaterio
 
 ## Description (4000)
 Llega a tu cita con datos, no con un recuerdo borroso de semanas malas.
 
-Tidemark te ayuda a llevar un registro diario sencillo de los síntomas de la perimenopausia y la menopausia, y lo convierte en un resumen de una página para enseñar a tu médico.
+Tidemark te ayuda a llevar un registro diario sencillo de los síntomas de la perimenopausia y la menopausia, y lo convierte en un resumen de una página para mostrar a tu médico.
 
 REGISTRO EN 30 SEGUNDOS
 • Valora hasta 8 síntomas que tú eliges: nada, leve, moderado o fuerte
@@ -43,9 +43,9 @@ TUS DATOS SON TUYOS
 • Bloqueo con Face ID y sincronización con Apple Salud opcionales
 
 GRATIS Y DE PAGO
-El registro diario, el historial, los patrones, la copia, la exportación y el informe en pantalla son gratis. Una suscripción mensual o anual añade el informe en PDF para imprimir o enviar (los precios varían según el país). El pago se carga a tu ID de Apple y se renueva automáticamente salvo que lo canceles al menos 24 horas antes del final del periodo. Gestiónala o cancélala en los ajustes de tu ID de Apple.
+El registro diario, el historial, los patrones, la copia, la exportación y el informe en pantalla son gratis. Una suscripción mensual o anual añade el informe en PDF para imprimir o enviar (los precios varían según el país). El pago se carga a tu ID de Apple. La suscripción se renueva automáticamente salvo que la canceles al menos 24 horas antes del final del periodo. Gestiónala o cancélala en los ajustes de tu ID de Apple.
 
-Tidemark registra lo que tú indicas. No diagnostica, no sugiere tratamientos ni da consejo médico. Si te preocupa un síntoma, contacta con tu médico.
+Tidemark registra lo que tú indicas. No diagnostica, no sugiere tratamientos ni da consejo médico. Si te preocupa un síntoma, consulta a tu médico.
 
 Condiciones de uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Política de privacidad: [enlace a la política publicada]

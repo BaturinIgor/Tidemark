@@ -394,7 +394,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@: umiarkowane lub gorzej"
+            "value": "%@: nasilenie umiarkowane lub większe"
           }
         },
         "pt-BR": {
@@ -881,7 +881,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@: moderado o fuerte %lld de %lld días"
+            "value": "%@: moderado o fuerte en %lld de %lld días"
           }
         },
         "fi": {
@@ -1012,13 +1012,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用中 %lld"
+            "value": "%lld件服用中"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "사용 중 %lld개"
+            "value": "%lld개 복용 중"
           }
         },
         "nb": {
@@ -1048,7 +1048,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Принимаю: %lld"
+            "value": "Активных: %lld"
           }
         },
         "sv": {
@@ -1066,7 +1066,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用中 %lld 种"
+            "value": "正在使用 %lld 种"
           }
         }
       }
@@ -1675,7 +1675,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld päivää sitten · kesto %lld päivää"
+            "value": "%lld pv sitten · kesto %lld pv"
           }
         },
         "fr": {
@@ -1717,7 +1717,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld dn. temu · trwał %lld dn."
+            "value": "%lld d. temu · trwała %lld d."
           }
         },
         "pt-BR": {
@@ -1935,7 +1935,7 @@
               "few": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld dni jest już na tym iPhonie i pozostaje bez zmian."
+                  "value": "%lld dni są już na tym iPhonie i pozostają bez zmian."
                 }
               },
               "many": {
@@ -1978,9 +1978,33 @@
           }
         },
         "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Дней уже на этом iPhone: %lld. Они останутся без изменений."
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Данные за %lld дня уже есть на этом iPhone и останутся без изменений."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Данные за %lld дней уже есть на этом iPhone и останутся без изменений."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Данные за %lld день уже есть на этом iPhone и останутся без изменений."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Данные за %lld дня уже есть на этом iPhone и останутся без изменений."
+                }
+              }
+            }
           }
         },
         "sv": {
@@ -2019,15 +2043,27 @@
       "extractionState": "manual",
       "localizations": {
         "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld dage mellem korteste og længste. Kommer med under Cyklus i din rapport."
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld dag mellem korteste og længste. Kommer med under Cyklus i din rapport."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld dage mellem korteste og længste. Kommer med under Cyklus i din rapport."
+                }
+              }
+            }
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld Tage zwischen kürzestem und längstem. Kommt in den Abschnitt Zyklus deines Berichts."
+            "value": "%lld Tage Unterschied zwischen dem kürzesten und dem längsten Zyklus. Erscheint im Abschnitt „Zyklus“ deines Berichts."
           }
         },
         "en": {
@@ -2043,9 +2079,21 @@
           }
         },
         "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lyhimmän ja pisimmän ero %lld päivää. Näkyy raportin Kierto-osiossa."
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Lyhimmän ja pisimmän ero %lld päivä. Näkyy raportin Kierto-osiossa."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Lyhimmän ja pisimmän ero %lld päivää. Näkyy raportin Kierto-osiossa."
+                }
+              }
+            }
           }
         },
         "fr": {
@@ -2815,7 +2863,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld suivis sur %lld. Vous pouvez créer un rapport après %lld, mais 14 montrent un schéma clair à votre médecin."
+            "value": "%lld suivis sur %lld. Vous pouvez créer un rapport après %lld, mais 14 montrent une tendance claire à votre médecin."
           }
         },
         "it": {
@@ -3237,7 +3285,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld/%lld %@"
+            "value": "%lld/%lld (%@)"
           }
         },
         "fr": {
@@ -3451,7 +3499,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld %@"
+            "value": "%lld (%@)"
           }
         },
         "fr": {
@@ -3823,13 +3871,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld tiputteluvuotopäivä"
+                  "value": "%lld tiputtelupäivä"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld tiputteluvuotopäivää"
+                  "value": "%lld tiputtelupäivää"
                 }
               }
             }
@@ -3874,13 +3922,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "不正出血 %lld日"
+            "value": "少量の出血 %lld日"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "점상 출혈 %lld일"
+            "value": "소량 출혈 %lld일"
           }
         },
         "nb": {
@@ -3994,7 +4042,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld gün lekelenme"
+            "value": "%lld lekelenme günü"
           }
         },
         "zh-Hans": {
@@ -4512,7 +4560,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "**Rapporten er klar:** %lld registreringer, %lld spørgeskemaer, %lld spørgsmål gemt."
+            "value": "**Rapporten er klar.** Gemt: registreringer %lld, spørgeskemaer %lld, spørgsmål %lld."
           }
         },
         "de": {
@@ -4536,7 +4584,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "**Raportti valmis:** %lld kirjausta, %lld kyselyä, %lld kysymystä tallennettu."
+            "value": "**Raportti valmis:** kirjaukset %lld, kyselyt %lld, kysymykset %lld."
           }
         },
         "fr": {
@@ -4833,7 +4881,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "+ Natlig sved"
+            "value": "+ Nattesved"
           }
         },
         "de": {
@@ -4917,7 +4965,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+ Nattsvett"
+            "value": "+ Nattsvettning"
           }
         },
         "tr": {
@@ -4956,9 +5004,21 @@
           }
         },
         "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "+%lld leve"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "+%lld leve"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "+%lld leves"
+                }
+              }
+            }
           }
         },
         "fi": {
@@ -4968,27 +5028,51 @@
           }
         },
         "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "+%lld léger"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "+%lld léger"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "+%lld légers"
+                }
+              }
+            }
           }
         },
         "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "+%lld lieve"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "+%lld lieve"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "+%lld lievi"
+                }
+              }
+            }
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "＋軽い %lld"
+            "value": "ほか軽い症状 %lld"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "+약함 %lld"
+            "value": "약함 +%lld"
           }
         },
         "nb": {
@@ -5018,7 +5102,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "+%lld слабо"
+            "value": "Слабо: +%lld"
           }
         },
         "sv": {
@@ -5036,7 +5120,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "+轻度 %lld"
+            "value": "另有 %lld 项轻度"
           }
         }
       }
@@ -5374,7 +5458,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ein paar Tipps. Dein nächster Bericht zeigt, was sich danach verändert hat."
+            "value": "Nur kurz antippen. Dein nächster Bericht zeigt, was sich danach verändert hat."
           }
         },
         "en": {
@@ -5660,7 +5744,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сильно"
+            "value": "Очень сильно"
           }
         },
         "sv": {
@@ -5903,13 +5987,13 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "En uges registreringer viser din læge et mønster, ikke én dårlig dag. Har du sprunget en dag over? Du kan udfylde de sidste 3 dage fra I dag."
+            "value": "En uges registreringer viser din læge et mønster, ikke én dårlig dag. Har du sprunget en dag over? Du kan udfylde de sidste 3 dage fra fanen I dag."
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Eine Woche Check-ins zeigt ein Muster, nicht nur einen schlechten Tag. Einen Tag verpasst? Die letzten 3 Tage kannst du unter Heute nachtragen."
+            "value": "Eine Woche Check-ins zeigt deiner Ärztin oder deinem Arzt ein Muster, nicht nur einen schlechten Tag. Einen Tag verpasst? Die letzten 3 Tage kannst du unter „Heute“ nachtragen."
           }
         },
         "en": {
@@ -6165,7 +6249,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "활성"
+            "value": "이용 중"
           }
         },
         "nb": {
@@ -6213,7 +6297,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已激活"
+            "value": "有效"
           }
         }
       }
@@ -6973,7 +7057,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Efter hver aftale spørger I dag, hvordan det gik. Dine noter vises her."
+            "value": "Efter hver aftale spørger vi under I dag, hvordan det gik. Dine noter vises her."
           }
         },
         "de": {
@@ -7399,9 +7483,21 @@
       "extractionState": "manual",
       "localizations": {
         "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Desuden %lld hurtige registreringer og medicin."
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Desuden %lld hurtig registrering og medicin."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Desuden %lld hurtige registreringer og medicin."
+                }
+              }
+            }
           }
         },
         "de": {
@@ -7423,9 +7519,21 @@
           }
         },
         "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lisäksi %lld pikakirjausta ja lääkkeet."
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Lisäksi %lld pikakirjaus ja lääkkeet."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Lisäksi %lld pikakirjausta ja lääkkeet."
+                }
+              }
+            }
           }
         },
         "fr": {
@@ -7776,7 +7884,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Svar på skjemaet hver 2. uke for å se endringen."
+            "value": "Svar på skjemaet annenhver uke for å se endringen."
           }
         },
         "nl": {
@@ -7806,7 +7914,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Svara på formuläret var 2:a vecka för att se förändringen."
+            "value": "Svara på formuläret varannan vecka för att se förändringen."
           }
         },
         "tr": {
@@ -8085,13 +8193,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "Appleヘルスケア"
+            "value": "ヘルスケア"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apple 건강"
+            "value": "건강 앱"
           }
         },
         "nb": {
@@ -8121,7 +8229,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apple Здоровье"
+            "value": "Здоровье"
           }
         },
         "sv": {
@@ -8139,7 +8247,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apple 健康"
+            "value": "“健康”App"
           }
         }
       }
@@ -8192,13 +8300,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "このデバイスではAppleヘルスケアを利用できません。"
+            "value": "このデバイスではヘルスケアを利用できません。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "이 기기에서는 Apple 건강을 사용할 수 없어요."
+            "value": "이 기기에서는 건강 앱을 사용할 수 없어요."
           }
         },
         "nb": {
@@ -8228,7 +8336,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apple Здоровье недоступно на этом устройстве."
+            "value": "Приложение «Здоровье» недоступно на этом устройстве."
           }
         },
         "sv": {
@@ -8246,7 +8354,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "此设备无法使用 Apple 健康。"
+            "value": "此设备无法使用“健康”App。"
           }
         }
       }
@@ -9264,7 +9372,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Назад к сегодня"
+            "value": "Вернуться на «Сегодня»"
           }
         },
         "sv": {
@@ -9311,7 +9419,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Copia %@"
+            "value": "Copia hecha %@"
           }
         },
         "fi": {
@@ -9329,7 +9437,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Backup %@"
+            "value": "Backup eseguito %@"
           }
         },
         "ja": {
@@ -9359,7 +9467,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kopia %@"
+            "value": "Kopia zapasowa: %@"
           }
         },
         "pt-BR": {
@@ -9674,7 +9782,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bloeding"
+            "value": "Bloedverlies"
           }
         },
         "pl": {
@@ -9739,7 +9847,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Un sangrado después de 12 meses sin regla no debe esperar a tu cita. Contacta ya con tu médico."
+            "value": "Un sangrado después de 12 meses sin regla no debe esperar a tu cita. Ponte en contacto con tu médico ahora."
           }
         },
         "fi": {
@@ -9757,7 +9865,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Un sanguinamento dopo 12 mesi senza mestruazioni non deve aspettare l'appuntamento. Contatta subito il tuo medico."
+            "value": "Un sanguinamento dopo 12 mesi senza mestruazioni non deve aspettare la visita. Contatta subito il tuo medico."
           }
         },
         "ja": {
@@ -9799,7 +9907,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Кровотечение после 12 месяцев без месячных не должно ждать приема. Свяжитесь с врачом сейчас."
+            "value": "Если кровотечение появилось после 12 месяцев без месячных, не ждите приема. Свяжитесь с врачом сейчас."
           }
         },
         "sv": {
@@ -9826,15 +9934,39 @@
       "extractionState": "manual",
       "localizations": {
         "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blødning %lld dage"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blødning %lld dag"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blødning %lld dage"
+                }
+              }
+            }
           }
         },
         "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blutung an %lld Tagen"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blutung an %lld Tag"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blutung an %lld Tagen"
+                }
+              }
+            }
           }
         },
         "en": {
@@ -9856,9 +9988,21 @@
           }
         },
         "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sangrado %lld días"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sangrado en %lld día"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sangrado en %lld días"
+                }
+              }
+            }
           }
         },
         "fi": {
@@ -9868,15 +10012,39 @@
           }
         },
         "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saignements %lld jours"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Saignements sur %lld jour"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Saignements sur %lld jours"
+                }
+              }
+            }
           }
         },
         "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sanguinamento in %lld giorni"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sanguinamento in %lld giorno"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sanguinamento in %lld giorni"
+                }
+              }
+            }
           }
         },
         "ja": {
@@ -9892,15 +10060,39 @@
           }
         },
         "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blødning %lld dager"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blødning %lld dag"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blødning %lld dager"
+                }
+              }
+            }
           }
         },
         "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bloeding op %lld dagen"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Bloedverlies op %lld dag"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Bloedverlies op %lld dagen"
+                }
+              }
+            }
           }
         },
         "pl": {
@@ -9910,9 +10102,21 @@
           }
         },
         "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sangramento em %lld dias"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sangramento em %lld dia"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Sangramento em %lld dias"
+                }
+              }
+            }
           }
         },
         "ru": {
@@ -9922,9 +10126,21 @@
           }
         },
         "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blödning %lld dagar"
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blödning %lld dag"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Blödning %lld dagar"
+                }
+              }
+            }
           }
         },
         "tr": {
@@ -10007,7 +10223,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bloeding vandaag"
+            "value": "Bloedverlies vandaag"
           }
         },
         "pl": {
@@ -10833,13 +11049,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Changement du désir, de l'activité ou de la satisfaction sexuelle"
+            "value": "Changement du désir, de l’activité ou de la satisfaction sexuelle"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cambiamenti nel desiderio, nell'attività o nella soddisfazione sessuale"
+            "value": "Cambiamenti nel desiderio, nell’attività o nella soddisfazione sessuale"
           }
         },
         "ja": {
@@ -11047,7 +11263,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Suivi fait"
+            "value": "Suivi enregistré"
           }
         },
         "it": {
@@ -11267,7 +11483,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tornare più avanti"
+            "value": "Nuova visita più avanti"
           }
         },
         "ja": {
@@ -11677,7 +11893,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿Podrían ser estos síntomas de la perimenopausia, por mi edad y los cambios en mi ciclo?"
+            "value": "¿Podrían deberse estos síntomas a la perimenopausia, por mi edad y los cambios en mi ciclo?"
           }
         },
         "fi": {
@@ -11695,7 +11911,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Questi sintomi potrebbero essere perimenopausa, considerando la mia età e i cambiamenti del ciclo?"
+            "value": "Questi sintomi potrebbero essere dovuti alla perimenopausa, considerando la mia età e i cambiamenti del ciclo?"
           }
         },
         "ja": {
@@ -11933,7 +12149,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cyclus en bloedingen"
+            "value": "Cyclus en bloedverlies"
           }
         },
         "pl": {
@@ -12301,7 +12517,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Daglige registreringer og hurtige registreringer"
+            "value": "Daglige og hurtige registreringer"
           }
         },
         "de": {
@@ -12367,13 +12583,13 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Codzienne wpisy i szybkie wpisy"
+            "value": "Codzienne i szybkie wpisy"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Registros diários e rápidos"
+            "value": "Registros diários e registros rápidos"
           }
         },
         "ru": {
@@ -12688,7 +12904,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ciemniejszy oznacza trudniejszy dzień. Najtrudniejszy: %@. Najłatwiejszy: %@."
+            "value": "Ciemniejszy kolor oznacza trudniejszy dzień. Najtrudniejszy: %@. Najłatwiejszy: %@."
           }
         },
         "pt-BR": {
@@ -13175,7 +13391,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Días presente"
+            "value": "Días con el síntoma"
           }
         },
         "fi": {
@@ -13187,13 +13403,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jours présents"
+            "value": "Jours avec symptôme"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Giorni presenti"
+            "value": "Giorni con il sintomo"
           }
         },
         "ja": {
@@ -13692,7 +13908,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Var generne i vejen for din dag?"
+            "value": "Påvirkede generne din dag?"
           }
         },
         "de": {
@@ -13746,7 +13962,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Var plagene i veien for deg i dag?"
+            "value": "Påvirket plagene dagen din?"
           }
         },
         "nl": {
@@ -13758,7 +13974,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Czy objawy przeszkadzały Ci dzisiaj?"
+            "value": "Czy objawy przeszkadzały Ci w ciągu dnia?"
           }
         },
         "pt-BR": {
@@ -13776,13 +13992,13 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Var besvären i vägen för dig i dag?"
+            "value": "Påverkade besvären din dag?"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Belirtiler bugün gününü etkiledi mi?"
+            "value": "Belirtiler gününü etkiledi mi?"
           }
         },
         "zh-Hans": {
@@ -13936,7 +14152,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ai-je besoin d'une prise de sang, ou pouvons-nous décider à partir de mes symptômes ?"
+            "value": "Ai-je besoin d’une prise de sang, ou pouvons-nous décider à partir de mes symptômes ?"
           }
         },
         "it": {
@@ -14031,7 +14247,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿Tienes una cita reservada?"
+            "value": "¿Ya tienes cita?"
           }
         },
         "fi": {
@@ -14043,7 +14259,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Avez-vous un rendez-vous de prévu ?"
+            "value": "Avez-vous déjà pris rendez-vous ?"
           }
         },
         "it": {
@@ -14358,7 +14574,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jokainen kirjaus lisää arviosi Terveyteen. Päivän muokkaaminen korvaa sen, mitä Tidemark kirjoitti sille."
+            "value": "Jokainen kirjaus lisää arviosi Terveys-appiin. Päivän muokkaaminen korvaa sen, mitä Tidemark kirjoitti sille."
           }
         },
         "fr": {
@@ -14412,7 +14628,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Каждая отметка добавляет ваши оценки в Здоровье. Если изменить день, то, что Tidemark записал за него, будет заменено."
+            "value": "Каждая отметка добавляет ваши оценки в «Здоровье». Если изменить день, то, что Tidemark записал за него, будет заменено."
           }
         },
         "sv": {
@@ -14762,7 +14978,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Perioder med varme, sveden"
+            "value": "Hedeture, svedeture"
           }
         },
         "de": {
@@ -14852,7 +15068,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sıcaklık basması, terleme"
+            "value": "Sıcak basması, terleme atakları"
           }
         },
         "zh-Hans": {
@@ -14976,7 +15192,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Alt flyttes til For nylig slettet i %lld dage, på denne iPhone og i din sikkerhedskopi. Derfra kan du hente det tilbage."
+            "value": "Alt flyttes til Senest slettet i %lld dage, på denne iPhone og i din sikkerhedskopi. Derfra kan du hente det tilbage."
           }
         },
         "de": {
@@ -15006,7 +15222,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tout passe dans Supprimés récemment pendant %lld jours, sur cet iPhone et dans votre sauvegarde. Vous pourrez tout récupérer depuis là."
+            "value": "Tout passe dans Supprimés récemment pendant %lld jours, sur cet iPhone et dans votre sauvegarde. Vous pourrez tout y récupérer."
           }
         },
         "it": {
@@ -15060,13 +15276,13 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Allt flyttas till Nyligen raderat i %lld dagar, på den här iPhonen och i din säkerhetskopia. Därifrån kan du ta tillbaka det."
+            "value": "Allt flyttas till Nyligen raderade i %lld dagar, på den här iPhonen och i din säkerhetskopia. Därifrån kan du ta tillbaka det."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Her şey %lld gün boyunca bu iPhone'da ve yedeğinde Son Silinenler'e taşınır. Oradan geri getirebilirsin."
+            "value": "Her şey bu iPhone'da ve yedeğinde Son Silinenler'e taşınır ve %lld gün orada kalır. Oradan geri getirebilirsin."
           }
         },
         "zh-Hans": {
@@ -15755,7 +15971,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Moral bas, tristesse, envie de pleurer, manque d'élan"
+            "value": "Moral bas, tristesse, envie de pleurer, manque d’élan"
           }
         },
         "it": {
@@ -15945,7 +16161,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Datei exportiert %@"
+            "value": "Datei exportiert am %@"
           }
         },
         "en": {
@@ -15957,7 +16173,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Archivo exportado %@"
+            "value": "Archivo exportado el %@"
           }
         },
         "fi": {
@@ -15969,13 +16185,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fichier exporté %@"
+            "value": "Fichier exporté le %@"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "File esportato %@"
+            "value": "File esportato il %@"
           }
         },
         "ja": {
@@ -16207,7 +16423,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fyll dem inn mens du husker. Du kan gå opptil %lld dager tilbake, så rapporten blir ærlig."
+            "value": "Fyll dem inn mens du husker. Du kan gå opptil %lld dager tilbake, så rapporten blir riktig."
           }
         },
         "nl": {
@@ -16237,7 +16453,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fyll i dem medan du minns. Du kan gå upp till %lld dagar bakåt, så att rapporten blir ärlig."
+            "value": "Fyll i dem medan du minns. Du kan gå upp till %lld dagar bakåt, så att rapporten stämmer."
           }
         },
         "tr": {
@@ -16266,7 +16482,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nachtermin %@"
+            "value": "Nachtermin am %@"
           }
         },
         "en": {
@@ -16278,7 +16494,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Seguimiento %@"
+            "value": "Cita de seguimiento: %@"
           }
         },
         "fi": {
@@ -16290,13 +16506,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Suivi %@"
+            "value": "Rendez-vous de suivi le %@"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Controllo %@"
+            "value": "Controllo il %@"
           }
         },
         "ja": {
@@ -16617,7 +16833,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Per esempio: sonno e umore da primavera"
+            "value": "Per esempio: sonno e umore dalla primavera"
           }
         },
         "ja": {
@@ -16920,7 +17136,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Olvidar palabras"
+            "value": "Olvido de palabras"
           }
         },
         "fi": {
@@ -16932,13 +17148,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mots qui échappent"
+            "value": "Difficulté à trouver ses mots"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dimenticare le parole"
+            "value": "Difficoltà a trovare le parole"
           }
         },
         "ja": {
@@ -17009,13 +17225,13 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Det er tid til spørgeskemaet hver anden uge"
+            "value": "Det er tid til dit spørgeskema"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Der Fragebogen (alle 2 Wochen) ist fällig"
+            "value": "Dein 14-tägiger Fragebogen ist fällig"
           }
         },
         "en": {
@@ -17027,7 +17243,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Toca el cuestionario quincenal"
+            "value": "Es hora del cuestionario quincenal"
           }
         },
         "fi": {
@@ -17039,7 +17255,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Le questionnaire de la quinzaine est à remplir"
+            "value": "Votre questionnaire des 2 semaines est à remplir"
           }
         },
         "it": {
@@ -17182,7 +17398,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bezpłatnie"
+            "value": "Bezpłatny"
           }
         },
         "pt-BR": {
@@ -17533,7 +17749,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "激素治疗"
+            "value": "激素替代疗法"
           }
         }
       }
@@ -17901,7 +18117,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Flusso abbondante"
+            "value": "Sanguinamento abbondante"
           }
         },
         "ja": {
@@ -18507,7 +18723,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hedeture og natlig sved registreret: %lld"
+            "value": "Hedeture og nattesved registreret: %lld"
           }
         },
         "de": {
@@ -18614,7 +18830,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hedeture, sveden"
+            "value": "Hedeture eller sveden"
           }
         },
         "de": {
@@ -18674,7 +18890,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Opvliegers, zweten"
+            "value": "Opvliegers of zweten"
           }
         },
         "pl": {
@@ -18686,7 +18902,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fogachos, suor"
+            "value": "Fogachos ou suor"
           }
         },
         "ru": {
@@ -19108,7 +19324,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jak poszła wizyta %@?"
+            "value": "Jak poszła wizyta z %@?"
           }
         },
         "pt-BR": {
@@ -19274,7 +19490,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cómo se sintieron los días"
+            "value": "Cómo fueron los días"
           }
         },
         "fi": {
@@ -19346,7 +19562,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Günler nasıl hissettirdi"
+            "value": "Günlerin nasıl geçti"
           }
         },
         "zh-Hans": {
@@ -19613,7 +19829,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Come lo prendi, secondo il medico o il foglietto"
+            "value": "Come lo prendi, secondo il medico o il foglietto illustrativo"
           }
         },
         "ja": {
@@ -19774,13 +19990,13 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bunu bıraktım"
+            "value": "Bunu kullanmayı bıraktım"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "我已停用"
+            "value": "我已停药"
           }
         }
       }
@@ -20332,7 +20548,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aufnehmen"
+            "value": "Im Bericht"
           }
         },
         "en": {
@@ -20404,7 +20620,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Включить"
+            "value": "Что включить"
           }
         },
         "sv": {
@@ -20600,7 +20816,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intiem en plassen"
+            "value": "Intiem en blaas"
           }
         },
         "pl": {
@@ -20618,7 +20834,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Интимное и мочеиспускание"
+            "value": "Интимная сфера и мочеиспускание"
           }
         },
         "sv": {
@@ -20630,7 +20846,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Genital ve idrar"
+            "value": "Cinsel bölge ve idrar yolu"
           }
         },
         "zh-Hans": {
@@ -20891,13 +21107,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Faut-il écarter d'autres causes, comme la thyroïde ou le taux de fer ?"
+            "value": "Faut-il écarter d’autres causes, comme la thyroïde ou le taux de fer ?"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "C'è altro da escludere, come la tiroide o i livelli di ferro?"
+            "value": "C’è altro da escludere, come la tiroide o i livelli di ferro?"
           }
         },
         "ja": {
@@ -20986,7 +21202,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Picor en la piel"
+            "value": "Picazón en la piel"
           }
         },
         "fi": {
@@ -21987,7 +22203,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sonuncusu %@"
+            "value": "Sonuncusu saat %@"
           }
         },
         "zh-Hans": {
@@ -22224,7 +22440,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Letzte Woche %lld"
+            "value": "Letzte Woche: %lld"
           }
         },
         "en": {
@@ -22236,7 +22452,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semana pasada %lld"
+            "value": "Semana pasada: %lld"
           }
         },
         "fi": {
@@ -22248,13 +22464,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Semaine dernière %lld"
+            "value": "Semaine dernière : %lld"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Settimana scorsa %lld"
+            "value": "Settimana scorsa: %lld"
           }
         },
         "ja": {
@@ -22860,7 +23076,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Registrer natlig sved"
+            "value": "Registrer nattesved"
           }
         },
         "de": {
@@ -22944,7 +23160,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Logga nattsvett"
+            "value": "Logga en nattsvettning"
           }
         },
         "tr": {
@@ -22991,7 +23207,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kirjaa vuoto päivittäisessä kirjauksessa. Kiertojen pituudet näkyvät kahden kuukautisten jälkeen."
+            "value": "Kirjaa vuoto päivittäisessä kirjauksessa. Kiertojen pituudet näkyvät, kun olet kirjannut kahdet kuukautiset."
           }
         },
         "fr": {
@@ -23027,7 +23243,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Registreer bloedingen in je dagelijkse check-in. Cycluslengtes verschijnen na twee menstruaties."
+            "value": "Registreer bloedverlies in je dagelijkse check-in. Cycluslengtes verschijnen na twee menstruaties."
           }
         },
         "pl": {
@@ -23467,7 +23683,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Humor baixo"
+            "value": "Desânimo"
           }
         },
         "ru": {
@@ -23663,7 +23879,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Laget med Tidemark %@."
+            "value": "Laget med Tidemark den %@."
           }
         },
         "nl": {
@@ -24079,7 +24295,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "中くらい"
+            "value": "ふつう"
           }
         },
         "ko": {
@@ -24115,7 +24331,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Умеренное"
+            "value": "Среднее"
           }
         },
         "sv": {
@@ -24133,7 +24349,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "中"
+            "value": "中等"
           }
         }
       }
@@ -24305,7 +24521,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Menopause Rating Scale, 0 til 44. Høyere betyr mer plager."
+            "value": "Menopause Rating Scale, 0 til 44. Høyere betyr flere plager."
           }
         },
         "nl": {
@@ -24543,13 +24759,13 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Умер."
+            "value": "Умерн."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mått."
+            "value": "Måttl."
           }
         },
         "tr": {
@@ -24727,7 +24943,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "매월"
+            "value": "월간"
           }
         },
         "nb": {
@@ -25078,7 +25294,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ниже"
+            "value": "Переместить вниз"
           }
         },
         "sv": {
@@ -25185,7 +25401,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Выше"
+            "value": "Переместить вверх"
           }
         },
         "sv": {
@@ -25458,7 +25674,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Envies fréquentes d'uriner"
+            "value": "Envies fréquentes d’uriner"
           }
         },
         "it": {
@@ -25559,13 +25775,13 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tihentynyt virtsaamistarve, pakko, vuoto"
+            "value": "Tihentynyt virtsaamistarve, virtsapakko, virtsankarkailu"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Envies fréquentes, urgences, fuites urinaires"
+            "value": "Envies fréquentes ou pressantes d’uriner, fuites urinaires"
           }
         },
         "it": {
@@ -25916,7 +26132,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Daarna vraagt iOS of meldingen zijn toegestaan."
+            "value": "Daarna vraagt iOS of je meldingen wilt toestaan."
           }
         },
         "pl": {
@@ -25963,7 +26179,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Natlig sved"
+            "value": "Nattesved"
           }
         },
         "de": {
@@ -26047,7 +26263,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nattsvett"
+            "value": "Nattsvettning"
           }
         },
         "tr": {
@@ -26070,7 +26286,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Natlig sved"
+            "value": "Nattesved"
           }
         },
         "de": {
@@ -26154,7 +26370,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nattliga svettningar"
+            "value": "Nattsvettningar"
           }
         },
         "tr": {
@@ -26708,7 +26924,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aucunes règles notées pour l’instant"
+            "value": "Pas encore de règles notées"
           }
         },
         "it": {
@@ -27035,7 +27251,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ancora nessuno"
+            "value": "Ancora nessuna"
           }
         },
         "ja": {
@@ -28420,7 +28636,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Rien pour l'instant"
+            "value": "Rien pour l’instant"
           }
         },
         "it": {
@@ -28824,7 +29040,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ein Tipp speichert eine Hitzewallung mit Uhrzeit."
+            "value": "Einmal tippen speichert eine Hitzewallung mit Uhrzeit."
           }
         },
         "en": {
@@ -28842,13 +29058,13 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Yksi napautus tallentaa kuuman aallon kellonajan kanssa."
+            "value": "Yksi napautus tallentaa kuuman aallon ja kellonajan."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Une touche enregistre une bouffée de chaleur avec l’heure."
+            "value": "Touchez une fois pour enregistrer une bouffée de chaleur avec l’heure."
           }
         },
         "it": {
@@ -29359,7 +29575,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Anderes"
+            "value": "Andere"
           }
         },
         "en": {
@@ -29740,7 +29956,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Łączne obciążenie dnia. Ciemniejszy oznacza trudniejszy dzień."
+            "value": "Łączne obciążenie dnia. Ciemniejszy kolor oznacza trudniejszy dzień."
           }
         },
         "pt-BR": {
@@ -29984,7 +30200,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "部分"
+            "value": "部分是"
           }
         }
       }
@@ -30227,7 +30443,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Periodo"
+            "value": "Periodo del informe"
           }
         },
         "fi": {
@@ -30679,13 +30895,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "睡眠不足"
+            "value": "よく眠れない"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "수면 부족"
+            "value": "잠을 잘 못 잠"
           }
         },
         "nb": {
@@ -30828,7 +31044,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Utskrivet"
+            "value": "På recept"
           }
         },
         "tr": {
@@ -31696,7 +31912,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "较大"
+            "value": "比较多"
           }
         }
       }
@@ -31710,7 +31926,7 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Vurder, hvordan din %lld gene føltes i dag. Det tager cirka 30 sekunder."
+                  "value": "Vurder, hvordan din gene føltes i dag. Det tager cirka 30 sekunder."
                 }
               },
               "other": {
@@ -31728,13 +31944,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Bewerte, wie sich heute dein %lld Symptom angefühlt hat. Das dauert etwa 30 Sekunden."
+                  "value": "Bewerte, wie es dir heute mit deiner Beschwerde ging. Das dauert etwa 30 Sekunden."
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Bewerte, wie sich heute deine %lld Symptome angefühlt haben. Das dauert etwa 30 Sekunden."
+                  "value": "Bewerte, wie es dir heute mit deinen %lld Beschwerden ging. Das dauert etwa 30 Sekunden."
                 }
               }
             }
@@ -31764,13 +31980,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Valora cómo fue hoy tu %lld síntoma. Tarda unos 30 segundos."
+                  "value": "Valora cómo fue hoy tu síntoma. Lleva unos 30 segundos."
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Valora cómo fueron hoy tus %lld síntomas. Tarda unos 30 segundos."
+                  "value": "Valora cómo fueron hoy tus %lld síntomas. Lleva unos 30 segundos."
                 }
               }
             }
@@ -31782,13 +31998,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Arvioi, miltä %lld oireesi tuntui tänään. Se vie noin 30 sekuntia."
+                  "value": "Arvioi, miltä oireesi tuntui tänään. Se vie noin 30 sekuntia."
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Arvioi, miltä %lld oirettasi tuntuivat tänään. Se vie noin 30 sekuntia."
+                  "value": "Arvioi, miltä %lld oirettasi tuntui tänään. Se vie noin 30 sekuntia."
                 }
               }
             }
@@ -31800,13 +32016,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Notez comment s’est sentie votre journée pour votre %lld symptôme. Cela prend environ 30 secondes."
+                  "value": "Notez comment vous vous êtes sentie aujourd’hui (%lld symptôme). Cela prend environ 30 secondes."
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Notez comment s’est sentie votre journée pour vos %lld symptômes. Cela prend environ 30 secondes."
+                  "value": "Notez comment vous vous êtes sentie aujourd’hui (%lld symptômes). Cela prend environ 30 secondes."
                 }
               }
             }
@@ -31818,7 +32034,7 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Valuta com’è andato oggi il tuo %lld sintomo. Ci vogliono circa 30 secondi."
+                  "value": "Valuta com’è andata oggi per il tuo sintomo. Ci vogliono circa 30 secondi."
                 }
               },
               "other": {
@@ -31848,7 +32064,7 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Vurder hvordan %lld plage kjentes i dag. Det tar omtrent 30 sekunder."
+                  "value": "Vurder hvordan plagen din kjentes i dag. Det tar omtrent 30 sekunder."
                 }
               },
               "other": {
@@ -31879,9 +32095,33 @@
           }
         },
         "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oceń, jak dziś odczuwasz swoje objawy (%lld). To zajmie około 30 sekund."
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Oceń, jak dziś odczuwasz swoje %lld objawy. To zajmie około 30 sekund."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Oceń, jak dziś odczuwasz swoich %lld objawów. To zajmie około 30 sekund."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Oceń, jak dziś odczuwasz swój %lld objaw. To zajmie około 30 sekund."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Oceń, jak dziś odczuwasz swoje objawy (%lld). To zajmie około 30 sekund."
+                }
+              }
+            }
           }
         },
         "pt-BR": {
@@ -31938,7 +32178,7 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Skatta hur ditt %lld besvär kändes i dag. Det tar cirka 30 sekunder."
+                  "value": "Skatta hur ditt besvär kändes i dag. Det tar cirka 30 sekunder."
                 }
               },
               "other": {
@@ -32184,7 +32424,7 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "For nylig slettet"
+            "value": "Senest slettet"
           }
         },
         "de": {
@@ -32268,7 +32508,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nyligen raderat"
+            "value": "Nyligen raderade"
           }
         },
         "tr": {
@@ -32725,7 +32965,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Verlängert sich automatisch, bis du in Einstellungen › Apple-ID › Abonnements kündigst. Deine Daten bleiben deine, auch wenn du kündigst."
+            "value": "Verlängert sich automatisch, bis du in Einstellungen › Apple-ID › Abonnements kündigst. Deine Daten gehören weiter dir, auch wenn du kündigst."
           }
         },
         "en": {
@@ -33171,7 +33411,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Palauta kaikki %@ poistettu"
+            "value": "Palauta kaikki, mikä poistettiin %@"
           }
         },
         "fr": {
@@ -33409,7 +33649,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "구입 복원"
+            "value": "구입 항목 복원"
           }
         },
         "nb": {
@@ -34301,7 +34541,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Spara PDF att skriva ut eller skicka"
+            "value": "Spara PDF för att skriva ut eller skicka"
           }
         },
         "tr": {
@@ -34521,7 +34761,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kaydı kaydet"
+            "value": "Kaydı tamamla"
           }
         },
         "zh-Hans": {
@@ -34544,7 +34784,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Symptome in Health speichern"
+            "value": "Beschwerden in Health speichern"
           }
         },
         "en": {
@@ -34562,7 +34802,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tallenna oireet Terveyteen"
+            "value": "Tallenna oireet Terveys-appiin"
           }
         },
         "fr": {
@@ -34604,7 +34844,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zapisuj objawy w Zdrowiu"
+            "value": "Zapisuj objawy w aplikacji Zdrowie"
           }
         },
         "pt-BR": {
@@ -34616,7 +34856,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Сохранять симптомы в Здоровье"
+            "value": "Сохранять симптомы в «Здоровье»"
           }
         },
         "sv": {
@@ -35216,7 +35456,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vedi i piani del resoconto"
+            "value": "Vedi gli abbonamenti"
           }
         },
         "ja": {
@@ -35264,7 +35504,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Se rapportabonnemang"
+            "value": "Se rapportprenumerationer"
           }
         },
         "tr": {
@@ -35293,7 +35533,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Selbst erfasste Beschwerden. Das ist keine Diagnose und schlägt keine Behandlung vor."
+            "value": "Selbst erfasstes Beschwerdeprotokoll. Es ist keine Diagnose und schlägt keine Behandlung vor."
           }
         },
         "en": {
@@ -35353,7 +35593,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zapis objawów zgłaszanych przeze mnie. To nie jest diagnoza i nie sugeruje żadnego leczenia."
+            "value": "Zapis objawów zgłaszanych przeze mnie. Nie jest diagnozą i nie sugeruje żadnego leczenia."
           }
         },
         "pt-BR": {
@@ -35365,7 +35605,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Записанные мной симптомы. Это не диагноз и не предложение лечения."
+            "value": "Симптомы, записанные мной. Это не диагноз, и здесь нет рекомендаций по лечению."
           }
         },
         "sv": {
@@ -35383,7 +35623,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "本人自报的症状记录。不构成诊断，也不建议任何治疗。"
+            "value": "本人自报的症状记录。不构成诊断，也不提供任何治疗建议。"
           }
         }
       }
@@ -36167,7 +36407,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Näytä näytöllä"
+            "value": "Näytä ruudulla"
           }
         },
         "fr": {
@@ -36274,7 +36514,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Raportin näyttäminen näytöllä on aina ilmaista."
+            "value": "Raportin näyttäminen ruudulla on aina ilmaista."
           }
         },
         "fr": {
@@ -36453,7 +36693,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "会显示在报告中，让医生了解你正在使用的一切。我们从不建议药物或剂量。"
+            "value": "会显示在报告中，让医生了解你正在使用的一切。我们从不推荐任何药物或剂量。"
           }
         }
       }
@@ -36720,7 +36960,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "睡眠と元気"
+            "value": "睡眠と活力"
           }
         },
         "ko": {
@@ -37023,7 +37263,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tiputteluvuoto"
+            "value": "Tiputtelu"
           }
         },
         "fr": {
@@ -37041,7 +37281,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "不正出血（少量）"
+            "value": "少量の出血"
           }
         },
         "ko": {
@@ -37130,7 +37370,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tiputteluvuotopäivät: %lld · Runsaan vuodon päivät: %lld"
+            "value": "Tiputtelupäivät: %lld · Runsaan vuodon päivät: %lld"
           }
         },
         "fr": {
@@ -37148,13 +37388,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "不正出血の日：%lld · 出血が多い日：%lld"
+            "value": "少量の出血の日：%lld · 出血が多い日：%lld"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "점상 출혈일: %lld · 출혈이 많은 날: %lld"
+            "value": "소량 출혈일: %lld · 출혈이 많은 날: %lld"
           }
         },
         "nb": {
@@ -37166,7 +37406,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dagen met spotting: %lld · Dagen met hevige bloeding: %lld"
+            "value": "Dagen met spotting: %lld · Dagen met hevig bloedverlies: %lld"
           }
         },
         "pl": {
@@ -37600,7 +37840,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Od"
+            "value": "Początek"
           }
         },
         "pt-BR": {
@@ -37705,9 +37945,33 @@
           }
         },
         "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Od %@. Średnia Twoich codziennych ocen, tygodnie przed i po: %lld. 0 to brak, 3 to silne."
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Od %@. Średnia Twoich codziennych ocen z %lld tygodni przed rozpoczęciem i po nim. 0 to brak, 3 to silne."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Od %@. Średnia Twoich codziennych ocen z %lld tygodni przed rozpoczęciem i po nim. 0 to brak, 3 to silne."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Od %@. Średnia Twoich codziennych ocen z %lld tygodnia przed rozpoczęciem i po nim. 0 to brak, 3 to silne."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Od %@. Średnia Twoich codziennych ocen z %lld tygodnia przed rozpoczęciem i po nim. 0 to brak, 3 to silne."
+                }
+              }
+            }
           }
         },
         "pt-BR": {
@@ -37820,7 +38084,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Comecei tratamento"
+            "value": "Início de tratamento"
           }
         },
         "ru": {
@@ -37921,7 +38185,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Zaczęcie od nowa zachowuje kopię w iCloud. Możesz ją później przywrócić w Ustawieniach."
+            "value": "Jeśli zaczniesz od nowa, kopia w iCloud zostanie zachowana. Możesz ją później przywrócić w Ustawieniach."
           }
         },
         "pt-BR": {
@@ -38194,7 +38458,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dejados"
+            "value": "Ya no tomo"
           }
         },
         "fi": {
@@ -38289,7 +38553,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Beendet %@"
+            "value": "Beendet am %@"
           }
         },
         "en": {
@@ -38355,7 +38619,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Parou em %@"
+            "value": "Interrompido em %@"
           }
         },
         "ru": {
@@ -38396,7 +38660,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Auf diesem iPhone und verschlüsselt in deiner eigenen iCloud gespeichert. Wir sehen es nie. Keine Werbung, kein Datenverkauf."
+            "value": "Auf diesem iPhone und verschlüsselt in deiner eigenen iCloud gespeichert. Wir sehen deine Daten nie. Keine Werbung, kein Datenverkauf."
           }
         },
         "en": {
@@ -39003,7 +39267,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Отмечайте факторы в отметке. Закономерности появятся минимум через %lld дн. с отметкой фактора."
+            "value": "Добавляйте факторы в ежедневную отметку. Закономерности появятся, когда наберется хотя бы %lld дн. с фактором."
           }
         },
         "sv": {
@@ -39015,7 +39279,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kaydında etkenleri etiketle. Örüntüler, bir etiketle en az %lld gün olduktan sonra görünür."
+            "value": "Kaydında etkenleri etiketle. Bir etiket en az %lld gün işaretlendikten sonra örüntüler görünür."
           }
         },
         "zh-Hans": {
@@ -39264,7 +39528,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lo tomo ahora"
+            "value": "Tomo actualmente"
           }
         },
         "fi": {
@@ -39282,7 +39546,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lo prendo ora"
+            "value": "In corso"
           }
         },
         "ja": {
@@ -39300,7 +39564,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tar nå"
+            "value": "Bruker nå"
           }
         },
         "nl": {
@@ -39330,13 +39594,13 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tar nu"
+            "value": "Använder nu"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Şu an kullanıyorum"
+            "value": "Şu an kullanılanlar"
           }
         },
         "zh-Hans": {
@@ -39639,7 +39903,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Obrigada"
+            "value": "Obrigado"
           }
         },
         "ru": {
@@ -39978,7 +40242,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bir gün önce Tidemark raporunu kontrol etmeni hatırlatır. Muayenehaneyle hiçbir şey paylaşılmaz."
+            "value": "Bir gün önce Tidemark raporunu kontrol etmeni hatırlatır. Doktorunla veya kliniğinle hiçbir şey paylaşılmaz."
           }
         },
         "zh-Hans": {
@@ -40126,7 +40390,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Raportti näytöllä"
+            "value": "Raportti ruudulla"
           }
         },
         "fr": {
@@ -41000,7 +41264,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "アクセスを取り消すには、ヘルスケアアプリ › プロフィール › App › Tidemarkを開いてください。"
+            "value": "アクセスを取り消すには、「ヘルスケア」App › プロフィール › App › Tidemarkを開いてください。"
           }
         },
         "ko": {
@@ -41048,7 +41312,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erişimi geri almak için Sağlık uygulaması › profilin › Uygulamalar › Tidemark'ı aç."
+            "value": "Erişimi kaldırmak için Sağlık uygulaması › profilin › Uygulamalar › Tidemark'ı aç."
           }
         },
         "zh-Hans": {
@@ -41083,7 +41347,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "A tu cita"
+            "value": "Hasta tu cita"
           }
         },
         "fi": {
@@ -41095,7 +41359,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vers votre rendez-vous"
+            "value": "Avant le rendez-vous"
           }
         },
         "it": {
@@ -41107,13 +41371,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "受診へ"
+            "value": "受診まで"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "진료로"
+            "value": "진료까지"
           }
         },
         "nb": {
@@ -41143,7 +41407,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "К вашему приему"
+            "value": "До приема"
           }
         },
         "sv": {
@@ -41161,7 +41425,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "前往就诊"
+            "value": "距离就诊"
           }
         }
       }
@@ -41285,7 +41549,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Erfassen"
+            "value": "Erfassung"
           }
         },
         "en": {
@@ -41345,7 +41609,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Notowanie"
+            "value": "Dziennik"
           }
         },
         "pt-BR": {
@@ -41404,7 +41668,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dificultad para dormirme"
+            "value": "Dificultad para dormir"
           }
         },
         "fi": {
@@ -41416,7 +41680,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Difficultés d'endormissement"
+            "value": "Difficultés d’endormissement"
           }
         },
         "it": {
@@ -41523,7 +41787,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Difficultés d'endormissement, réveils la nuit ou trop tôt"
+            "value": "Difficultés d’endormissement, réveils la nuit ou trop tôt"
           }
         },
         "it": {
@@ -41820,7 +42084,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Britische Leitlinie zur Menopause: NICE guideline NG23."
+            "value": "Britische Leitlinie zur Menopause: NICE-Leitlinie NG23."
           }
         },
         "en": {
@@ -41832,7 +42096,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Guía británica sobre la menopausia: NICE guideline NG23."
+            "value": "Guía británica sobre la menopausia: guía NICE NG23."
           }
         },
         "fi": {
@@ -41844,19 +42108,19 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recommandations britanniques sur la ménopause : NICE guideline NG23."
+            "value": "Recommandations britanniques sur la ménopause : recommandation NICE NG23."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Linee guida britanniche sulla menopausa: NICE guideline NG23."
+            "value": "Linee guida britanniche sulla menopausa: linea guida NICE NG23."
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "英国のメノポーズに関するガイドライン：NICE guideline NG23。"
+            "value": "英国の更年期に関するガイドライン：NICE guideline NG23。"
           }
         },
         "ko": {
@@ -41868,13 +42132,13 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Britiske retningslinjer om overgangsalder: NICE guideline NG23."
+            "value": "Britiske retningslinjer om overgangsalder: NICE-retningslinje NG23."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Britse richtlijn over de menopauze: NICE guideline NG23."
+            "value": "Britse richtlijn over de menopauze: NICE-richtlijn NG23."
           }
         },
         "pl": {
@@ -41886,7 +42150,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Diretriz britânica sobre menopausa: NICE guideline NG23."
+            "value": "Diretriz britânica sobre menopausa: diretriz NICE NG23."
           }
         },
         "ru": {
@@ -41898,7 +42162,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Brittiska riktlinjer om klimakteriet: NICE guideline NG23."
+            "value": "Brittiska riktlinjer om klimakteriet: NICE-riktlinje NG23."
           }
         },
         "tr": {
@@ -42248,7 +42512,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dein Beschwerde-Tagebuch entsperren"
+            "value": "Dein Beschwerdetagebuch entsperren"
           }
         },
         "en": {
@@ -42296,13 +42560,13 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lås opp plageloggen din"
+            "value": "Lås opp symptomdagboken din"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ontgrendel je klachtenlogboek"
+            "value": "Ontgrendel je klachtendagboek"
           }
         },
         "pl": {
@@ -42326,7 +42590,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Lås upp din besvärslogg"
+            "value": "Lås upp din symtomdagbok"
           }
         },
         "tr": {
@@ -42338,7 +42602,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "解锁你的症状日志"
+            "value": "解锁你的症状记录"
           }
         }
       }
@@ -42367,7 +42631,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Notar el latido, corazón acelerado, opresión"
+            "value": "Percibir el latido de forma inusual, corazón acelerado, opresión"
           }
         },
         "fi": {
@@ -42379,7 +42643,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Battements de cœur ressentis, cœur qui s'emballe, oppression"
+            "value": "Battements de cœur ressentis, cœur qui s’emballe, oppression"
           }
         },
         "it": {
@@ -42474,7 +42738,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hasta %lld en el registro diario. Quitar uno conserva todo lo que registraste de él."
+            "value": "Hasta %lld en el registro diario. Si quitas uno, se conserva todo lo que registraste."
           }
         },
         "fi": {
@@ -42486,7 +42750,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jusqu’à %lld dans le suivi quotidien. En retirer un conserve tout ce que vous avez noté pour lui."
+            "value": "Jusqu’à %lld dans le suivi quotidien. Si vous en retirez un, tout ce que vous avez noté pour ce symptôme est conservé."
           }
         },
         "it": {
@@ -42902,7 +43166,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Un sangrado muy abundante no debe esperar a tu cita. Contacta ya con tu médico."
+            "value": "Un sangrado muy abundante no debe esperar a tu cita. Ponte en contacto con tu médico ahora."
           }
         },
         "fi": {
@@ -42920,7 +43184,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Un flusso molto abbondante non deve aspettare l'appuntamento. Contatta subito il tuo medico."
+            "value": "Un sanguinamento molto abbondante non deve aspettare la visita. Contatta subito il tuo medico."
           }
         },
         "ja": {
@@ -42962,7 +43226,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Очень обильное кровотечение не должно ждать приема. Свяжитесь с врачом сейчас."
+            "value": "Если кровотечение очень обильное, не ждите приема. Свяжитесь с врачом сейчас."
           }
         },
         "sv": {
@@ -43295,7 +43559,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ ziyareti · %@"
+            "value": "Randevu: %@ · %@"
           }
         },
         "zh-Hans": {
@@ -43544,7 +43808,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Despertarme por la noche"
+            "value": "Despertares nocturnos"
           }
         },
         "fi": {
@@ -43639,7 +43903,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Geh mit dem ganzen Bild in deinen Termin"
+            "value": "Geh mit dem vollen Überblick in deinen Termin"
           }
         },
         "en": {
@@ -43657,7 +43921,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mene vastaanotolle koko kuvan kanssa"
+            "value": "Mene vastaanotolle kokonaiskuva mukanasi"
           }
         },
         "fr": {
@@ -43681,25 +43945,25 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "전체 그림을 들고 진료에 가세요"
+            "value": "모든 기록을 갖고 진료에 가세요"
           }
         },
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gå til timen med hele bildet"
+            "value": "Kom godt forberedt til timen"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ga je afspraak in met het hele plaatje"
+            "value": "Ga goed voorbereid naar je afspraak"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Idź na wizytę z pełnym obrazem"
+            "value": "Idź na wizytę z pełnym obrazem sytuacji"
           }
         },
         "pt-BR": {
@@ -43711,13 +43975,13 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Идите на прием с полной картиной"
+            "value": "Приходите на прием, зная всю картину"
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gå till besöket med hela bilden"
+            "value": "Kom väl förberedd till besöket"
           }
         },
         "tr": {
@@ -43746,7 +44010,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Wir konnten den Kauf beim App Store nicht bestätigen. Dir wurde nichts doppelt berechnet; versuch Wiederherstellen."
+            "value": "Wir konnten den Kauf beim App Store nicht bestätigen. Dir wurde nichts doppelt berechnet. Tippe auf „Kauf wiederherstellen“."
           }
         },
         "en": {
@@ -43758,7 +44022,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "No pudimos verificar la compra con el App Store. No se te cobró dos veces; prueba Restaurar."
+            "value": "No pudimos verificar la compra con el App Store. No se te cobró dos veces. Toca «Restaurar compra»."
           }
         },
         "fi": {
@@ -43770,13 +44034,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Nous n’avons pas pu vérifier l’achat auprès de l’App Store. Vous n’avez pas été débitée deux fois ; essayez Restaurer."
+            "value": "Nous n’avons pas pu vérifier l’achat auprès de l’App Store. Vous n’avez pas été débitée deux fois. Touchez « Restaurer l’achat »."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Non siamo riusciti a verificare l’acquisto con l’App Store. Non ti è stato addebitato due volte; prova Ripristina."
+            "value": "Non siamo riusciti a verificare l’acquisto con l’App Store. Non ti è stato addebitato nulla due volte. Tocca «Ripristina acquisto»."
           }
         },
         "ja": {
@@ -43996,7 +44260,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "レポートの用語に地域を使います（%@、%@）。"
+            "value": "レポートの用語は地域に合わせています（%@、%@）。"
           }
         },
         "ko": {
@@ -44032,7 +44296,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Мы используем ваш регион для терминов в отчете (%@, %@)."
+            "value": "Термины в отчете зависят от вашего региона (%@, %@)."
           }
         },
         "sv": {
@@ -44109,7 +44373,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "리포트는 전날까지 준비해 둘게요. 2주간의 기록이면 유용한 그림이 돼요."
+            "value": "리포트는 전날까지 준비해 둘게요. 2주간 기록하면 충분히 도움이 돼요."
           }
         },
         "nb": {
@@ -44139,7 +44403,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Отчет будет готов накануне. Двух недель отметок достаточно для полезной картины."
+            "value": "Отчет будет готов накануне. Двух недель отметок достаточно, чтобы картина была полезной."
           }
         },
         "sv": {
@@ -44157,7 +44421,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "我们会在就诊前一天准备好报告。两周的记录就足以形成有用的整体情况。"
+            "value": "我们会在就诊前一天准备好报告。两周的记录就足以呈现有用的整体情况。"
           }
         }
       }
@@ -44454,7 +44718,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Boas-vindas de volta"
+            "value": "Bem-vinda de volta"
           }
         },
         "ru": {
@@ -44489,13 +44753,13 @@
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hvilke behandlinger kan jeg få, også hormonbehandling, og hvilke risici er der for mig?"
+            "value": "Hvilke behandlingsmuligheder har jeg, også %@, og hvilke risici er der for mig?"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Welche Behandlungsmöglichkeiten gibt es für mich, auch eine Hormontherapie, und welche Risiken haben sie für mich?"
+            "value": "Welche Behandlungsmöglichkeiten habe ich, auch %@, und welche Risiken gibt es für mich?"
           }
         },
         "en": {
@@ -44507,85 +44771,85 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿Qué opciones de tratamiento tengo, incluida la terapia hormonal, y qué riesgos tienen para mí?"
+            "value": "¿Qué opciones de tratamiento tengo, incluida la %@, y qué riesgos tienen para mí?"
           }
         },
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mitä hoitovaihtoehtoja minulla on, myös hormonihoito, ja mitä riskejä niihin liittyy minulle?"
+            "value": "Mitä hoitovaihtoehtoja minulla on, myös %@, ja mitä riskejä niihin liittyy minulle?"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quelles sont mes options de traitement, y compris le traitement hormonal, et quels sont les risques pour moi ?"
+            "value": "Quelles sont mes options de traitement, y compris le %@, et quels sont les risques pour moi ?"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quali opzioni di trattamento ho, compresa la terapia ormonale, e quali rischi ci sono per me?"
+            "value": "Quali opzioni di trattamento ho, compresa la %@, e quali rischi ci sono per me?"
           }
         },
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "ホルモン補充療法を含め、どんな治療法がありますか？私にとってのリスクは何ですか？"
+            "value": "%@を含め、どんな治療法がありますか？私にとってのリスクは何ですか？"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "호르몬 요법을 포함해 어떤 치료 방법이 있고, 저에게 어떤 위험이 있나요?"
+            "value": "%@을(를) 포함해 어떤 치료 방법이 있고, 저에게는 어떤 위험이 있나요?"
           }
         },
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hvilke behandlinger finnes for meg, også hormonbehandling, og hvilke risikoer har de for meg?"
+            "value": "Hvilke behandlinger finnes for meg, også %@, og hvilke risikoer har de for meg?"
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Welke behandelingen zijn er voor mij, ook hormoontherapie, en wat zijn de risico's voor mij?"
+            "value": "Welke behandelingen zijn er voor mij, ook %@, en wat zijn de risico's voor mij?"
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Jakie mam możliwości leczenia, w tym hormonalną terapię zastępczą, i jakie wiążą się z nimi ryzyka dla mnie?"
+            "value": "Jakie mam możliwości leczenia, w tym %@, i jakie wiążą się z nimi ryzyka dla mnie?"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Quais são minhas opções de tratamento, incluindo terapia hormonal, e quais os riscos para mim?"
+            "value": "Quais são minhas opções de tratamento, incluindo %@, e quais os riscos para mim?"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Какие есть варианты лечения, включая ЗГТ, и какие риски они несут для меня?"
+            "value": "Какие у меня есть варианты лечения, например %@, и какие риски они несут для меня?"
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vilka behandlingar finns för mig, även hormonbehandling, och vilka risker finns för mig?"
+            "value": "Vilka behandlingar finns för mig, även %@, och vilka risker finns för mig?"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hormon tedavisi dahil hangi tedavi seçeneklerim var ve benim için riskleri neler?"
+            "value": "%@ dahil hangi tedavi seçeneklerim var ve benim için riskleri neler?"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "我有哪些治疗选择（包括激素治疗）？对我来说有哪些风险？"
+            "value": "我有哪些治疗选择（包括%@）？对我来说有哪些风险？"
           }
         }
       }
@@ -44626,7 +44890,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Qu'est-ce qui peut m'aider à mieux dormir dès maintenant ?"
+            "value": "Qu’est-ce qui peut m’aider à mieux dormir dès maintenant ?"
           }
         },
         "it": {
@@ -44650,7 +44914,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hva kan hjelpe søvnen min nå?"
+            "value": "Hva kan hjelpe meg å sove bedre nå?"
           }
         },
         "nl": {
@@ -44680,7 +44944,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vad kan hjälpa min sömn just nu?"
+            "value": "Vad kan hjälpa mig att sova bättre just nu?"
           }
         },
         "tr": {
@@ -44796,13 +45060,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Ce qui est arrivé ensemble dans votre %lld suivi. Des fréquences, pas des causes ni des conseils."
+                  "value": "Ce qui s’est produit en même temps dans votre %lld suivi. Des fréquences, pas des causes ni des conseils."
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Ce qui est arrivé ensemble dans vos %lld suivis. Des fréquences, pas des causes ni des conseils."
+                  "value": "Ce qui s’est produit en même temps dans vos %lld suivis. Des fréquences, pas des causes ni des conseils."
                 }
               }
             }
@@ -44875,9 +45139,33 @@
           }
         },
         "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Co występowało razem w Twoich wpisach (%lld). Liczby, nie przyczyny i nie porady."
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Co występowało razem w Twoich %lld wpisach. Liczby, nie przyczyny i nie porady."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Co występowało razem w Twoich %lld wpisach. Liczby, nie przyczyny i nie porady."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Co występowało razem w %lld wpisie. Liczby, nie przyczyny i nie porady."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Co występowało razem w %lld wpisu. Liczby, nie przyczyny i nie porady."
+                }
+              }
+            }
           }
         },
         "pt-BR": {
@@ -45388,7 +45676,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿Dónde ves a tu médico?"
+            "value": "¿Dónde vas al médico?"
           }
         },
         "fi": {
@@ -45406,7 +45694,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dove vedi il tuo medico?"
+            "value": "Dove vai dal medico?"
           }
         },
         "ja": {
@@ -45424,7 +45712,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hvor går du til lege?"
+            "value": "I hvilket land går du til lege?"
           }
         },
         "nl": {
@@ -45442,7 +45730,7 @@
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Onde você se consulta?"
+            "value": "Em que país você se consulta?"
           }
         },
         "ru": {
@@ -45454,7 +45742,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Var träffar du din läkare?"
+            "value": "I vilket land går du till läkaren?"
           }
         },
         "tr": {
@@ -45507,7 +45795,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Qui dois-je consulter si cela ne s'améliore pas ?"
+            "value": "Qui dois-je consulter si cela ne s’améliore pas ?"
           }
         },
         "it": {
@@ -45590,7 +45878,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bei wem du bist (optional)"
+            "value": "Bei wem du den Termin hast (optional)"
           }
         },
         "en": {
@@ -45614,13 +45902,13 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Qui vous consultez (facultatif)"
+            "value": "Médecin consulté (facultatif)"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chi vedi (facoltativo)"
+            "value": "Con chi hai la visita (facoltativo)"
           }
         },
         "ja": {
@@ -45632,7 +45920,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "진료받는 분(선택)"
+            "value": "담당 의사(선택)"
           }
         },
         "nb": {
@@ -45644,7 +45932,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bij wie je bent (optioneel)"
+            "value": "Bij wie ga je? (optioneel)"
           }
         },
         "pl": {
@@ -45680,7 +45968,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "就诊对象（可选）"
+            "value": "接诊医生（可选）"
           }
         }
       }
@@ -45739,7 +46027,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "왜 가나요?"
+            "value": "진료받는 이유"
           }
         },
         "nb": {
@@ -45757,7 +46045,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Po co idziesz?"
+            "value": "Z czym idziesz na wizytę?"
           }
         },
         "pt-BR": {
@@ -45769,7 +46057,7 @@
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Зачем вы идете?"
+            "value": "С чем вы идете на прием?"
           }
         },
         "sv": {
@@ -45781,7 +46069,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Neden gidiyorsun?"
+            "value": "Randevunun nedeni ne?"
           }
         },
         "zh-Hans": {
@@ -45804,7 +46092,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mit %@"
+            "value": "Mit „%@“"
           }
         },
         "en": {
@@ -45828,7 +46116,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Avec %@"
+            "value": "Avec « %@ »"
           }
         },
         "it": {
@@ -45923,7 +46211,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Síndrome premenstrual más fuerte"
+            "value": "SPM más intenso"
           }
         },
         "fi": {
@@ -45953,7 +46241,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "심해진 월경전증후군"
+            "value": "PMS 악화"
           }
         },
         "nb": {
@@ -46167,7 +46455,7 @@
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "매년"
+            "value": "연간"
           }
         },
         "nb": {
@@ -46357,7 +46645,7 @@
         "fi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kyllä, minulla on päivä"
+            "value": "Kyllä, minulla on aika"
           }
         },
         "fr": {
@@ -46423,13 +46711,13 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Evet, bir tarihim var"
+            "value": "Evet, randevum var"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "是，我有日期"
+            "value": "是，已经约好日期"
           }
         }
       }
@@ -46494,7 +46782,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Du kan be om en ny vurdering. Fortsett å registrere og ta med en oppdatert rapport til en annen lege eller en overgangsalderpoliklinikk."
+            "value": "Du kan be om en ny vurdering. Fortsett å registrere og ta med en oppdatert rapport til en annen lege eller en klinikk for overgangsalder."
           }
         },
         "nl": {
@@ -46817,7 +47105,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld günü kaçırdın"
+            "value": "%lld gün kaçırdın"
           }
         },
         "zh-Hans": {
@@ -46915,7 +47203,7 @@
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "%lld kirjaustasi ovat turvassa tässä iPhonessa, mutta niitä ei ole varmuuskopioitu. Jos puhelin katoaa, ne menetetään."
+                  "value": "%lld kirjaustasi on turvassa tässä iPhonessa, mutta niitä ei ole varmuuskopioitu. Jos puhelin katoaa, ne menetetään."
                 }
               }
             }
@@ -47006,9 +47294,33 @@
           }
         },
         "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Twoje wpisy (%lld) są bezpieczne na tym iPhonie, ale nie mają kopii zapasowej. Jeśli zgubisz telefon, przepadną."
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twoje %lld wpisy są bezpieczne na tym iPhonie, ale nie mają kopii zapasowej. Jeśli zgubisz telefon, przepadną."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twoich %lld wpisów jest bezpiecznych na tym iPhonie, ale nie mają kopii zapasowej. Jeśli zgubisz telefon, przepadną."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twój %lld wpis jest bezpieczny na tym iPhonie, ale nie ma kopii zapasowej. Jeśli zgubisz telefon, przepadnie."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twoje wpisy (%lld) są bezpieczne na tym iPhonie, ale nie mają kopii zapasowej. Jeśli zgubisz telefon, przepadną."
+                }
+              }
+            }
           }
         },
         "pt-BR": {
@@ -47030,9 +47342,33 @@
           }
         },
         "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ваши отметки (%lld) в безопасности на этом iPhone, но у них нет резервной копии. Если потеряете телефон, они пропадут."
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ваши %lld отметки в безопасности на этом iPhone, но у них нет резервной копии. Если потеряете телефон, они пропадут."
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ваши %lld отметок в безопасности на этом iPhone, но у них нет резервной копии. Если потеряете телефон, они пропадут."
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ваша %lld отметка в безопасности на этом iPhone, но у нее нет резервной копии. Если потеряете телефон, она пропадет."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Ваши %lld отметки в безопасности на этом iPhone, но у них нет резервной копии. Если потеряете телефон, они пропадут."
+                }
+              }
+            }
           }
         },
         "sv": {
@@ -47041,7 +47377,7 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Din %lld incheckning är säker på den här iPhonen, men den är inte säkerhetskopierad. Om du tappar bort telefonen är den borta."
+                  "value": "Din incheckning är säker på den här iPhonen, men den är inte säkerhetskopierad. Om du tappar bort telefonen är den borta."
                 }
               },
               "other": {
@@ -47490,7 +47826,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "这些数字由医生权衡。App 不会说明某种治疗是否有效。"
+            "value": "这些数字的意义由医生来判断。App 不会说明某种治疗是否有效。"
           }
         }
       }
@@ -47683,13 +48019,13 @@
               "one": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Ensimmäiseen raporttiisi on %lld kirjaus"
+                  "value": "Ensimmäiseen raporttiisi on vielä %lld kirjaus"
                 }
               },
               "other": {
                 "stringUnit": {
                   "state": "translated",
-                  "value": "Ensimmäiseen raporttiisi on %lld kirjausta"
+                  "value": "Ensimmäiseen raporttiisi on vielä %lld kirjausta"
                 }
               }
             }
@@ -48056,13 +48392,13 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Loggen er skjult til du låser opp."
+            "value": "Dagboken er skjult til du låser opp."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Je logboek is verborgen tot je ontgrendelt."
+            "value": "Je dagboek is verborgen tot je ontgrendelt."
           }
         },
         "pl": {
@@ -48086,7 +48422,7 @@
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Loggen är dold tills du låser upp."
+            "value": "Dagboken är dold tills du låser upp."
           }
         },
         "tr": {
@@ -48098,7 +48434,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "解锁前你的日志会被隐藏。"
+            "value": "解锁前你的记录会被隐藏。"
           }
         }
       }
@@ -48270,25 +48606,25 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "Rapporten din til %@ er oppdatert."
+            "value": "Rapporten din til timen %@ er oppdatert."
           }
         },
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Je rapport voor %@ is bijgewerkt."
+            "value": "Je rapport voor de afspraak van %@ is bijgewerkt."
           }
         },
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Raport na %@ jest aktualny."
+            "value": "Raport na wizytę %@ jest aktualny."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Seu relatório para %@ está atualizado."
+            "value": "Seu relatório para a consulta de %@ está atualizado."
           }
         },
         "ru": {
@@ -48306,7 +48642,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ raporun güncel."
+            "value": "%@ tarihli randevu için raporun güncel."
           }
         },
         "zh-Hans": {
@@ -48602,9 +48938,33 @@
           }
         },
         "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Twoje najważniejsze pytania (%lld)"
+          "variations": {
+            "plural": {
+              "few": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twoje %lld najważniejsze pytania"
+                }
+              },
+              "many": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twoich %lld najważniejszych pytań"
+                }
+              },
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twoje najważniejsze pytanie (%lld)"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Twoje najważniejsze pytania (%lld)"
+                }
+              }
+            }
           }
         },
         "pt-BR": {
@@ -48652,7 +49012,7 @@
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "En önemli %lld sorun"
+            "value": "En önemli %lld soru"
           }
         },
         "zh-Hans": {
@@ -48711,7 +49071,7 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "今週"
+            "value": "今週のまとめ"
           }
         },
         "ko": {
@@ -49127,7 +49487,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "plus élevé que d'habitude"
+            "value": "plus élevé que d’habitude"
           }
         },
         "it": {
@@ -49270,7 +49630,7 @@
         "pl": {
           "stringUnit": {
             "state": "translated",
-            "value": "terapia hormonalna"
+            "value": "HTZ"
           }
         },
         "pt-BR": {
@@ -49662,7 +50022,7 @@
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "plus bas que d'habitude"
+            "value": "plus bas que d’habitude"
           }
         },
         "it": {
