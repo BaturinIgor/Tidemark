@@ -101,6 +101,8 @@ struct SettingsView: View {
                 importError = "This file couldn't be read. Choose a file exported from Tidemark (.json)."
             }
         }
+        .designAlert("importFailed") { importError = "This file couldn't be read. Choose a file exported from Tidemark (.json)." }
+        .designAlert("deleteAll") { confirmDelete = true }
         .alert("Import failed", isPresented: Binding(get: { importError != nil }, set: { if !$0 { importError = nil } })) {
             Button("OK", role: .cancel) {}
         } message: {

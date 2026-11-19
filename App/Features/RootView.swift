@@ -3,11 +3,12 @@ import TidemarkCore
 
 struct RootView: View {
     @Environment(AppModel.self) private var model
+    @State private var tab = DesignFlags.initialTab
 
     var body: some View {
         ZStack {
-            if model.storeUnavailable {
-                StoreErrorView(code: model.persistence.loadError ?? "")
+            if model.storeUnavailable || DesignFlags.has("-design-store-error") {
+                StoreErrorView(code: model.persistence.loadError ?? (DesignFlags.active ? "134110" : ""))
             } else if model.needsOnboarding && model.isRestoring {
                 VStack(spacing: 16) {
                     ProgressView()
@@ -21,15 +22,19 @@ struct RootView: View {
             } else if model.needsOnboarding {
                 OnboardingView()
             } else {
-                TabView {
+                TabView(selection: $tab) {
                     NavigationStack { TodayView() }
                         .tabItem { Label("Today", systemImage: "checkmark.circle") }
+                        .tag(0)
                     NavigationStack { HistoryView() }
                         .tabItem { Label("History", systemImage: "chart.bar") }
+                        .tag(1)
                     NavigationStack { ReportView() }
                         .tabItem { Label("Report", systemImage: "doc.text") }
+                        .tag(2)
                     NavigationStack { SettingsView() }
                         .tabItem { Label("Settings", systemImage: "slider.horizontal.3") }
+                        .tag(3)
                 }
             }
             if model.lock.isEnabled && (model.lock.isLocked || model.lock.isObscured) {
