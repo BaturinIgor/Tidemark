@@ -48,6 +48,7 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 ## Legal (Igor with a lawyer, see `docs/legal-questions.md`)
 
 - [ ] Menopause Rating Scale licence for a paid app, including the official translations (fallback: own checklist without a score)
+  - 19 Nov 2026: permission request sent to ZEG Berlin (info@zeg-berlin.de), waiting for an answer
 - [ ] Not a medical device in the US and UK; red-flag wording approved
 - [ ] Privacy policy reviewed; seller entity decided
 - [ ] "Tidemark" trademark check, classes 9 and 44
