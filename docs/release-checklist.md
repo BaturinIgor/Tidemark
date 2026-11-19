@@ -13,7 +13,7 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 - [x] Reminder the evening before an appointment
 - [x] If the data store can't be opened, the app shows an error and writes nothing
 - [x] 17 languages: en, de, fr, es, it, nl, pt-BR, sv, nb, da, fi, pl, ja, ko, zh-Hans, tr, ru (PR #5). The phone's language picks one; CI fails if any string is untranslated
-- [ ] Real Team ID and bundle/iCloud/app group IDs in `project.yml` (Claude, after Igor sends the Team ID)
+- [x] Team ID 46V47ZSX5V in `project.yml`. IDs to register in the Apple Developer portal: app `app.tidemark.Tidemark`, widget `app.tidemark.Tidemark.Widgets`, iCloud container `iCloud.app.tidemark`, app group `group.app.tidemark`, subscriptions `app.tidemark.report.monthly` and `app.tidemark.report.yearly`
 - [ ] Point `Links.privacy` at the published policy page (Claude)
 - [ ] Screenshots 6.9" (1320 × 2868) with sample data (Claude can produce them from the simulator in CI)
 

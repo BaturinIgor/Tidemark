@@ -10,7 +10,7 @@ settings:
     SWIFT_VERSION: "5.0"            # app targets; TidemarkCore already builds in Swift 6 mode
     MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "1"
-    DEVELOPMENT_TEAM: ""            # set your Apple team id locally
+    DEVELOPMENT_TEAM: 46V47ZSX5V
     ENABLE_USER_SCRIPT_SANDBOXING: YES
     SWIFT_STRICT_CONCURRENCY: targeted
     SWIFT_EMIT_LOC_STRINGS: YES
