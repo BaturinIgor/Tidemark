@@ -29,6 +29,8 @@ final class SubscriptionStore {
     }
 
     func refreshEntitlements() async {
+        // Debug design catalog: the simulator has no purchases.
+        if DesignFlags.subscribed { isSubscribed = true; return }
         var active = false
         for await result in Transaction.currentEntitlements {
             if case .verified(let transaction) = result, transaction.revocationDate == nil { active = true }

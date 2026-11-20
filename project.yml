@@ -98,6 +98,19 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.TidemarkTests
         GENERATE_INFOPLIST_FILE: YES
 
+  TidemarkUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: UITests
+    dependencies:
+      - target: Tidemark
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.TidemarkUITests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: Tidemark
+
 schemes:
   Tidemark:
     build:
@@ -108,3 +121,12 @@ schemes:
       targets:
         - TidemarkTests
       gatherCoverageData: true
+  # Mockups of every screen (design/<version>/screens), run by .github/workflows/design.yml.
+  Design:
+    build:
+      targets:
+        Tidemark: all
+        TidemarkUITests: [test]
+    test:
+      targets:
+        - TidemarkUITests

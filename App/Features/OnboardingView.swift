@@ -5,7 +5,7 @@ import TidemarkCore
 /// Before step 1 we look for a backup in iCloud, so a new iPhone never starts from zero (D3).
 struct OnboardingView: View {
     @Environment(AppModel.self) private var model
-    @State private var step = 0
+    @State private var step = DesignFlags.onboardingStep
     @State private var region: Region = .unitedKingdom
     @State private var age = ""
     @State private var noticed: Set<String> = []
@@ -28,7 +28,7 @@ struct OnboardingView: View {
         }
         .background(Theme.background.ignoresSafeArea())
         .task {
-            backupFound = await model.backup.hasExistingBackup()
+            backupFound = DesignFlags.has("-design-backup-found") ? true : await model.backup.hasExistingBackup()
             checkingBackup = false
         }
     }
