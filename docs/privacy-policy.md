@@ -58,5 +58,5 @@ If we change this policy, we will update the date above and, for important chang
 
 ## Contact
 
-[Developer name], [email address], [postal address]
+[Developer name], dawnwell.app+tidemark@gmail.com, [postal address]
 [EU/UK representative, if required]

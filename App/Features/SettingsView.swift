@@ -77,9 +77,14 @@ struct SettingsView: View {
 
             Section {
                 Disclaimer()
+                Link("Contact us", destination: Feedback.mailURL(subject: Feedback.generalSubject(appVersion: appVersion)))
                 Link("Privacy Policy", destination: Links.privacy)
                 Link("Terms of Use", destination: Links.terms)
-                LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "–")
+                LabeledContent("Version", value: appVersion ?? "–")
+            } footer: {
+                // Shown as text too, because the link does nothing when Mail isn't set up.
+                Text("Questions or ideas? Write to us at \(Feedback.address).")
+                    .textSelection(.enabled)
             }
         }
         .scrollContentBackground(.hidden)
@@ -140,6 +145,10 @@ struct SettingsView: View {
                 Reminders.cancelDaily()
             }
         }
+    }
+
+    private var appVersion: String? {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
 
     private var backupText: String {

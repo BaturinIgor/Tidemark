@@ -82,6 +82,10 @@ struct StoreErrorView: View {
             Text("Please don't delete the app, because that would remove the copy on this iPhone. Close Tidemark and open it again, restart your iPhone, or update the app from the App Store.")
             Text("If this keeps happening, contact us and quote this code: \(code)")
                 .font(.footnote).foregroundStyle(Theme.muted)
+            // The address is the link's title, so it stays readable when Mail isn't set up.
+            Link(Feedback.address, destination: Feedback.mailURL(subject: Feedback.storeErrorSubject(code: code)))
+                .font(.footnote)
+                .textSelection(.enabled)
         }
     }
 }
