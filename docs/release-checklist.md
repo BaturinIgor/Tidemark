@@ -15,6 +15,7 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 - [x] 17 languages: en, de, fr, es, it, nl, pt-BR, sv, nb, da, fi, pl, ja, ko, zh-Hans, tr, ru (PR #5). The phone's language picks one; CI fails if any string is untranslated
 - [x] Team ID 46V47ZSX5V in `project.yml`. IDs to register in the Apple Developer portal: app `app.tidemark.Tidemark`, widget `app.tidemark.Tidemark.Widgets`, iCloud container `iCloud.app.tidemark`, app group `group.app.tidemark`, subscriptions `app.tidemark.report.monthly` and `app.tidemark.report.yearly`
 - [ ] Point `Links.privacy` at the published policy page (Claude)
+- [x] Feedback email dawnwell.app+tidemark@gmail.com: Settings › Contact us, the data error screen, the privacy policy and `docs/support.md` (KAN-143)
 - [ ] Screenshots 6.9" (1320 × 2868) with sample data (Claude can produce them from the simulator in CI)
 
 ## Apple Developer and App Store Connect (Igor)
@@ -25,7 +26,7 @@ Status as of 18 Nov 2026. [x] done in the repo, [ ] still to do (owner in bracke
 - [ ] Subscription group "Tidemark report" with `…report.yearly` ($39.99) and `…report.monthly` ($6.99), review screenshot of the paywall
 - [ ] CloudKit Console: deploy the schema from Development to Production (otherwise backup does not work in the App Store build)
 - [ ] App Privacy: "Data Not Collected"; age rating questionnaire; export compliance (no non-exempt encryption)
-- [ ] Privacy Policy URL (fill in the brackets in `docs/privacy-policy.md` and publish) and Support URL
+- [ ] Privacy Policy URL (fill in the brackets in `docs/privacy-policy.md` and publish) and Support URL (`docs/support.md`, published with the policy)
 - [ ] Review notes: no login; explain the report unlocks after 7 check-ins and how to see it (sample data or a demo tip)
 
 ## Testing (Igor, TestFlight)
