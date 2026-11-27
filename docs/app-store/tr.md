@@ -10,7 +10,7 @@ Doktorun için belirti raporu
 Perimenopoz belirtilerini günde 30 saniyede kaydet ve randevuna tek sayfalık net bir özet götür. Verilerin iPhone'unda ve kendi iCloud'unda kalır.
 
 ## Keywords (100)
-perimenopoz,klimakteryum,sıcak basması,gece terlemesi,terleme,adet,regl,döngü,belirti,günlük,hormon
+perimenopoz,klimakteryum,sıcak basması,ateş basması,gece terlemesi,adet,regl,döngü,günlük,hormon
 
 ## Description (4000)
 Randevuna kötü geçen haftaların bulanık hatırasıyla değil, gerçeklerle git.
@@ -38,17 +38,26 @@ RANDEVUYA HAZIR
 VERİLERİN SANA AİT
 • iPhone'unda saklanır ve şifrelenerek kendi iCloud'una yedeklenir. Biz asla görmeyiz
 • Hesap yok, reklam yok, veri satışı yok
+• Anonim kullanım istatistikleri yalnızca sen açarsan, sağlık verilerin asla
 • İstediğin zaman her şeyi bir dosyaya dışa aktar ve yeniden içe aktar
 • Silinen günler 30 gün boyunca Son Silinenler'de kalır
-• İsteğe bağlı Face ID kilidi ve Apple Sağlık eşzamanlaması
+• İsteğe bağlı Face ID kilidi ve Sağlık uygulamasıyla eşzamanlama
 
-ÜCRETSİZ VE ABONELİK
-Günlük kayıt, geçmiş, örüntüler, yedekleme, dışa aktarma ve ekrandaki rapor ücretsizdir. Aylık veya yıllık abonelik, yazdırıp gönderebileceğin PDF raporu ekler (fiyatlar ülkeye göre değişir). Ödeme Apple Kimliği'nden alınır ve dönem bitmeden en az 24 saat önce iptal edilmezse otomatik yenilenir. Apple Kimliği ayarlarından yönetebilir veya iptal edebilirsin.
+ÜCRETSİZ, ABONELİKLE DAHA FAZLASI
+Günlük kayıt, 12 haftaya kadar geçmiş, örüntüler, iCloud yedeklemesi, dosyaya dışa aktarma ve ekrandaki rapor ücretsizdir. Abonelikle şunlar eklenir:
+• Yazdırabileceğin, e-postayla gönderebileceğin veya yükleyebileceğin PDF rapor
+• Kendi değerlerini bir tarihten önce ve sonra karşılaştıran “Son randevundan beri” sayfası
+• 6 ve 12 aylık geçmiş ve raporlar
+• Tablo olarak dışa aktarma (CSV)
+• Kendi adlandırdıkların dahil sınırsız belirti
+• Ek temalar ve uygulama simgeleri
+
+Yeni aboneler 7 gün ücretsiz kullanır, ardından yıllık veya aylık abonelik başlar (fiyatlar ülkeye göre değişir). Ödeme, ücretsiz deneme bittiğinde Apple Hesabı'ndan alınır ve abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse otomatik yenilenir. Apple Hesabı ayarlarından yönetebilir veya iptal edebilirsin.
 
 Tidemark bildirdiklerini kaydeder. Tanı koymaz, tedavi önermez ve tıbbi tavsiye vermez. Bir belirti seni endişelendiriyorsa doktoruna başvur.
 
 Kullanım Koşulları: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Gizlilik Politikası: [yayımlanan politikanın bağlantısı]
+Gizlilik Politikası: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 İlk sürüm.
@@ -56,7 +65,7 @@ Gizlilik Politikası: [yayımlanan politikanın bağlantısı]
 ## Screenshot captions
 1. Belirtilerin tek sayfada, randevuya hazır
 2. Günde 30 saniyede kayıt
-3. Kilitli ekrandan sıcak basması kaydet
+3. Tek dokunuşla sıcak basması kaydet
 4. Haftalar tek bakışta
 5. Verilerin, senin iCloud'un. Biz asla görmeyiz
 6. Her ziyaretten sonra neye karar verildiğini not et

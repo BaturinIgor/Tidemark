@@ -56,7 +56,10 @@ enum DesignData {
         let repo = model.repository
         let today = DayKey.today
         let first = -69
-        repo.save(profile: Profile(region: .unitedKingdom, age: 49, trackedSymptomIDs: symptoms))
+        // `-design-region US` for US English screenshots (doctor, hot flashes, Letter paper).
+        let region = DesignFlags.value("-design-region").flatMap(Region.init(rawValue:)) ?? .unitedKingdom
+        let text = DesignSampleText.current(region: region)
+        repo.save(profile: Profile(region: region, age: 49, trackedSymptomIDs: symptoms))
         // Tracking started ten weeks ago, so day numbers and missed days read as in real use.
         let context = model.persistence.container.viewContext
         if let row = try? context.fetch(CDProfile.fetchRequest()).first {
@@ -89,7 +92,7 @@ enum DesignData {
             var factors: Set<Factor> = []
             if offset % 5 == 0 { factors.insert(.poorSleep) }
             if offset % 7 == 0 { factors.formUnion([.caffeine, .stress]) }
-            let note = offset == -1 ? "Woke at 3am twice. Slow start at work." : ""
+            let note = offset == -1 ? text.note : ""
             repo.save(checkIn: CheckIn(day: day, ratings: ratings, impact: DailyImpact(rawValue: (abs(offset) + 1) % 4),
                                        bleeding: bleeding, factors: factors, note: note))
         }
@@ -108,21 +111,19 @@ enum DesignData {
             repo.save(questionnaire: Questionnaire(day: today.adding(days: offset), answers: answers))
         }
 
-        repo.save(medication: Medication(name: "Vitamin D", kind: .supplement, howTaken: "Daily", started: today.adding(days: first)))
-        repo.save(medication: Medication(name: "HRT patch", kind: .prescribed, howTaken: "As prescribed", started: today.adding(days: -30)))
+        repo.save(medication: Medication(name: text.vitaminD, kind: .supplement, howTaken: text.daily, started: today.adding(days: first)))
+        repo.save(medication: Medication(name: text.patch, kind: .prescribed, howTaken: text.asPrescribed, started: today.adding(days: -30)))
 
-        repo.save(visit: Visit(day: today.adding(days: -35), clinician: "Dr Patel", reason: "Sleep and hot flushes since spring",
+        repo.save(visit: Visit(day: today.adding(days: -35), clinician: text.clinician, reason: text.firstReason,
                                takenSeriously: .partly, decisions: [.startedTreatment, .bloodTests],
-                               outcome: "Talked through options. Blood tests next week.", followUp: today.adding(days: 9)))
+                               outcome: text.outcome, followUp: today.adding(days: 9)))
         if DesignFlags.has("-design-after-visit") {
-            repo.save(visit: Visit(day: today.adding(days: -1), clinician: "Dr Patel", reason: "Follow-up after six weeks"))
+            repo.save(visit: Visit(day: today.adding(days: -1), clinician: text.clinician, reason: text.followUpReason))
         } else {
-            repo.save(visit: Visit(day: today.adding(days: 9), clinician: "Dr Patel", reason: "Follow-up after six weeks"))
+            repo.save(visit: Visit(day: today.adding(days: 9), clinician: text.clinician, reason: text.followUpReason))
         }
 
-        let questions = ["Could my sleep problems be linked to perimenopause?",
-                         "What are my options if the patches irritate my skin?",
-                         "Should we check my iron after the heavy periods?"]
+        let questions = text.questions
         for (rank, text) in questions.enumerated() {
             repo.save(question: DoctorQuestion(text: text, rank: rank))
         }

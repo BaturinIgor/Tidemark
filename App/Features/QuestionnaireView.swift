@@ -74,6 +74,7 @@ struct QuestionnaireView: View {
         }
         model.repository.save(questionnaire: result)
         model.dataChanged()
+        UsageAnalytics.shared.log(.questionnaireCompleted)
         finished = result
     }
 
@@ -169,6 +170,7 @@ struct QuestionsView: View {
         }
         .navigationTitle("Questions")
         .navigationBarTitleDisplayMode(.inline)
+        .keyboardDismissable()
     }
 
     private func add(_ text: String) {
@@ -176,6 +178,7 @@ struct QuestionsView: View {
         guard !trimmed.isEmpty else { return }
         let next = (model.repository.questions().map(\.rank).max() ?? 0) + 1
         model.repository.save(question: DoctorQuestion(text: trimmed, rank: next))
+        UsageAnalytics.shared.log(.questionSaved)
         model.dataChanged()
     }
 
@@ -203,7 +206,7 @@ struct AfterVisitView: View {
     var body: some View {
         NavigationStack {
             Page {
-                ScreenHeader(title: "How did it go?", subtitle: visit.clinician.isEmpty ? String(localized: "Visit · \(visit.day.short)") : String(localized: "Visit with \(visit.clinician) · \(visit.day.short)"))
+                ScreenHeader(verbatim: String(localized: "How did it go?"), subtitle: visit.clinician.isEmpty ? String(localized: "Visit · \(visit.day.short)") : String(localized: "Visit with \(visit.clinician) · \(visit.day.short)"))
 
                 Card {
                     Text("Did you feel taken seriously?").font(.headline)
@@ -244,8 +247,9 @@ struct AfterVisitView: View {
                     Button("Save and add new medicine") { save(); addMedicine = true }.buttonStyle(OutlineButtonStyle())
                 }
             }
+            .keyboardDismissable()
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Close") { dismiss() } } }
-            .sheet(isPresented: $addMedicine, onDismiss: { dismiss() }) { AddMedicationView() }
+            .sheet(isPresented: $addMedicine, onDismiss: { dismiss() }) { AddMedicationView().analyticsScreen(.addMedicine) }
         }
     }
 
@@ -261,6 +265,7 @@ struct AfterVisitView: View {
             model.repository.save(visit: Visit(day: next, clinician: visit.clinician))
         }
         model.repository.save(visit: visit)
+        UsageAnalytics.shared.log(.visitSaved)
         model.dataChanged()
     }
 }

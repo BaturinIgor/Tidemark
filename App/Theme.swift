@@ -4,10 +4,13 @@ import UIKit
 
 /// Colors and components from the palette board in the mockups. Every color has a dark-mode pair.
 enum Theme {
-    static let accent = dynamic(light: 0x0E6E6B, dark: 0x5FA9A3)
-    static let accentInk = dynamic(light: 0x0A4F4D, dark: 0x8CC7C1)
-    static let onAccent = dynamic(light: 0xFFFFFF, dark: 0x08201F)
-    static let tint = dynamic(light: 0xE3F0EE, dark: 0x16302E)
+    /// Pro: Settings › Appearance. Read on every redraw; RootView rebuilds the tree when it changes.
+    nonisolated(unsafe) static var palette = Palette.teal
+
+    static var accent: Color { dynamic(palette.accent) }
+    static var accentInk: Color { dynamic(palette.accentInk) }
+    static var onAccent: Color { dynamic(palette.onAccent) }
+    static var tint: Color { dynamic(palette.tint) }
     static let ink = dynamic(light: 0x1B1F23, dark: 0xE8ECEA)
     static let secondary = dynamic(light: 0x3D4750, dark: 0xC3CBC7)
     static let muted = dynamic(light: 0x4A5560, dark: 0xA9B3AE)
@@ -26,25 +29,78 @@ enum Theme {
     static func fill(_ severity: Severity) -> Color {
         switch severity {
         case .none: dynamic(light: 0xF0F3F1, dark: 0x1B2024)
-        case .mild: dynamic(light: 0xCFE5E2, dark: 0x24433F)
-        case .moderate: dynamic(light: 0x5FA9A3, dark: 0x3E8580)
-        case .severe: dynamic(light: 0x0E6E6B, dark: 0x5FA9A3)
+        case .mild: dynamic(palette.mild)
+        case .moderate: dynamic(palette.moderate)
+        case .severe: dynamic(palette.severe)
         }
     }
 
     static func onFill(_ severity: Severity) -> Color {
         switch severity {
         case .none: ink
-        case .mild: dynamic(light: 0x0A3A39, dark: 0xCFE5E2)
-        case .moderate: dynamic(light: 0x08201F, dark: 0xFFFFFF)
-        case .severe: dynamic(light: 0xFFFFFF, dark: 0x08201F)
+        case .mild: dynamic(palette.onMild)
+        case .moderate: dynamic(palette.onModerate)
+        case .severe: dynamic(palette.onSevere)
         }
     }
+
+    static func dynamic(_ pair: Palette.Pair) -> Color { dynamic(light: pair.light, dark: pair.dark) }
 
     static func dynamic(light: UInt32, dark: UInt32) -> Color {
         Color(UIColor { traits in
             UIColor(hex: traits.userInterfaceStyle == .dark ? dark : light)
         })
+    }
+}
+
+/// Accent colors and the severity ramp for one theme. Text on accent and on every fill keeps at least
+/// 4.5:1 contrast in light and dark mode.
+struct Palette {
+    struct Pair { let light: UInt32; let dark: UInt32 }
+
+    let accent: Pair, accentInk: Pair, onAccent: Pair, tint: Pair
+    let mild: Pair, moderate: Pair, severe: Pair
+    let onMild: Pair, onModerate: Pair, onSevere: Pair
+
+    static let teal = Palette(
+        accent: .init(light: 0x0E6E6B, dark: 0x5FA9A3), accentInk: .init(light: 0x0A4F4D, dark: 0x8CC7C1),
+        onAccent: .init(light: 0xFFFFFF, dark: 0x08201F), tint: .init(light: 0xE3F0EE, dark: 0x16302E),
+        mild: .init(light: 0xCFE5E2, dark: 0x24433F), moderate: .init(light: 0x5FA9A3, dark: 0x3E8580),
+        severe: .init(light: 0x0E6E6B, dark: 0x5FA9A3),
+        onMild: .init(light: 0x0A3A39, dark: 0xCFE5E2), onModerate: .init(light: 0x08201F, dark: 0xFFFFFF),
+        onSevere: .init(light: 0xFFFFFF, dark: 0x08201F))
+
+    static let plum = Palette(
+        accent: .init(light: 0x7B3F6E, dark: 0xC68BB8), accentInk: .init(light: 0x5A2A50, dark: 0xDDB0D2),
+        onAccent: .init(light: 0xFFFFFF, dark: 0x2A0F24), tint: .init(light: 0xF3E7F0, dark: 0x36202F),
+        mild: .init(light: 0xEBD3E4, dark: 0x4A2A42), moderate: .init(light: 0xC68BB8, dark: 0x8E5482),
+        severe: .init(light: 0x7B3F6E, dark: 0xC68BB8),
+        onMild: .init(light: 0x3F1A37, dark: 0xEBD3E4), onModerate: .init(light: 0x2A0F24, dark: 0xFFFFFF),
+        onSevere: .init(light: 0xFFFFFF, dark: 0x2A0F24))
+
+    static let ocean = Palette(
+        accent: .init(light: 0x245C93, dark: 0x7FB0E0), accentInk: .init(light: 0x1A4470, dark: 0xA9CBEE),
+        onAccent: .init(light: 0xFFFFFF, dark: 0x0A1C30), tint: .init(light: 0xE4EEF8, dark: 0x172636),
+        mild: .init(light: 0xCFE0F2, dark: 0x22364C), moderate: .init(light: 0x7FB0E0, dark: 0x3F6E9E),
+        severe: .init(light: 0x245C93, dark: 0x7FB0E0),
+        onMild: .init(light: 0x0E2A47, dark: 0xCFE0F2), onModerate: .init(light: 0x0A1C30, dark: 0xFFFFFF),
+        onSevere: .init(light: 0xFFFFFF, dark: 0x0A1C30))
+
+    static let forest = Palette(
+        accent: .init(light: 0x3D6B2F, dark: 0x9CC48A), accentInk: .init(light: 0x2C5022, dark: 0xBEDBAF),
+        onAccent: .init(light: 0xFFFFFF, dark: 0x12210C), tint: .init(light: 0xE8F1E3, dark: 0x1C2B17),
+        mild: .init(light: 0xD7E8CE, dark: 0x2B4223), moderate: .init(light: 0x9CC48A, dark: 0x4E7B3E),
+        severe: .init(light: 0x3D6B2F, dark: 0x9CC48A),
+        onMild: .init(light: 0x1C3314, dark: 0xD7E8CE), onModerate: .init(light: 0x12210C, dark: 0xFFFFFF),
+        onSevere: .init(light: 0xFFFFFF, dark: 0x12210C))
+
+    static func of(_ theme: AppearanceTheme) -> Palette {
+        switch theme {
+        case .teal: teal
+        case .plum: plum
+        case .ocean: ocean
+        case .forest: forest
+        }
     }
 }
 
@@ -171,6 +227,23 @@ struct OptionRow<Option: Hashable>: View {
     }
 }
 
+extension View {
+    /// A "Done" button above the keyboard and swipe-down to hide it. Number pads and multi-line fields
+    /// have no other way to close the keyboard.
+    func keyboardDismissable() -> some View {
+        scrollDismissesKeyboard(.interactively)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }
+                    .fontWeight(.semibold)
+                }
+            }
+    }
+}
+
 struct Chip: View {
     let title: String
     let selected: Bool
@@ -179,8 +252,12 @@ struct Chip: View {
     /// Titles come from already-localized labels (symptoms, factors, decisions).
     var body: some View {
         Button(action: action) {
-            Text(verbatim: selected ? "✓ \(title)" : title)
-                .font(.subheadline.weight(selected ? .semibold : .regular))
+            // Always as wide as the selected chip, so choosing one never re-wraps the row.
+            ZStack {
+                Text(verbatim: "✓ \(title)").font(.subheadline.weight(.semibold)).hidden().accessibilityHidden(true)
+                Text(verbatim: selected ? "✓ \(title)" : title)
+                    .font(.subheadline.weight(selected ? .semibold : .regular))
+            }
                 .padding(.horizontal, 14)
                 .frame(minHeight: 40)
                 .foregroundStyle(selected ? Theme.accentInk : Theme.ink)
@@ -238,8 +315,9 @@ struct ScreenHeader: View {
         self.subtitle = subtitle.map { Text($0) }
     }
 
-    @_disfavoredOverload
-    init(title: String, subtitle: String? = nil) {
+    /// For text that is already localized or typed by the user (a medicine name). Plain literals go through
+    /// the LocalizedStringKey init above; without the `verbatim:` label Swift picked this one for them.
+    init(verbatim title: String, subtitle: String? = nil) {
         self.title = Text(verbatim: title)
         self.subtitle = subtitle.map { Text(verbatim: $0) }
     }

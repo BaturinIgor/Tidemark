@@ -38,17 +38,26 @@ PRONTA PER LA VISITA
 I TUOI DATI RESTANO TUOI
 • Salvati sul tuo iPhone e copiati, cifrati, nel tuo iCloud. Noi non li vediamo mai
 • Nessun account, niente pubblicità, nessuna vendita di dati
+• Statistiche d’uso anonime solo se le attivi, mai i tuoi dati sulla salute
 • Esporta tutto in un file quando vuoi e reimportalo
 • I giorni eliminati restano 30 giorni in Eliminati di recente
-• Blocco con Face ID e sincronizzazione con Apple Salute facoltativi
+• Blocco con Face ID e sincronizzazione con l’app Salute facoltativi
 
-GRATIS E IN ABBONAMENTO
-Registrazione giornaliera, cronologia, andamenti, backup, esportazione e resoconto sullo schermo sono gratuiti. Un abbonamento mensile o annuale aggiunge il resoconto PDF da stampare o inviare (i prezzi variano in base al paese). Il pagamento viene addebitato sul tuo ID Apple. L’abbonamento si rinnova automaticamente se non lo annulli almeno 24 ore prima della fine del periodo. Gestisci o annulla nelle impostazioni del tuo ID Apple.
+GRATIS, O DI PIÙ CON UN ABBONAMENTO
+Registrazione giornaliera, cronologia fino a 12 settimane, andamenti, backup su iCloud, esportazione in un file e resoconto sullo schermo sono gratuiti. Un abbonamento aggiunge:
+• Il resoconto PDF da stampare, inviare via email o caricare
+• Una pagina «Dalla tua ultima visita» che confronta i tuoi numeri prima e dopo una data
+• Cronologia e resoconti su 6 e 12 mesi
+• Esportazione come foglio di calcolo (CSV)
+• Sintomi illimitati, anche quelli a cui dai tu un nome
+• Temi e icone dell’app aggiuntivi
+
+I nuovi abbonati hanno 7 giorni gratis, poi un abbonamento annuale o mensile (i prezzi variano in base al paese). Il pagamento viene addebitato sul tuo Account Apple al termine della prova gratuita. L’abbonamento si rinnova automaticamente se non lo annulli almeno 24 ore prima della fine del periodo. Gestisci o annulla nelle impostazioni del tuo Account Apple.
 
 Tidemark registra ciò che indichi. Non fa diagnosi, non suggerisce trattamenti e non dà consigli medici. Se un sintomo ti preoccupa, contatta il medico.
 
 Condizioni d’uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Informativa sulla privacy: [link all’informativa pubblicata]
+Informativa sulla privacy: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Prima versione.
@@ -56,7 +65,7 @@ Prima versione.
 ## Screenshot captions
 1. I tuoi sintomi in una pagina, pronti per la visita
 2. Registra in 30 secondi al giorno
-3. Registra una vampata dalla schermata di blocco
+3. Registra una vampata con un tocco
 4. Settimane a colpo d’occhio
 5. I tuoi dati, il tuo iCloud. Non li vediamo mai
 6. Annota cosa è stato deciso dopo ogni visita

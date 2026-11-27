@@ -39,7 +39,7 @@ open Tidemark.xcodeproj
 Before you run the app on a device:
 
 1. Set `DEVELOPMENT_TEAM` in `project.yml`, or in Xcode under Signing.
-2. Replace the placeholder identifiers if you need to: bundle id `app.tidemark.Tidemark`, iCloud container `iCloud.app.tidemark`, app group `group.app.tidemark`, StoreKit products `app.tidemark.report.yearly` and `app.tidemark.report.monthly`.
+2. Replace the placeholder identifiers if you need to: bundle id `app.tidemark.ios`, iCloud container `iCloud.app.tidemark`, app group `group.app.tidemark`, StoreKit products `app.tidemark.report.yearly` and `app.tidemark.report.monthly`.
 3. In the CloudKit console, deploy the schema to production before release. Core Data creates the development schema on first run.
 
 Tests:

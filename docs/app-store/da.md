@@ -38,17 +38,26 @@ KLAR TIL AFTALEN
 DINE DATA ER DINE
 • Gemt på din iPhone og sikkerhedskopieret, krypteret, til din egen iCloud. Vi ser dem aldrig
 • Ingen konto, ingen reklamer, intet salg af data
+• Anonym brugsstatistik kun hvis du slår det til, aldrig dine sundhedsdata
 • Eksporter alt til en fil når som helst, og importer det igen
 • Slettede dage ligger 30 dage i Senest slettet
 • Valgfri lås med Face ID og synkronisering med Apple Sundhed
 
-GRATIS OG ABONNEMENT
-Daglig registrering, historik, mønstre, sikkerhedskopi, eksport og rapporten på skærmen er gratis. Et måneds- eller årsabonnement tilføjer PDF-rapporten til udskrift eller afsendelse (priserne varierer fra land til land). Betalingen trækkes på dit Apple-id og fornyes automatisk, medmindre du opsiger mindst 24 timer før periodens udløb. Administrer eller opsig i indstillingerne for dit Apple-id.
+GRATIS, ELLER MERE MED ABONNEMENT
+Daglig registrering, historik op til 12 uger, mønstre, sikkerhedskopi i iCloud, eksport til en fil og rapporten på skærmen er gratis. Et abonnement tilføjer:
+• PDF-rapporten til udskrift, mail eller upload
+• Sammenligningssiden “Siden din seneste aftale” med dine egne tal før og efter en dato
+• Historik og rapporter over 6 og 12 måneder
+• Eksport som regneark (CSV)
+• Ubegrænset antal gener, også dem, du selv navngiver
+• Flere temaer og appikoner
+
+Nye abonnenter får 7 dage gratis og derefter et års- eller månedsabonnement (priserne varierer fra land til land). Betalingen trækkes på din Apple-konto, når prøveperioden slutter, og abonnementet fornyes automatisk, medmindre du opsiger mindst 24 timer før periodens udløb. Administrer eller opsig i indstillingerne for din Apple-konto.
 
 Tidemark registrerer det, du angiver. Appen stiller ikke diagnoser, foreslår ikke behandling og giver ikke medicinsk rådgivning. Hvis en gene bekymrer dig, så kontakt din læge.
 
 Brugsvilkår: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Privatlivspolitik: [link til den offentliggjorte politik]
+Privatlivspolitik: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Første version.
@@ -56,7 +65,7 @@ Første version.
 ## Screenshot captions
 1. Dine gener på én side, klar til aftalen
 2. Registrer på 30 sekunder om dagen
-3. Registrer en hedetur fra låseskærmen
+3. Registrer en hedetur med ét tryk
 4. Uger med ét blik
 5. Dine data, din iCloud. Vi ser dem aldrig
 6. Noter, hvad der blev besluttet efter hvert besøg

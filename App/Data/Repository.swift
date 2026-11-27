@@ -33,7 +33,8 @@ final class Repository {
         return Profile(
             region: region,
             age: row.age > 0 ? Int(row.age) : nil,
-            trackedSymptomIDs: (row.trackedSymptoms ?? "").split(separator: ",").map(String.init)
+            trackedSymptomIDs: (row.trackedSymptoms ?? "").split(separator: ",").map(String.init),
+            customSymptoms: Self.decodeCustomSymptoms(row.customSymptoms)
         )
     }
 
@@ -44,9 +45,21 @@ final class Repository {
         row.region = profile.region.rawValue
         row.age = Int16(profile.age ?? 0)
         row.trackedSymptoms = profile.trackedSymptomIDs.joined(separator: ",")
+        // Definitions are only ever added: one missing from `profile` (an older copy) is kept, so no
+        // rated day loses its label.
+        var custom = Self.decodeCustomSymptoms(row.customSymptoms)
+        for symptom in profile.customSymptoms {
+            if let i = custom.firstIndex(where: { $0.id == symptom.id }) { custom[i] = symptom } else { custom.append(symptom) }
+        }
+        row.customSymptoms = custom.isEmpty ? nil : (try? JSONEncoder().encode(custom)).map { String(decoding: $0, as: UTF8.self) }
         if row.trackingStarted == nil { row.trackingStarted = DayKey(Date()).description }
         row.updatedAt = Date()
         commit()
+    }
+
+    private static func decodeCustomSymptoms(_ json: String?) -> [CustomSymptom] {
+        guard let json, let data = json.data(using: .utf8) else { return [] }
+        return (try? JSONDecoder().decode([CustomSymptom].self, from: data)) ?? []
     }
 
     /// First day of tracking. Days before it are never offered as "missed".
@@ -377,7 +390,15 @@ final class Repository {
 
     /// Adds what is missing and never overwrites a newer local value.
     func importFile(_ file: ExportFile) {
-        if profile() == nil { save(profile: file.profile) }
+        if var current = profile() {
+            // Keep the file's own symptom names, so its ratings for them stay labelled. save() only adds.
+            if !file.profile.customSymptoms.isEmpty {
+                current.customSymptoms = file.profile.customSymptoms
+                save(profile: current)
+            }
+        } else {
+            save(profile: file.profile)
+        }
         for checkIn in file.checkIns where self.checkIn(for: checkIn.day) == nil {
             save(checkIn: checkIn)
         }

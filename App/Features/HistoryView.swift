@@ -4,12 +4,13 @@ import TidemarkCore
 
 struct HistoryView: View {
     @Environment(AppModel.self) private var model
-    @State private var weeks = 8
+    @State private var range: HistoryRange = .weeks8
+    @State private var paywall: ProFeature?
 
     var body: some View {
         let _ = model.revision
         let today = DayKey.today
-        let from = today.adding(days: -(weeks * 7) + 1)
+        let from = HistoryRange.allowed(range.weeks, isPro: model.isPro).start(endingOn: today)
         let checkIns = model.repository.allCheckIns(from: from, to: today)
         let ids = model.profile?.trackedSymptomIDs ?? []
         let questionnaires = model.repository.questionnaires().filter { $0.total != nil }
@@ -18,7 +19,10 @@ struct HistoryView: View {
 
         Page {
             ScreenHeader(title: "History")
-            OptionRow(options: [4, 8, 12], selection: $weeks) { String(localized: "\($0) weeks") }
+            RangePicker(selection: $range, isPro: model.isPro) {
+                UsageAnalytics.shared.log(.proFeatureTapped, .feature(.longHistory))
+                paywall = .longHistory
+            }
 
             Card {
                 Text("Day by day").font(.headline)
@@ -47,14 +51,16 @@ struct HistoryView: View {
             }
 
             Card(spacing: 0, padding: 0) {
-                NavRow(title: String(localized: "Cycle"), detail: nil) { CycleView() }
-                NavRow(title: String(localized: "Patterns"), detail: nil) { PatternsView() }
-                NavRow(title: String(localized: "Medicines and supplements"), detail: String(localized: "\(medications.filter { $0.stopped == nil }.count) active")) { MedicationsView() }
-                NavRow(title: String(localized: "Visit notes"), detail: visits.isEmpty ? String(localized: "None yet") : visits.count.formatted()) { VisitNotesView() }
-                NavRow(title: String(localized: "Your week"), detail: nil, last: true) { WeeklySummaryView() }
+                NavRow(title: String(localized: "Cycle"), detail: nil) { CycleView().analyticsScreen(.cycle) }
+                NavRow(title: String(localized: "Patterns"), detail: nil) { PatternsView().analyticsScreen(.patterns) }
+                NavRow(title: String(localized: "Medicines and supplements"), detail: String(localized: "\(medications.filter { $0.stopped == nil }.count) active")) { MedicationsView().analyticsScreen(.medicines) }
+                NavRow(title: String(localized: "Visit notes"), detail: visits.isEmpty ? String(localized: "None yet") : visits.count.formatted()) { VisitNotesView().analyticsScreen(.visitNotes) }
+                NavRow(title: String(localized: "Your week"), detail: nil, last: true) { WeeklySummaryView().analyticsScreen(.weeklySummary) }
             }
         }
         .navigationBarHidden(true)
+        .sheet(item: $paywall) { PaywallView(feature: $0) }
+        .analyticsScreen(.history)
     }
 }
 
@@ -97,13 +103,25 @@ struct HeatMap: View {
             ForEach(symptomIDs + ["bleeding"], id: \.self) { id in
                 VStack(alignment: .leading, spacing: 2) {
                     Text(id == "bleeding" ? String(localized: "Bleeding") : Symptom.label(for: id)).font(.caption).foregroundStyle(Theme.secondary)
-                    HStack(spacing: 1) {
-                        ForEach(0..<count, id: \.self) { offset in
-                            let day = from.adding(days: offset)
-                            Rectangle()
-                                .fill(color(for: id, checkIn: byDay[day]))
-                                .frame(height: 12)
+                    if count <= 84 {
+                        HStack(spacing: 1) {
+                            ForEach(0..<count, id: \.self) { offset in
+                                let day = from.adding(days: offset)
+                                Rectangle()
+                                    .fill(color(for: id, checkIn: byDay[day]))
+                                    .frame(height: 12)
+                            }
                         }
+                    } else {
+                        // 6 and 12 months (Pro): too many days for one view each, so draw them.
+                        Canvas { context, size in
+                            let width = size.width / CGFloat(count)
+                            for offset in 0..<count {
+                                let rect = CGRect(x: CGFloat(offset) * width, y: 0, width: max(width, 0.5), height: size.height)
+                                context.fill(Path(rect), with: .color(color(for: id, checkIn: byDay[from.adding(days: offset)])))
+                            }
+                        }
+                        .frame(height: 12)
                     }
                 }
                 .accessibilityElement(children: .ignore)
@@ -256,7 +274,7 @@ struct PatternsView: View {
             }
             ForEach(patterns, id: \.self) { p in
                 Card(spacing: 8) {
-                    Text("\(p.factor.label.uppercased()) · \(p.nextDay ? "THE DAY BEFORE" : "THE SAME DAY")")
+                    Text(verbatim: "\(p.factor.label.uppercased(with: .current)) · \((p.nextDay ? String(localized: "The day before") : String(localized: "The same day")).uppercased(with: .current))")
                         .font(.caption.weight(.semibold)).foregroundStyle(Theme.muted)
                     Text("\(Symptom.label(for: p.symptomID)) was moderate or worse").font(.headline)
                     RateBar(label: String(localized: "With \(Locale.current.language.languageCode == .english ? p.factor.label.lowercased() : p.factor.label)"), hits: p.withFactorHits, days: p.withFactorDays, color: Theme.accent)
@@ -307,7 +325,7 @@ struct MedicationsView: View {
             Button("Add") { adding = true }.buttonStyle(PrimaryButtonStyle())
         }
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $adding) { AddMedicationView() }
+        .sheet(isPresented: $adding) { AddMedicationView().analyticsScreen(.addMedicine) }
     }
 
     @ViewBuilder
@@ -317,7 +335,7 @@ struct MedicationsView: View {
             Card(spacing: 0, padding: 0) {
                 ForEach(items) { m in
                     NavRow(title: m.name, detail: m.stopped.map { String(localized: "Stopped \($0.short)") } ?? String(localized: "since \(m.started.short)"), last: m.id == items.last?.id) {
-                        TreatmentCheckView(medication: m)
+                        TreatmentCheckView(medication: m).analyticsScreen(.medicineDetail)
                     }
                 }
             }
@@ -348,11 +366,13 @@ struct AddMedicationView: View {
             }
             .navigationTitle("Add medicine")
             .navigationBarTitleDisplayMode(.inline)
+            .keyboardDismissable()
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         model.repository.save(medication: Medication(name: name, kind: kind, howTaken: howTaken, started: DayKey(started)))
+                        UsageAnalytics.shared.log(.medicineSaved)
                         model.dataChanged()
                         dismiss()
                     }
@@ -377,7 +397,7 @@ struct TreatmentCheckView: View {
             symptomIDs: model.profile?.trackedSymptomIDs ?? []
         )
         Page {
-            ScreenHeader(title: medication.name)
+            ScreenHeader(verbatim: medication.name)
             Text("Started \(medication.started.short). Average of your daily ratings, \(result.windowDays / 7) weeks before and after. 0 is none, 3 is severe.")
                 .foregroundStyle(Theme.secondary)
             if !result.isReady {

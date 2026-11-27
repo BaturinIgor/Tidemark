@@ -18,9 +18,9 @@ struct CheckInView: View {
     var body: some View {
         NavigationStack {
             if saved {
-                CheckInSavedView(checkIn: checkIn) { dismiss() }
+                CheckInSavedView(checkIn: checkIn) { dismiss() }.analyticsScreen(.checkInSaved)
             } else {
-                form
+                form.keyboardDismissable()
             }
         }
         .onAppear {
@@ -57,6 +57,7 @@ struct CheckInView: View {
                         Text(checkIn.ratings[id]?.label ?? String(localized: "Not rated")).font(.footnote).foregroundStyle(Theme.muted)
                     }
                     SeverityPicker(value: rating(id))
+                        .onChange(of: checkIn.ratings[id]) { _, _ in UsageAnalytics.shared.log(.ratingChanged) }
                 }
             }
 
@@ -95,6 +96,7 @@ struct CheckInView: View {
 
             Button("Save check-in") {
                 saved = true
+                UsageAnalytics.shared.log(.checkInSaved, .count(model.repository.allCheckIns().count))
                 if UserDefaults.standard.bool(forKey: "healthWrite") {
                     let day = checkIn
                     Task { await model.health.write(day) }
@@ -195,7 +197,7 @@ struct CheckInSavedView: View {
 
             ForEach(flags, id: \.self) { flag in
                 WarningCard(systemImage: "exclamationmark.triangle") {
-                    Text(flag.message).font(.subheadline.weight(.semibold))
+                    Text(flag.message(region: model.profile?.region ?? .unitedStates)).font(.subheadline.weight(.semibold))
                 }
             }
 
@@ -207,7 +209,7 @@ struct CheckInSavedView: View {
             Button("Add a question for your doctor") { addQuestion = true }
                 .buttonStyle(OutlineButtonStyle())
         }
-        .sheet(isPresented: $addQuestion) { NavigationStack { QuestionsView() } }
+        .sheet(isPresented: $addQuestion) { NavigationStack { QuestionsView().analyticsScreen(.questions) } }
     }
 
     private func savedLine(count: Int, visit: Visit?) -> String {

@@ -10,6 +10,8 @@ struct ReportData {
     let questions: [DoctorQuestion]
     let showHeatMap: Bool
     let showCycle: Bool
+    /// Page 2 (Pro): before and after a chosen date. Nil leaves the report at one page.
+    var comparison: PeriodComparison? = nil
 }
 
 /// The one-page visit report. The same view renders on screen and into the PDF, always in light colors.
@@ -183,17 +185,23 @@ enum ReportPDF {
     static func render(_ data: ReportData) throws -> URL {
         let size = data.profile.region.paper.size
         let url = FileManager.default.temporaryDirectory.appendingPathComponent("Tidemark report \(data.summary.to.description).pdf")
-        let renderer = ImageRenderer(content: ReportPage(data: data))
-        renderer.proposedSize = ProposedViewSize(width: size.width, height: size.height)
         var box = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         guard let consumer = CGDataConsumer(url: url as CFURL),
               let pdf = CGContext(consumer: consumer, mediaBox: &box, nil) else {
             throw CocoaError(.fileWriteUnknown)
         }
-        renderer.render { _, draw in
-            pdf.beginPDFPage(nil)
-            draw(pdf)
-            pdf.endPDFPage()
+        var pages = [AnyView(ReportPage(data: data))]
+        if let comparison = data.comparison {
+            pages.append(AnyView(ComparisonPage(profile: data.profile, comparison: comparison)))
+        }
+        for page in pages {
+            let renderer = ImageRenderer(content: page)
+            renderer.proposedSize = ProposedViewSize(width: size.width, height: size.height)
+            renderer.render { _, draw in
+                pdf.beginPDFPage(nil)
+                draw(pdf)
+                pdf.endPDFPage()
+            }
         }
         pdf.closePDF()
         return url

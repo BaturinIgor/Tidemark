@@ -38,17 +38,26 @@ PRÊTE POUR LE RENDEZ-VOUS
 VOS DONNÉES VOUS APPARTIENNENT
 • Enregistrées sur votre iPhone et sauvegardées, chiffrées, dans votre propre iCloud. Nous ne les voyons jamais
 • Pas de compte, pas de pub, pas de revente de données
+• Statistiques d’utilisation anonymes uniquement si vous les activez, jamais vos données de santé
 • Exportez tout dans un fichier à tout moment, et réimportez-le
 • Les jours supprimés restent 30 jours dans Supprimés récemment
-• Verrouillage Face ID et synchronisation avec Apple Santé en option
+• Verrouillage Face ID et synchronisation avec l’app Santé en option
 
-GRATUIT ET ABONNEMENT
-Le suivi quotidien, l’historique, les tendances, la sauvegarde, l’export et le rapport à l’écran sont gratuits. Un abonnement mensuel ou annuel ajoute le rapport PDF à imprimer ou envoyer (prix selon le pays). Le paiement est débité sur votre identifiant Apple. L’abonnement se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période. Gérez ou résiliez dans les réglages de votre identifiant Apple.
+GRATUIT, OU PLUS AVEC UN ABONNEMENT
+Le suivi quotidien, l’historique jusqu’à 12 semaines, les tendances, la sauvegarde iCloud, l’export dans un fichier et le rapport à l’écran sont gratuits. Un abonnement ajoute :
+• Le rapport PDF à imprimer, envoyer par e-mail ou importer en ligne
+• Une page « Depuis votre dernier rendez-vous » qui compare vos propres chiffres avant et après une date
+• L’historique et les rapports sur 6 et 12 mois
+• L’export en tableur (CSV)
+• Des symptômes illimités, y compris ceux que vous nommez vous-même
+• Des thèmes et icônes d’app supplémentaires
+
+Les nouveaux abonnés profitent de 7 jours gratuits, puis d’un abonnement annuel ou mensuel (prix selon le pays). Le paiement est débité sur votre compte Apple à la fin de l’essai gratuit. L’abonnement se renouvelle automatiquement sauf résiliation au moins 24 heures avant la fin de la période. Gérez ou résiliez dans les réglages de votre compte Apple.
 
 Tidemark enregistre ce que vous indiquez. L’app ne pose pas de diagnostic, ne propose pas de traitement et ne donne pas d’avis médical. Si un symptôme vous inquiète, contactez votre médecin.
 
 Conditions d’utilisation : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Politique de confidentialité : [lien vers la politique publiée]
+Politique de confidentialité : https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Première version.
@@ -56,7 +65,7 @@ Première version.
 ## Screenshot captions
 1. Vos symptômes sur une page, prêts pour le rendez-vous
 2. Un suivi en 30 secondes par jour
-3. Notez une bouffée de chaleur depuis l’écran verrouillé
+3. Notez une bouffée de chaleur d’un geste
 4. Des semaines en un coup d’œil
 5. Vos données, votre iCloud. Nous ne les voyons jamais
 6. Notez ce qui a été décidé après chaque consultation

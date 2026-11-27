@@ -38,17 +38,26 @@ VALMIINA VASTAANOTOLLE
 TIETOSI OVAT SINUN
 • Tallennettu iPhoneesi ja varmuuskopioitu salattuna omaan iCloudiisi. Me emme näe niitä koskaan
 • Ei tiliä, ei mainoksia, ei tietojen myyntiä
+• Anonyymit käyttötilastot vain, jos otat ne käyttöön, ei koskaan terveystietojasi
 • Vie kaikki tiedostoon milloin tahansa ja tuo takaisin
 • Poistetut päivät säilyvät 30 päivää Äskettäin poistetut -kohdassa
 • Valinnainen Face ID -lukitus ja synkronointi Apple Terveyteen
 
-ILMAINEN JA TILAUS
-Päivittäinen kirjaus, historia, kuviot, varmuuskopio, vienti ja raportti ruudulla ovat ilmaisia. Kuukausi- tai vuositilaus tuo PDF-raportin tulostettavaksi tai lähetettäväksi (hinnat vaihtelevat maittain). Maksu veloitetaan Apple ID:ltäsi, ja tilaus uusiutuu automaattisesti, ellei sitä peruta vähintään 24 tuntia ennen jakson päättymistä. Hallitse tai peru Apple ID:n asetuksissa.
+ILMAINEN, TAI ENEMMÄN TILAUKSELLA
+Päivittäinen kirjaus, historia enintään 12 viikolta, kuviot, iCloud-varmuuskopio, vienti tiedostoon ja raportti ruudulla ovat ilmaisia. Tilaus tuo lisäksi:
+• PDF-raportin tulostettavaksi, sähköpostiin tai ladattavaksi
+• ”Edellisen vastaanoton jälkeen” -sivun, joka vertaa omia lukujasi ennen valittua päivää ja sen jälkeen
+• Historian ja raportit 6 ja 12 kuukauden ajalta
+• Viennin taulukkona (CSV)
+• Rajattomasti oireita, myös itse nimeämiäsi
+• Lisää teemoja ja sovelluskuvakkeita
+
+Uudet tilaajat saavat 7 päivää maksutta, minkä jälkeen alkaa vuosi- tai kuukausitilaus (hinnat vaihtelevat maittain). Maksu veloitetaan Apple-tililtäsi ilmaisen kokeilun päättyessä, ja tilaus uusiutuu automaattisesti, ellei sitä peruta vähintään 24 tuntia ennen jakson päättymistä. Hallitse tai peru Apple-tilin asetuksissa.
 
 Tidemark tallentaa sen, mitä kerrot. Sovellus ei diagnosoi, ehdota hoitoa eikä anna lääketieteellisiä neuvoja. Jos jokin oire huolestuttaa, ota yhteyttä lääkäriin.
 
 Käyttöehdot: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Tietosuojakäytäntö: [linkki julkaistuun käytäntöön]
+Tietosuojakäytäntö: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Ensimmäinen versio.
@@ -56,7 +65,7 @@ Ensimmäinen versio.
 ## Screenshot captions
 1. Oireesi yhdellä sivulla, valmiina vastaanotolle
 2. Kirjaa 30 sekunnissa päivässä
-3. Kirjaa kuuma aalto lukitusnäytöltä
+3. Kirjaa kuuma aalto yhdellä napautuksella
 4. Viikot yhdellä silmäyksellä
 5. Sinun tietosi, sinun iCloudisi. Emme näe niitä koskaan
 6. Merkitse jokaisen käynnin jälkeen, mitä päätettiin

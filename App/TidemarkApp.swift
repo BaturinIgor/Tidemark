@@ -19,11 +19,11 @@ struct TidemarkApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            ThemedRoot()
                 .designPresenter()
                 .environment(model)
                 .environment(\.managedObjectContext, model.persistence.container.viewContext)
-                .tint(Theme.accent)
+                .task { UsageAnalytics.shared.start() }
         }
         .onChange(of: scenePhase) { _, phase in
             model.lock.sceneChanged(to: phase)

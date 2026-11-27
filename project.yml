@@ -18,6 +18,11 @@ settings:
 packages:
   TidemarkCore:
     path: Packages/TidemarkCore
+  # Google Analytics for Firebase, as in ZenHab and Hearthmend: screens and taps only, never health data,
+  # and only after the user opts in (tools/analytics/README.md).
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    from: "13.0.0"
 targets:
   Tidemark:
     type: application
@@ -27,6 +32,9 @@ targets:
       - path: Shared
     dependencies:
       - package: TidemarkCore
+      # FirebaseAnalyticsCore, not FirebaseAnalytics: no IDFA (AdSupport). The module is still FirebaseAnalytics.
+      - package: Firebase
+        product: FirebaseAnalyticsCore
       - target: TidemarkWidgets
         embed: true
       - sdk: HealthKit.framework
@@ -53,10 +61,25 @@ targets:
         NSHealthShareUsageDescription: Tidemark only reads Apple Health data you allow, to show it next to your own check-ins.
         NSHealthUpdateUsageDescription: Tidemark can save your symptoms to Apple Health, so they are kept in one more place you control.
         NSFaceIDUsageDescription: Use Face ID to keep your symptom log private.
+        # Firebase Analytics: no ad signals, no IDFV, no app delegate swizzling, no automatic screens.
+        # GoogleService-Info.plist is added only by tools/analytics/add_firebase_config.sh (App Store builds).
+        FirebaseAutomaticScreenReportingEnabled: false
+        FirebaseAppDelegateProxyEnabled: false
+        GOOGLE_ANALYTICS_ADID_COLLECTION_ENABLED: false
+        GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED: false
+        GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS: false
+        GOOGLE_ANALYTICS_REGISTRATION_WITH_AD_NETWORK_ENABLED: false
+        # Firebase collects nothing by itself: UsageAnalytics turns it on only after the user opts in.
+        FIREBASE_ANALYTICS_COLLECTION_ENABLED: false
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.Tidemark
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.ios
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Pro: alternate app icons (Settings › Appearance).
+        ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES: AppIcon-Plum AppIcon-Ocean AppIcon-Forest AppIcon-Night
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: YES
+        # Firebase through Swift Package Manager needs -ObjC.
+        OTHER_LDFLAGS: ["$(inherited)", "-ObjC"]
         TARGETED_DEVICE_FAMILY: "1"   # iPhone only in v1; iPad is planned for 1.2
 
   TidemarkWidgets:
@@ -83,7 +106,7 @@ targets:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.Tidemark.Widgets
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.ios.widgets
         TARGETED_DEVICE_FAMILY: "1"
 
   TidemarkTests:
@@ -95,7 +118,7 @@ targets:
       - target: Tidemark
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.TidemarkTests
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.ios.tests
         GENERATE_INFOPLIST_FILE: YES
 
   TidemarkUITests:
@@ -107,7 +130,7 @@ targets:
       - target: Tidemark
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.TidemarkUITests
+        PRODUCT_BUNDLE_IDENTIFIER: app.tidemark.ios.uitests
         GENERATE_INFOPLIST_FILE: YES
         TEST_TARGET_NAME: Tidemark
 

@@ -1,10 +1,8 @@
-# Tidemark Privacy Policy (draft)
+# Tidemark Privacy Policy
 
-> Draft for legal review. Text in [square brackets] must be filled in before publishing. Not legal advice.
+Last updated: 27 November 2026
 
-Last updated: [date]
-
-Tidemark is made by [legal name of the developer], [address] ("we", "us"). This policy explains what happens to the information you enter in the Tidemark app.
+Tidemark is made by Igor Baturin ("we", "us"), the developer named on the App Store. This policy explains what happens to the information you enter in the Tidemark app.
 
 ## The short version
 
@@ -33,20 +31,22 @@ We do not receive your health information.
 
 **Purchases.** Subscriptions are processed by Apple. We receive from Apple only what Apple provides to all developers, such as anonymous sales reports. We do not receive your name, email or payment details.
 
-**Crash reports.** If you agree to share analytics with app developers in iOS Settings, Apple may send us crash reports. These contain technical information about the device and the crash, not your logged data. [Confirm before publishing that no health data is ever written to logs.]
+**Crash reports.** If you agree to share analytics with app developers in iOS Settings, Apple may send us crash reports. These contain technical information about the device and the crash, not your logged data.
+
+**Usage analytics (only if you turn it on).** Tidemark asks once, during setup, whether you want to share anonymous usage; it is off unless you say yes, and you can change it anytime in Settings › Privacy. If you agree, the app sends Google Analytics for Firebase (Google) which screens you open, which buttons you tap, when you start a free trial or buy a subscription, and technical details such as the app version, iOS version, device model, country and a random app instance ID that Firebase creates. It never sends your symptoms, ratings, bleeding, notes, medicines, questions, visit notes, the names of symptoms you add, questionnaire answers or scores, or anything else you record. We do not collect the advertising identifier, do not use the data for advertising and do not combine it with other data about you. Google processes it on our behalf; we keep it for 2 months. Turning the setting off stops sending and deletes the app instance ID on your iPhone. Google may process this data outside your country, under the safeguards described in Google's terms for Firebase.
 
 **Contacting us.** If you email us, we receive your email address and what you write, and use it only to answer you.
 
 ## Sharing
 
-We do not sell, rent or share your information. The only time your information leaves your devices and your iCloud is when you choose to send it, for example when you share the PDF report or an export file. The recipient you choose is then responsible for it.
+We do not sell, rent or share your information. Apart from the optional usage analytics above, which never include your health information, your information leaves your devices and your iCloud only when you choose to send it, for example when you share the PDF report or an export file. The recipient you choose is then responsible for it.
 
 ## Your choices and rights
 
-- **Export:** Settings › Export all data creates a file with everything you logged (JSON or CSV).
+- **Export:** Settings › Export all data creates a file with everything you logged. JSON export is always free; a spreadsheet (CSV) export comes with the subscription.
 - **Delete:** you can delete single days or everything. Deleted items stay in Recently deleted for 30 days, so you can undo a mistake, and are then removed. Deleting the app removes the data on your iPhone; to remove the iCloud copy, go to iOS Settings › [your name] › iCloud › Manage Storage › Tidemark.
 - **UK and EU:** you have the rights of access, rectification, erasure, restriction, portability and objection under the UK GDPR and the EU GDPR. Because we do not hold your logged data, you can exercise most of them directly in the app. For anything else, contact us. You can also complain to the Information Commissioner's Office (UK) or your local supervisory authority.
-- **US states:** we do not sell or share personal information and do not use it for targeted advertising. [Check Washington My Health My Data Act, Nevada SB 370 and Connecticut consumer health data rules with counsel.]
+- **US states:** we do not sell or share personal information and do not use it for targeted advertising. We do not collect consumer health data on our servers. If you live in a US state with consumer health data laws, such as Washington, Nevada or Connecticut, you can ask us about or delete any data we hold by emailing us.
 
 ## Children
 
@@ -58,5 +58,4 @@ If we change this policy, we will update the date above and, for important chang
 
 ## Contact
 
-[Developer name], [email address], [postal address]
-[EU/UK representative, if required]
+Igor Baturin, dawnwell.app+tidemark@gmail.com

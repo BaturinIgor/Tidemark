@@ -8,12 +8,13 @@ struct SettingsView: View {
     @AppStorage("reminderEnabled") private var reminderEnabled = true
     @AppStorage("reminderMinutes") private var reminderMinutes = 21 * 60
     @State private var exportURL: URL?
-    @State private var csvURL: URL?
+    @State private var csvURLs: [URL] = []
+    @State private var analyticsOn = UsageAnalytics.shared.consent == true
     @State private var importing = false
     @State private var importPreview: ImportPreview?
     @State private var importError: String?
     @State private var confirmDelete = false
-    @State private var showPaywall = false
+    @State private var paywall: ProFeature?
     @State private var manageSubscription = false
 
     var body: some View {
@@ -25,17 +26,21 @@ struct SettingsView: View {
         Form {
             Section("Tracking") {
                 NavigationLink {
-                    SymptomsEditorView()
+                    SymptomsEditorView().analyticsScreen(.symptomsEditor)
                 } label: {
-                    LabeledContent("My symptoms", value: "\(profile.trackedSymptomIDs.count) of \(Symptom.dailyLimit)")
+                    LabeledContent("My symptoms", value: model.isPro ? profile.trackedSymptomIDs.count.formatted()
+                                   : String(localized: "\(profile.trackedSymptomIDs.count) of \(Symptom.dailyLimit)"))
                 }
                 Toggle("Daily reminder", isOn: $reminderEnabled)
-                    .onChange(of: reminderEnabled) { _, _ in rescheduleReminder() }
+                    .onChange(of: reminderEnabled) { _, on in
+                        rescheduleReminder()
+                        UsageAnalytics.shared.log(.reminderToggled, .enabled(on))
+                    }
                 if reminderEnabled {
                     DatePicker("Time", selection: reminderTime, displayedComponents: .hourAndMinute)
                 }
                 NavigationLink {
-                    AppointmentView()
+                    AppointmentView().analyticsScreen(.appointment)
                 } label: {
                     LabeledContent("Next appointment", value: visit.map { $0.day >= .today ? $0.day.short : String(localized: "Add") } ?? String(localized: "Add"))
                 }
@@ -50,13 +55,30 @@ struct SettingsView: View {
             Section {
                 LabeledContent("iCloud backup", value: backupText)
                 Toggle("Lock with Face ID", isOn: $lock.isEnabled)
-                NavigationLink("Apple Health") { HealthSettingsView() }
-                Button("Export all data (JSON)") { exportURL = DataExport.makeFile(model: model) }
+                    .onChange(of: lock.isEnabled) { _, on in UsageAnalytics.shared.log(.faceIDToggled, .enabled(on)) }
+                NavigationLink("Apple Health") { HealthSettingsView().analyticsScreen(.appleHealth) }
+                Button("Export all data (JSON)") {
+                    exportURL = DataExport.makeFile(model: model)
+                    UsageAnalytics.shared.log(.exportJSON)
+                }
                 if let exportURL { ShareLink("Share JSON file", item: exportURL) }
-                Button("Export as spreadsheet (CSV)") { csvURL = DataExport.makeCSV(model: model) }
-                if let csvURL { ShareLink("Share CSV file", item: csvURL) }
+                Button {
+                    if model.isPro {
+                        csvURLs = DataExport.makeCSV(model: model)
+                        UsageAnalytics.shared.log(.exportCSV)
+                    } else {
+                        openPaywall(.csvExport)
+                    }
+                } label: {
+                    HStack {
+                        Text("Export as spreadsheet (CSV)")
+                        Spacer()
+                        if !model.isPro { ProBadge() }
+                    }
+                }
+                if !csvURLs.isEmpty { ShareLink("Share CSV files", items: csvURLs) }
                 Button("Import from a Tidemark file") { importing = true }
-                NavigationLink("Recently deleted") { RecentlyDeletedView() }
+                NavigationLink("Recently deleted") { RecentlyDeletedView().analyticsScreen(.recentlyDeleted) }
                 Button("Delete all data", role: .destructive) { confirmDelete = true }
             } header: {
                 Text("Your data")
@@ -64,31 +86,69 @@ struct SettingsView: View {
                 Text("Stored on this iPhone and in your own iCloud, encrypted. We never see it. No ads, no data sales.")
             }
 
-            Section("Report subscription") {
-                if model.subscription.isSubscribed {
+            Section {
+                NavigationLink {
+                    AppearanceView()
+                } label: {
+                    HStack {
+                        Text("Theme and app icon")
+                        Spacer()
+                        if !model.isPro { ProBadge() }
+                    }
+                }
+            } header: {
+                Text("Appearance")
+            }
+
+            Section {
+                if model.isPro {
                     LabeledContent("Status", value: String(localized: "Active"))
-                    Button("Manage subscription") { manageSubscription = true }
+                    Button("Manage subscription") {
+                        manageSubscription = true
+                        UsageAnalytics.shared.log(.manageSubscriptionTapped)
+                    }
                 } else {
                     LabeledContent("Status", value: String(localized: "Free"))
-                    Button("See report plans") { showPaywall = true }
+                    Button("See Pro plans") { paywall = .pdfReport }
                 }
                 Button("Restore purchase") { Task { await model.subscription.restore() } }
+            } header: {
+                Text(verbatim: "Tidemark Pro")
+            }
+
+            Section {
+                Toggle("Share anonymous usage", isOn: $analyticsOn)
+                    .onChange(of: analyticsOn) { _, on in
+                        if !on { UsageAnalytics.shared.log(.analyticsToggled, .enabled(false)) }
+                        UsageAnalytics.shared.setConsent(on)
+                        if on { UsageAnalytics.shared.log(.analyticsToggled, .enabled(true)) }
+                    }
+            } header: {
+                Text("Privacy")
+            } footer: {
+                Text("Only which screens you open and which buttons you tap, sent to Google Analytics for Firebase. Never your symptoms, notes, medicines or anything else you record.")
             }
 
             Section {
                 Disclaimer()
+                Link("Contact us", destination: Feedback.mailURL(subject: Feedback.generalSubject(appVersion: appVersion)))
+                    .simultaneousGesture(TapGesture().onEnded { UsageAnalytics.shared.log(.contactTapped) })
                 Link("Privacy Policy", destination: Links.privacy)
                 Link("Terms of Use", destination: Links.terms)
-                LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "–")
+                LabeledContent("Version", value: appVersion ?? "–")
+            } footer: {
+                // Shown as text too, because the link does nothing when Mail isn't set up.
+                Text("Questions or ideas? Write to us at \(Feedback.address).")
+                    .textSelection(.enabled)
             }
         }
         .scrollContentBackground(.hidden)
         .background(Theme.background.ignoresSafeArea())
         .navigationTitle("Settings")
         .tint(Theme.accent)
-        .sheet(isPresented: $showPaywall) { PaywallView() }
+        .sheet(item: $paywall) { PaywallView(feature: $0) }
         .manageSubscriptionsSheet(isPresented: $manageSubscription)
-        .sheet(item: $importPreview) { preview in ImportPreviewView(preview: preview) }
+        .sheet(item: $importPreview) { preview in ImportPreviewView(preview: preview).analyticsScreen(.importPreview) }
         .fileImporter(isPresented: $importing, allowedContentTypes: [.json]) { result in
             importError = nil
             guard case .success(let url) = result else { return }
@@ -111,6 +171,7 @@ struct SettingsView: View {
         .confirmationDialog("Delete all your data?", isPresented: $confirmDelete, titleVisibility: .visible) {
             Button("Export a copy first") { exportURL = DataExport.makeFile(model: model) }
             Button("Delete everything", role: .destructive) {
+                UsageAnalytics.shared.log(.deleteAllConfirmed)
                 let stamp = model.repository.deleteAll()
                 UserDefaults.standard.set(stamp, forKey: "bulkDeletedAt")
                 model.dataChanged()
@@ -118,6 +179,11 @@ struct SettingsView: View {
         } message: {
             Text("Everything moves to Recently deleted for \(RecentlyDeleted.retentionDays) days, on this iPhone and in your backup. You can bring it back from there.")
         }
+    }
+
+    private func openPaywall(_ feature: ProFeature) {
+        UsageAnalytics.shared.log(.proFeatureTapped, .feature(feature))
+        paywall = feature
     }
 
     private var reminderTime: Binding<Date> {
@@ -142,6 +208,10 @@ struct SettingsView: View {
         }
     }
 
+    private var appVersion: String? {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+
     private var backupText: String {
         guard model.backup.isEnabled else { return String(localized: "Not available") }
         switch model.backup.health {
@@ -160,26 +230,60 @@ struct SymptomsEditorView: View {
     @Environment(AppModel.self) private var model
     @State private var selected: [String] = []
     @State private var loaded = false
+    @State private var paywall: ProFeature?
+    @State private var addingOwn = false
+    @State private var ownName = ""
 
     var body: some View {
+        let limit = Symptom.trackingLimit(isPro: model.isPro)
+        let custom = model.profile?.customSymptoms ?? []
         Page {
             ScreenHeader(title: "My symptoms")
-            Text("Up to \(Symptom.dailyLimit) in the daily check-in. Removing one keeps everything you logged for it.")
-                .foregroundStyle(Theme.secondary)
-            Text("\(selected.count) of \(Symptom.dailyLimit) chosen").font(.subheadline.weight(.semibold)).foregroundStyle(Theme.accentInk)
+            if let limit {
+                Text("Up to \(limit) in the daily check-in. Removing one keeps everything you logged for it.")
+                    .foregroundStyle(Theme.secondary)
+                Text("\(selected.count) of \(limit) chosen").font(.subheadline.weight(.semibold)).foregroundStyle(Theme.accentInk)
+            } else {
+                Text("Track as many as you like. Removing one keeps everything you logged for it.")
+                    .foregroundStyle(Theme.secondary)
+                Text("\(selected.count) chosen").font(.subheadline.weight(.semibold)).foregroundStyle(Theme.accentInk)
+            }
             ForEach(Symptom.groups, id: \.self) { group in
                 SectionLabel(text: Symptom.groupLabel(group))
                 FlowLayout {
                     ForEach(Symptom.catalog.filter { $0.group == group }) { symptom in
-                        let isOn = selected.contains(symptom.id)
-                        Chip(title: symptom.label, selected: isOn) { toggle(symptom.id) }
-                            .disabled(!isOn && selected.count >= Symptom.dailyLimit)
-                            .opacity(!isOn && selected.count >= Symptom.dailyLimit ? 0.5 : 1)
+                        chip(id: symptom.id, title: symptom.label, limit: limit)
                     }
                 }
             }
+
+            HStack {
+                SectionLabel(text: "Your own")
+                if !model.isPro { ProBadge() }
+            }
+            FlowLayout {
+                ForEach(custom) { symptom in
+                    chip(id: symptom.id, title: symptom.name, limit: limit)
+                }
+            }
+            Button("Add your own symptom") {
+                if model.isPro { ownName = ""; addingOwn = true } else { openPaywall() }
+            }
+            .buttonStyle(OutlineButtonStyle())
+            if !model.isPro {
+                Text("With Pro, track more than \(Symptom.dailyLimit) symptoms and add your own.")
+                    .font(.footnote).foregroundStyle(Theme.muted)
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $paywall) { PaywallView(feature: $0) }
+        .alert("Add your own symptom", isPresented: $addingOwn) {
+            TextField("Name, for example: tingling hands", text: $ownName)
+            Button("Add") { addOwn() }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("You rate it every day like the others. Only you and your report see the name.")
+        }
         .onAppear {
             guard !loaded else { return }
             selected = model.profile?.trackedSymptomIDs ?? []
@@ -187,16 +291,43 @@ struct SymptomsEditorView: View {
         }
     }
 
-    private func toggle(_ id: String) {
+    private func chip(id: String, title: String, limit: Int?) -> some View {
+        let isOn = selected.contains(id)
+        let full = limit.map { !isOn && selected.count >= $0 } ?? false
+        return Chip(title: title, selected: isOn) { full ? openPaywall() : toggle(id, limit: limit) }
+            .opacity(full ? 0.5 : 1)
+    }
+
+    private func openPaywall() {
+        UsageAnalytics.shared.log(.proFeatureTapped, .feature(.moreSymptoms))
+        paywall = .moreSymptoms
+    }
+
+    private func toggle(_ id: String, limit: Int?) {
         if let index = selected.firstIndex(of: id) {
             guard selected.count > 1 else { return }
             selected.remove(at: index)
-        } else if selected.count < Symptom.dailyLimit {
+        } else if limit.map({ selected.count < $0 }) ?? true {
             selected.append(id)
         }
+        save()
+    }
+
+    private func addOwn() {
+        guard let name = CustomSymptom.cleanName(ownName), var profile = model.profile else { return }
+        let symptom = CustomSymptom(name: name)
+        profile.customSymptoms.append(symptom)
+        selected.append(symptom.id)
+        profile.trackedSymptomIDs = selected
+        model.update(profile: profile)
+        UsageAnalytics.shared.log(.ownSymptomAdded)
+    }
+
+    private func save() {
         guard var profile = model.profile else { return }
         profile.trackedSymptomIDs = selected
         model.update(profile: profile)
+        UsageAnalytics.shared.log(.symptomsChanged, .count(selected.count))
     }
 }
 
@@ -228,11 +359,13 @@ struct AppointmentView: View {
                     }
                     model.repository.save(visit: visit)
                     model.dataChanged()
+                    UsageAnalytics.shared.log(.appointmentSaved)
                     dismiss()
                 }
             }
         }
         .navigationTitle("Next appointment")
+        .keyboardDismissable()
         .onAppear {
             guard existing == nil, let visit = model.repository.visits().first(where: { $0.day >= .today }) else { return }
             existing = visit
@@ -255,7 +388,10 @@ struct HealthSettingsView: View {
             } else {
                 Section {
                     Toggle("Save symptoms to Health", isOn: $writeOn)
-                        .onChange(of: writeOn) { _, on in if on { Task { _ = await model.health.requestAccess(write: true) } } }
+                        .onChange(of: writeOn) { _, on in
+                            UsageAnalytics.shared.log(.appleHealthToggled, .enabled(on))
+                            if on { Task { _ = await model.health.requestAccess(write: true) } }
+                        }
                 } footer: {
                     Text("Each check-in adds your ratings to Health. Editing a day replaces what Tidemark wrote for it.")
                 }
@@ -314,6 +450,7 @@ struct ImportPreviewView: View {
                 }
                 Text("Nothing on this iPhone is overwritten or deleted.").foregroundStyle(Theme.secondary)
                 Button("Add to my data") {
+                    UsageAnalytics.shared.log(.importCompleted, .count(preview.newDays))
                     model.repository.importFile(preview.file)
                     model.dataChanged()
                     dismiss()
@@ -360,6 +497,7 @@ struct RecentlyDeletedView: View {
                         }
                         Spacer()
                         Button("Restore") {
+                            UsageAnalytics.shared.log(.restoreDeleted)
                             model.repository.restore(day: item.day)
                             model.dataChanged()
                         }

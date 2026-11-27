@@ -196,3 +196,230 @@ Major fixes:
 - `Mod.`: 'Умер.' reads as 'died' (the past tense of умереть) on a severity button in a health app; 'Умерн.' is still short and cannot be misread.
 - `What are my treatment options, including %@, and what are the risks fo`: The %@ placeholder was dropped and ЗГТ hard-coded; with 'например' the inserted term stays in the nominative, so both ЗГТ and 'гормональная терапия' fit grammatically.
 
+
+# Second independent review, 26 Nov 2026
+
+Four new AI reviewers (four languages each) checked every string and listing again without reading the first review. Fixes are applied, except two pt-BR plural fixes that dropped the number from the "one" form (in Portuguese "one" also covers 0), which `l10n.py lint` rejected. Still not a native-speaker review.
+
+Code fixes found on the way: "How did it go?" showed in English in every language (ScreenHeader picked the verbatim overload), and the Patterns card header "THE DAY BEFORE / THE SAME DAY" was hard-coded English. "Apple ID" in the English source is now "Apple Account", as the translations already said.
+
+| Language | Fixes (critical / major / minor) | Verdict |
+|---|---|---|
+| de | 0 / 0 / 5 | ready after fixes |
+| fr | 0 / 0 / 6 | ready after fixes |
+| es | 0 / 0 / 7 | ready after fixes |
+| it | 0 / 0 / 8 | ready after fixes |
+| nl | 0 / 0 / 10 | ready after fixes |
+| pt-BR | 0 / 0 / 5 | ready after fixes |
+| sv | 0 / 0 / 2 | ready after fixes |
+| nb | 0 / 0 / 9 | ready after fixes |
+| da | 0 / 0 / 6 | ready after fixes |
+| fi | 0 / 0 / 7 | ready after fixes |
+| pl | 0 / 1 / 5 | ready after fixes |
+| ja | 0 / 1 / 7 | ready after fixes |
+| ko | 0 / 5 / 7 | ready after fixes |
+| zh-Hans | 0 / 0 / 3 | ready after fixes |
+| tr | 0 / 1 / 5 | ready after fixes |
+| ru | 0 / 0 / 8 | ready after fixes |
+
+## de (second review)
+
+The German strings are accurate, complete and consistently informal (du) with gender-fair 'Ärztin oder Arzt'. Placeholders and plurals are correct, the 'stellt keine Diagnosen' line and the red-flag texts are faithful and no stronger than English. Apple terms (Einstellungen, Mitteilungen, Zuletzt gelöscht, Sperrbildschirm, Health) are right except the outdated 'Apple-ID'. Remaining issues are small: one clinical-sounding word, an odd abbreviation, a widget text that is too long, and listing wording.
+
+For the native reviewer:
+- MRS vs established German MRS wording (from memory, not certain): item 1 title is 'Wallungen, Schwitzen' (ours 'Hitzewallungen, Schwitzen'), item 4 'Depressive Verstimmung' (ours 'Gedrückte Stimmung'), item 10 'Trockenheit der Scheide' (ours 'Scheidentrockenheit'), item 9 hint 'Beschwerden beim Wasserlassen, häufiger Harndrang, unwillkürlicher Harnabgang', item 7 hint includes 'Vergesslichkeit'. Scale labels keine/leicht/mittel/stark/sehr stark match. Replace with the licence holder's text when supplied.
+- 'Brain fog' is translated 'Konzentrationsprobleme', which overlaps with the MRS item 7 hint; decide whether 'Brain Fog' / 'Gedankennebel' is more recognisable to German users.
+- Report PDF title 'Übersicht meiner Beschwerden für meine Ärztin oder meinen Arzt' (62 chars, 18 pt bold) will likely wrap to two lines; consider a shorter title such as 'Meine Beschwerden – Übersicht für den Arzttermin'.
+- App name 'Tidemark: Wechseljahre-Tracker': the grammatical compound is 'Wechseljahres-…' but that is 31 chars; confirm the chosen form reads naturally.
+- Listing uses 'Symptome' in three places while the app consistently says 'Beschwerden'; fine for search, but confirm it is intended.
+- Listing omits the USD prices (says monthly or yearly, prices vary by country); confirm that is acceptable for the German storefront.
+- MRS item titles 'Irritability', 'Anxiety', 'Low mood' and 'Vaginal dryness' are the same catalog keys as daily symptom names, and the MRS answer labels None/Mild/Moderate/Severe are the same keys as the daily severity scale. When the licence holder's official MRS wording arrives, pasting it into these keys will also rename the daily symptoms and scale. Developers should split the MRS keys (e.g. with a context comment/separate keys) before applying the official translation.
+- Scale name 'Menopause Rating Scale (MRS)' is kept in English in the app and the listing; check what name the official translation uses.
+
+## fr (second review)
+
+The French strings are accurate and complete, consistently use vous, and use feminine agreement where the user is addressed (gênée, prise au sérieux, débitée). Placeholders and plurals are valid; the 'ne pose pas de diagnostic' line and the red-flag texts are faithful. Apple terms (Réglages, Supprimés récemment, écran verrouillé, Santé) are right, except 'identifiant Apple' (now compte Apple) and the non-Apple name 'Apple Santé'. Typography uses normal spaces before ? : ; » and the check-in term 'suivi' is overloaded; both are left for a native decision.
+
+For the native reviewer:
+- 'Check-in' is translated 'suivi' everywhere, but 'suivi' also means tracking ('Tracking' → 'Suivi') and follow-up ('Rendez-vous de suivi'). Strings like 'Pas de suivi', 'Commencer le suivi' may read as 'no follow-up'. Consider 'bilan du jour' or 'saisie' for the daily check-in.
+- All French strings use a normal space before ? : ; ! and inside « ». Apple French UI uses a narrow no-break space (U+202F) or no-break space (U+00A0), so lines never break before the punctuation. Decide whether to replace mechanically.
+- Severity scale uses 'sévère' / 'très sévère'; check against the validated French MRS answer labels when supplied (I do not know them with certainty).
+- MRS item titles ('Troubles urinaires', 'Troubles sexuels', 'Gêne cardiaque', 'Épuisement physique et mental') are plausible, but I can't confirm the validated French MRS wording; replace with the licence holder's text.
+- Small widget caption 'Bouffées de chaleur aujourd’hui' (31 chars, caption font) may wrap; check on a device.
+- Promotional text says 'sur votre iPhone et iCloud' and drops 'your own'; 'et dans votre iCloud' would exceed 170 characters, so confirm the shortened wording is acceptable.
+- MRS item titles 'Irritability', 'Anxiety', 'Low mood' and 'Vaginal dryness' are the same catalog keys as daily symptom names, and the MRS answer labels None/Mild/Moderate/Severe are the same keys as the daily severity scale. When the licence holder's official MRS wording arrives, pasting it into these keys will also rename the daily symptoms and scale. Developers should split the MRS keys (e.g. with a context comment/separate keys) before applying the official translation.
+- Scale name 'Menopause Rating Scale (MRS)' is kept in English in the app and the listing; check what name the official translation uses.
+
+## es (second review)
+
+The Spanish strings are accurate, complete and consistently informal (tú), with feminine forms where the user is addressed (Bienvenida). Placeholders and plurals are valid. The 'No diagnostica' line and red-flag texts are faithful, and Apple terms (Ajustes, Eliminado recientemente, pantalla de bloqueo, Copia en iCloud, Salud) are correct apart from 'ID de Apple' and 'Apple Salud'. The listing wastes one keyword on a word already in the subtitle. Regional vocabulary (Spain vs Mexico) is for a native reviewer.
+
+For the native reviewer:
+- The listing targets Spain and Mexico, but the app only says 'sofoco' and 'regla'. Mexican users often say 'bochorno' and 'periodo/menstruación'. Decide whether one neutral Spanish works or an es-MX variant is needed.
+- Severity scale uses 'fuerte' / 'muy fuerte'. The validated Spanish MRS probably uses 'severo' or 'intenso' (not certain); align the daily scale and MRS answers once the official text arrives.
+- 'Registro' is used for check-in, tracking, log and 'registro de síntomas'; check that screens like 'Sin registro' and 'Registro' (Tracking settings section) stay clear.
+- 'Good evening' → 'Buenas tardes' is shown as the Today title at any time of day before the first check-in; confirm this reads right.
+- MRS item titles (e.g. 'Problemas de vejiga', 'Molestias en el corazón', 'Ánimo bajo') may differ from the validated Spanish MRS; replace with the licence holder's text.
+- MRS item titles 'Irritability', 'Anxiety', 'Low mood' and 'Vaginal dryness' are the same catalog keys as daily symptom names, and the MRS answer labels None/Mild/Moderate/Severe are the same keys as the daily severity scale. When the licence holder's official MRS wording arrives, pasting it into these keys will also rename the daily symptoms and scale. Developers should split the MRS keys (e.g. with a context comment/separate keys) before applying the official translation.
+- Scale name 'Menopause Rating Scale (MRS)' is kept in English in the app and the listing; check what name the official translation uses.
+
+## it (second review)
+
+The Italian strings are accurate, complete and consistently informal (tu), with feminine forms where the user is addressed (ostacolata, presa sul serio, Bentornata). Placeholders and plurals are valid. The 'Non fa diagnosi' line and red-flag texts are faithful ('subito' matches 'now'). Apple terms (Impostazioni, Eliminati di recente, schermata di blocco, Backup iCloud, Salute) are correct apart from 'ID Apple' and 'Apple Salute'. There are a few small wording slips.
+
+For the native reviewer:
+- 'Report' is translated 'resoconto' throughout; check that it sounds natural for a document you bring to the doctor ('riepilogo' is also used in places, e.g. the onboarding and listing).
+- Severity scale uses 'forte' / 'molto forte'. The validated Italian MRS probably uses 'grave' / 'molto grave' or 'severo' (not certain); align once the official text arrives.
+- MRS domain header 'Physical' → 'Fisici' (plural, implies 'sintomi'), while the other headers are 'Umore e mente' and 'Intimo e urinario'; check the three read as a set.
+- 'Period' (menstruation) is mostly 'ciclo', so 'Ultimo ciclo iniziato il %@' and 'Nessun ciclo registrato' can be read as 'cycle'; decide whether 'mestruazioni' is clearer in these spots.
+- MRS item titles (e.g. 'Disturbi cardiaci', 'Disturbi urinari', 'Umore basso') may differ from the validated Italian MRS; replace with the licence holder's text.
+- MRS item titles 'Irritability', 'Anxiety', 'Low mood' and 'Vaginal dryness' are the same catalog keys as daily symptom names, and the MRS answer labels None/Mild/Moderate/Severe are the same keys as the daily severity scale. When the licence holder's official MRS wording arrives, pasting it into these keys will also rename the daily symptoms and scale. Developers should split the MRS keys (e.g. with a context comment/separate keys) before applying the official translation.
+- Scale name 'Menopause Rating Scale (MRS)' is kept in English in the app and the listing; check what name the official translation uses.
+
+## nl (second review)
+
+Dutch is accurate, natural and consistently informal (je/jij), with Apple's Dutch UI conventions (Annuleer, Gereed, Bewaar, Instellingen, Gezondheid, toegangsscherm, Recent verwijderd, meldingen). Placeholders and one/other plurals are correct, and the 'geen diagnose' lines are intact. No medical-advice problems; the two red-flag lines say 'kan niet wachten' (cannot wait), a touch stronger than 'shouldn't wait'. Remaining issues are small: the outdated 'Apple ID' in the subscription path, a stiff report column header, and doctor-term strings that ignore the region setting. Store listing fits all limits (subtitle exactly 30, keywords exactly 100) with no repeated words.
+
+For the native reviewer:
+- Keep the English 'check-in' / 'inchecken' as the term for the daily entry, or use a Dutch word such as 'dagelijkse invoer'? It is used consistently, so this is a style call.
+- The app uses 'de overgang' for perimenopause in a doctor question ('Kunnen deze klachten de overgang zijn…') and 'perimenopauze' elsewhere; confirm that mix reads naturally to Dutch women.
+- MRS: the item hints follow our English wording, not the validated Dutch MRS (for example item 1 is usually 'Opvliegers, zweten (periodes van zweten)' and item 11 'Gewrichts- en spierklachten (gewrichtspijn, reumatische klachten)'). Swap in the licence holder's official Dutch text when it arrives; I could not verify the exact validated wording.
+- 'Apple Gezondheid' as the name of Apple Health: Apple's Dutch material mostly says 'de Gezondheid-app'. Decide whether to keep 'Apple Gezondheid' in Settings and the listing.
+- The listing drops the English prices ($6.99/$39.99) and says only 'maand- of jaarabonnement'. That is acceptable because storefront prices differ, but confirm it's intended (the same is true in all four languages).
+
+## pt-BR (second review)
+
+Brazilian Portuguese is accurate and natural, consistently uses 'você', and addresses the user in the feminine where it matters (levada, cobrada, Bem-vinda, PRONTA PARA A CONSULTA). Apple's pt-BR terms are right (Ajustes, Saúde, Tela Bloqueada, Apagados recentemente, Face ID, Usar código, OK for Done). Placeholders and one/other plurals are valid, and the 'não é um diagnóstico' lines are intact with no added medical claims. Fixes are minor: the outdated 'ID Apple', an ambiguous MRS hint ('relações'), and two awkward singular plural forms. The store listing is within all limits with no keyword repeats.
+
+For the native reviewer:
+- 'Fogacho' is used for hot flush throughout the app. It is the clinical term; many Brazilian women say 'calorão' or 'onda de calor'. The keywords already cover both. Decide which word the app UI should use.
+- 'Low mood' is 'Desânimo', which is milder than the MRS item 'humor depressivo' in the Portuguese MRS. The same string is also a daily symptom name, so the MRS title may need its own key if the official translation differs.
+- MRS answer labels use 'nenhum, leve, moderado, forte, muito forte'; the Portuguese MRS versions I know use 'severo / muito severo' for the top two. Confirm against the licence holder's official text.
+- Generic masculine 'seu médico' is used everywhere. That's standard pt-BR, but confirm it's acceptable for this audience; 'seu médico ou sua médica' would be too long for small screens.
+- 'neste aparelho' (Apple Health unavailable): Apple pt-BR usually says 'dispositivo'. Optional change.
+- The listing drops the English prices and says only 'Uma assinatura mensal ou anual'. Acceptable because prices vary by storefront; confirm it's intended.
+
+## sv (second review)
+
+Swedish is accurate and idiomatic, consistently uses 'du', and follows Apple's Swedish UI terms (Inställningar, Hälsa, låsskärm, Nyligen raderade, notiser, lösenkod, Klar). The severity scale (inga, lätt, måttlig, svår, mycket svår) and symptom terms ('besvär') are consistent, placeholders and plurals are valid, and the 'ingen diagnos' lines are intact. The red flags say 'Kontakta vården nu' (contact healthcare), which is natural in Sweden and no stronger than the English. The only fixes are the outdated 'Apple-ID' in the app and the listing. The store listing is within all limits with no repeated words.
+
+For the native reviewer:
+- 'Incheckning' / 'checka in' for the daily entry sounds like an airport or hotel to some readers. Is 'dagsregistrering' or 'registrering' better? It's used consistently, so change all occurrences or none.
+- The red flags use 'Kontakta vården nu' instead of 'your doctor'. Confirm this is preferred over 'Kontakta din läkare nu'; it is not a stronger claim.
+- MRS: the hints follow our English wording. The Swedish MRS uses its own validated phrasing, for example for item 6 'Fysisk och psykisk utmattning' (our hint 'Sämre ork' is close). Replace with the licence holder's official Swedish text; I could not verify the exact wording.
+- Bleeding amount 'Heavy' is 'Riklig' but the symptom 'Heavy bleeding' is 'Kraftig blödning'. Both are idiomatic; align them if you want one term.
+- The listing drops the English prices; acceptable because prices vary by storefront, but confirm it's intended.
+
+## nb (second review)
+
+Norwegian Bokmål is accurate and natural, consistently uses 'du', and follows Apple's Norwegian UI terms (Innstillinger, Helse, låseskjerm, Nylig slettet, varsler, Bruk kode, Ferdig). 'Plage(r)', 'registrering' and 'time' are used consistently, the red flags keep 'bør ikke vente' with no stronger claim, and the 'ikke en diagnose' lines are intact. Placeholders and plurals are valid. Fixes are minor: the outdated 'Apple-ID', one MRS hint word ('gråtkvalt'), a progress line that drops 'igjen', and doctor-term strings that ignore the region setting (UK region gives 'fastlege' only in onboarding). The store listing is within limits.
+
+For the native reviewer:
+- The severity scale uses 'ingen, lett, middels, kraftig, svært kraftig'. 'Kraftig' also means Heavy bleeding on the same check-in screen. Would 'alvorlig' / 'sterk' read better for symptom severity, and what does the Norwegian MRS use?
+- MRS: the hints follow our English wording. Replace with the licence holder's official Norwegian text; I could not verify the validated wording.
+- The UK region maps 'GP' to 'fastlege'. That's fine, but confirm it, since a UK GP and a Norwegian fastlege are close but not identical.
+- The listing drops the English prices; acceptable because prices vary by storefront, but confirm it's intended.
+
+## da (second review)
+
+The Danish strings are accurate, natural and consistently informal (du). Placeholders and plural forms are correct, and the red-flag and 'does not diagnose' lines keep the same strength as the English. The fixes are small: an outdated Apple ID term, two wording slips in MRS item 1 and a visit outcome, and mixed 'symptomdagbog'/'symptomlog'. The store listing is within every limit and makes no medical claims.
+
+For the native reviewer:
+- Apple Health naming: the app uses 'Apple Sundhed' (strings 'Apple Health', 'Apple Health isn't available on this device.' and the listing). Apple's Danish materials say 'Sundhed' / 'Sundhed-appen'. Decide which one to use, then use it everywhere.
+- Symptoms are 'gener' throughout, while the keywords and the Face ID text use 'symptom'. Check that 'gener' is the register you want, compared with 'symptomer'.
+- MRS: the answer labels are ingen/let/moderat/svær/meget svær. Compare them and the 11 item titles and hints with the official Danish MRS once the licence holder sends it. In particular check item 4's 'mangler energi' (the original means lack of drive) and item 7's 'nedsat overskud' (the original means lower performance).
+- "With %@" (Patterns, paired with "Other days") receives the capitalised factor label in non-English languages. Danish shows 'Med Alkohol' with a capital letter in mid-phrase. Consider 'Med: %@' or another wording.
+- The name 'Tidemark: overgangsalder-log' uses a hyphenated half-English compound. A native copywriter may prefer 'overgangsalderdagbog' or similar (30 characters max).
+- The listing drops the English prices but keeps '(priserne varierer fra land til land)', which reads oddly with no price before it. Either add local prices or drop the parenthesis.
+- Code issue, not a translation: HistoryView.swift:259 builds the Patterns card header from untranslated Swift literals "THE DAY BEFORE" / "THE SAME DAY" (the key "%@ · %@" has no letters, so l10n.py check skips it). Every non-English user sees English here.
+
+## fi (second review)
+
+The Finnish strings are good quality, informal (sinä) and consistent: kirjaus, oire, lievä/kohtalainen/vaikea. Placeholders and plural forms are correct. Both red-flag messages say 'ei voi odottaa' ('cannot wait'), which is a little stronger than the English 'shouldn't wait'. Smaller issues: an outdated Apple ID term, plan names written as adverbs, and MRS item 11 turning 'rheumatic-like' into 'rheumatic'. The store listing is within every limit and has no medical claims.
+
+For the native reviewer:
+- Apple Health naming: the app uses 'Apple Terveys' ('Apple Health', 'Apple Health isn't available on this device.' and the listing's 'Apple Terveyteen'). Elsewhere it uses 'Terveys-appi', which is what Apple's Finnish materials use. Decide whether 'Apple Terveys' is acceptable or should become 'Terveys-appi'.
+- MRS item 2 'Heart discomfort' is 'Sydänoireet' ('heart symptoms'), which is broader. 'Sydänvaivat' may be closer. Check against the official Finnish MRS once it arrives, along with the answer labels (ei lainkaan/lievä/kohtalainen/vaikea/erittäin vaikea). The same key 'None' is used for MRS answers, bleeding amount and the daily scale.
+- The daily scale says '0 ei oireita' but the 'None' button says 'Ei lainkaan'. Both are fine, but check that this mismatch is intended.
+- "With %@" (Patterns, paired with "Other days") receives the capitalised factor label in non-English languages. Finnish shows '%@ mukana' (for example 'Alkoholi mukana'), which is understandable but unusual. Consider 'Merkitty: %@' or another wording.
+- The listing drops the English prices but keeps '(hinnat vaihtelevat maittain)'. Either add local prices or drop the parenthesis.
+- Code issue, not a translation: HistoryView.swift:259 builds the Patterns card header from untranslated Swift literals "THE DAY BEFORE" / "THE SAME DAY" (the key "%@ · %@" has no letters, so l10n.py check skips it). Every non-English user sees English here.
+
+## pl (second review)
+
+The Polish strings are good. They consistently use feminine forms for the user (pominęłaś, zapisałaś, przestałam) and the plural one/few/many/other forms are correct in every plural key. The red-flag and 'does not diagnose' lines are faithful. One technical risk: the key 'Started %@ … %lld weeks …' is a plural dict even though it has two arguments, while English and every other language use a plain string. Other fixes are small: an outdated Apple ID term, 'Okres' as the report-range header (it also means menstruation), MRS item 11, and a wasted duplicate in the keywords.
+
+Major fixes:
+- `Started %@. Average of your daily ratings, %lld weeks before and after`: This is a top-level plural variation on a key with two arguments (%@ and %lld). No other language does this, and it may pick the wrong argument or fail to build. 'tyg.' avoids needing plural forms.
+
+For the native reviewer:
+- Apple Health naming: 'Apple Zdrowie' ('Apple Health', 'Apple Health isn't available on this device.' and the listing) is not a form Apple uses. Apple's Polish materials say 'aplikacja Zdrowie'. Decide on, for example, 'Aplikacja Zdrowie' and use it everywhere.
+- MRS answer labels are brak/łagodne/umiarkowane/silne/bardzo silne. The validated Polish MRS may use 'ciężkie / bardzo ciężkie' for severe/very severe; I am not certain. Compare these and the 11 items with the official Polish version once it arrives. The daily 0–3 scale shares the same labels.
+- Subscription status values don't agree in gender: 'Active' is 'Aktywna' (feminine) and 'Free' is 'Bezpłatny' (masculine). Both show after 'Status'. Choose one form.
+- "With %@" (Patterns, paired with "Other days") receives the capitalised factor label in non-English languages. Polish shows 'Z: %@', which is terse. Consider 'Dni z oznaczeniem: %@' to pair with 'Inne dni'.
+- Capitalised Twój/Twoje/Ci are used throughout. This is acceptable in Polish UI but should be applied consistently (some strings use lowercase 'swój').
+- Code issue, not a translation: HistoryView.swift:259 builds the Patterns card header from untranslated Swift literals "THE DAY BEFORE" / "THE SAME DAY" (the key "%@ · %@" has no letters, so l10n.py check skips it). Every non-English user sees English here.
+
+## ja (second review)
+
+The Japanese strings are natural and politely consistent (です/ます), and they use Apple's terms correctly (ヘルスケア, 最近削除した項目, 設定, ロック画面, ウィジェット). One real bug: '%@: moderate or severe on %lld of %lld days' puts the two numbers in Japanese order without positional specifiers, so it says '8 days out of 6' instead of '6 out of 8'. The red-flag and 'does not diagnose' lines are faithful. Smaller issues: Apple ID becoming Apple アカウント, plan titles that repeat their detail line, the promo text adding 'only', and a keyword repeated from the subtitle. The listing is within every limit.
+
+Major fixes:
+- `%@: moderate or severe on %lld of %lld days`: In Japanese the total comes first, but the arguments arrive as (hits, total). Without positional specifiers 6 of 8 days renders as '6日中8日' (8 out of 6 days); it should be '8日中6日'.
+
+For the native reviewer:
+- In the bleeding picker, 'Spotting' (少量の出血) and 'Light' (少ない) are near-synonyms in Japanese. Users may not see the difference. Consider a distinct term for spotting (for example 点状出血 or おりものに血が混じる程度) and apply it to 'Spotting', '%lld spotting days' and 'Spotting days: …'.
+- MRS answer labels are なし/軽い/中くらい/強い/非常に強い, and the daily scale shares them. The validated Japanese MRS likely uses clinical terms (for example 軽度/中等度/重度). I am not certain. Compare these and the 11 item texts with the official Japanese version once the licence holder supplies it.
+- Perimenopause is rendered as 更年期の始まり in strings and as プレ更年期 in the listing. Both are understandable, but decide on one term.
+- The listing drops the English prices but keeps '（価格は国によって異なります）'. Either add local prices or drop the parenthesis.
+- Code issue, not a translation: HistoryView.swift:259 builds the Patterns card header from untranslated Swift literals "THE DAY BEFORE" / "THE SAME DAY" (the key "%@ · %@" has no letters, so l10n.py check skips it). Every non-English user sees English here.
+
+## ko (second review)
+
+Korean is accurate and consistent overall, in a friendly 해요체 register, with Apple terms (건강 앱, 최근 삭제된 항목, 잠금 화면, Face ID, 암호) used correctly. The one real terminology problem is night sweats rendered as 식은땀 (cold sweat) across five strings that end up on the doctor-facing report. A few sentences are awkward or ambiguous (worst-day instruction, 약 %lld개, perimenopause term). Safety lines (does not diagnose, contact your doctor now) are intact and not strengthened; placeholders and listing limits are fine.
+
+Major fixes:
+- `Night sweat`: 식은땀 means cold sweat (a different sign), not night sweats; the report is read by doctors.
+- `Night sweats`: Same term fix as "Night sweat"; symptom name on the report.
+- `+ Night sweat`: Same term fix; quick-log button.
+- `Log a night sweat`: Same term fix; App Intent / widget action.
+- `Hot flushes and night sweats logged: %lld`: Same term fix; report line.
+
+For the native reviewer:
+- 식은땀 is common colloquially for menopausal sweating in Korean health media; confirm 야간 발한 (clinical) vs a plain form like 밤에 나는 땀 for the symptom label.
+- Good evening is 좋은 저녁이에요, a calque; decide whether a more natural evening greeting fits the Today header.
+- Keywords use 56 of 100 characters; consider adding symptom terms such as 야간발한, 생리불순, 질건조, 두근거림.
+- Hot flush is 안면홍조 throughout; confirm vs 열감/홍조 for the target audience.
+- MRS item wording should be replaced by the licensed Korean MRS when supplied; the scale name is left in English.
+
+## zh-Hans (second review)
+
+Simplified Chinese is accurate, natural and consistent: 围绝经期/更年期, 潮热, 盗汗, 点滴出血 and the 无/轻度/中度/重度 scale are used throughout, and Apple terms (“健康”App, 面容 ID, 最近删除, 锁定屏幕, 小组件) match iOS. Safety and does-not-diagnose lines are intact and not strengthened. Only small fixes: a relative-date word order and the renamed Apple Account. Store listing is within limits and keywords do not repeat the name or subtitle.
+
+For the native reviewer:
+- MRS item 'Feeling nervous, tense, aggressive' is 紧张、焦躁、易怒; check against the licensed Chinese MRS (aggressive vs irritable).
+- Keywords use 50 of 100 characters; consider adding e.g. 月经紊乱, 阴道干涩, 心悸.
+- Promo text says data is 只 (only) on iPhone and iCloud; the English has no 'only'. Fine unless Apple Health sync makes legal want it softened.
+
+## tr (second review)
+
+Turkish is accurate and natural, with correct Apple terms (Ayarlar, Son Silinenler, Parola, Vazgeç, Bitti, Kilitli Ekran) and careful suffix handling around placeholders (tarihinden beri, %%%lld). One MRS item, 'Heart discomfort', is rendered as 'Kalp rahatsızlığı', which in Turkish reads as heart disease and should be softened. Safety lines are intact; 'Hemen doktoruna başvur' matches 'contact your doctor now'. The listing is within limits, but one keyword repeats the subtitle.
+
+Major fixes:
+- `Heart discomfort`: "Kalp rahatsızlığı" means heart disease/condition, a diagnostic-sounding claim; MRS item means discomfort.
+
+For the native reviewer:
+- The whole app uses informal 'sen'. iOS itself uses 'siz', and users are women around 45-55 in a health context; decide whether to switch to 'siz' throughout (large change, do it in one pass).
+- HRT and hormone therapy both map to 'hormon tedavisi'; confirm vs 'hormon replasman tedavisi (HRT)' for the UK region.
+- Screenshot captions 1, 5 and 6 are 44-53 characters; check they fit the caption layout.
+- MRS items should be replaced by the licensed Turkish MRS when supplied; the scale name is left in English.
+
+## ru (second review)
+
+Russian is accurate and natural, addressing the user formally with 'Вы' and using feminine forms in first-person strings (перестала, проснулась). Plural dicts have one/few/many/other, and the other strings sidestep plurals with 'дн.' or a 'label: N' pattern. Apple terms (Настройки, «Здоровье», Недавно удаленные, код-пароль, экран блокировки) are correct. Safety and does-not-diagnose lines are intact and not strengthened. Only minor fixes: one agreement error, one MRS nuance, the Cyrillic ОК, the Apple Account rename, and a keyword that repeats the subtitle.
+
+For the native reviewer:
+- Severity scale is adverbial (нет/слабо/умеренно/сильно/очень сильно); validated Russian MRS answers may use adjectives (e.g. слабые/умеренные/выраженные); align when the licensed version arrives.
+- 'Check-in' is 'отметка' throughout; confirm it reads naturally vs 'запись' to a native speaker.
+- Spelling uses е instead of ё (отчет); fine and consistent, confirm house style.
+- App Store purchases on the Russian storefront may be unavailable to many users; confirm the subscription copy is wanted there.

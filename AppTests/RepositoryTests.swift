@@ -95,4 +95,47 @@ struct RepositoryTests {
         repo.save(visit: visit)
         #expect(repo.visits() == [visit])
     }
+
+    @Test("Own symptoms survive a save and read, and a rated own symptom keeps its name")
+    func customSymptomsRoundTrip() {
+        let repo = makeRepository()
+        let own = CustomSymptom(name: "Tingling hands")
+        repo.save(profile: Profile(region: .unitedKingdom, age: 50, trackedSymptomIDs: ["fatigue", own.id], customSymptoms: [own]))
+        repo.save(checkIn: CheckIn(day: day, ratings: [own.id: .mild]))
+        #expect(repo.profile()?.customSymptoms == [own])
+        #expect(repo.checkIn(for: day)?.ratings[own.id] == .mild)
+    }
+
+    @Test("D6: a store made by the 1.0 model (version 1) opens with the current model and keeps its rows")
+    func lightweightMigrationFromVersion1() throws {
+        let bundle = Bundle(for: PersistenceController.self)
+        let momd = try #require(bundle.url(forResource: "Tidemark", withExtension: "momd"))
+        let v1 = try #require(NSManagedObjectModel(contentsOf: momd.appendingPathComponent("Tidemark.mom")))
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("migration-\(UUID().uuidString).sqlite")
+        defer { for s in ["", "-wal", "-shm"] { try? FileManager.default.removeItem(atPath: url.path + s) } }
+
+        // Write a day with the old model.
+        let old = NSPersistentContainer(name: "Tidemark", managedObjectModel: v1)
+        old.persistentStoreDescriptions = [NSPersistentStoreDescription(url: url)]
+        old.loadPersistentStores { _, error in #expect(error == nil) }
+        let row = NSEntityDescription.insertNewObject(forEntityName: "CDDay", into: old.viewContext)
+        row.setValue(day.description, forKey: "day")
+        row.setValue("Before the update", forKey: "note")
+        row.setValue(UUID(), forKey: "id")
+        try old.viewContext.save()
+        for store in old.persistentStoreCoordinator.persistentStores { try old.persistentStoreCoordinator.remove(store) }
+
+        // Open it with the current model, the way the app does.
+        let new = NSPersistentContainer(name: "Tidemark", managedObjectModel: PersistenceController.model)
+        let description = NSPersistentStoreDescription(url: url)
+        description.shouldMigrateStoreAutomatically = true
+        description.shouldInferMappingModelAutomatically = true
+        new.persistentStoreDescriptions = [description]
+        var loadError: Error?
+        new.loadPersistentStores { _, error in loadError = error }
+        #expect(loadError == nil)
+        let rows = try new.viewContext.fetch(NSFetchRequest<NSManagedObject>(entityName: "CDDay"))
+        #expect(rows.count == 1)
+        #expect(rows.first?.value(forKey: "note") as? String == "Before the update")
+    }
 }

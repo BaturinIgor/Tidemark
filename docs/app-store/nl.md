@@ -38,17 +38,26 @@ KLAAR VOOR DE AFSPRAAK
 JE GEGEVENS BLIJVEN VAN JOU
 • Bewaard op je iPhone en versleuteld geback-upt in je eigen iCloud. Wij zien ze nooit
 • Geen account, geen advertenties, geen verkoop van gegevens
+• Anonieme gebruiksstatistieken alleen als je ze aanzet, nooit je gezondheidsgegevens
 • Exporteer alles op elk moment naar een bestand en importeer het weer
 • Verwijderde dagen blijven 30 dagen in Recent verwijderd
 • Optioneel vergrendelen met Face ID en synchroniseren met Apple Gezondheid
 
-GRATIS EN BETAALD
-Dagelijks bijhouden, geschiedenis, patronen, back-up, export en het rapport op het scherm zijn gratis. Een maand- of jaarabonnement voegt het PDF-rapport toe om te printen of te versturen (prijzen verschillen per land). De betaling loopt via je Apple ID en wordt automatisch verlengd, tenzij je minstens 24 uur voor het einde van de periode opzegt. Beheer of zeg op in de instellingen van je Apple ID.
+GRATIS, OF MEER MET EEN ABONNEMENT
+Dagelijks bijhouden, geschiedenis tot 12 weken, patronen, iCloud-back-up, export naar een bestand en het rapport op het scherm zijn gratis. Een abonnement voegt toe:
+• Het PDF-rapport om te printen, te mailen of te uploaden
+• Een pagina ‘Sinds je laatste afspraak’ die je eigen cijfers voor en na een datum vergelijkt
+• Geschiedenis en rapporten over 6 en 12 maanden
+• Export als spreadsheet (CSV)
+• Onbeperkt klachten, ook klachten die je zelf benoemt
+• Extra thema’s en appiconen
+
+Nieuwe abonnees krijgen 7 dagen gratis, daarna een jaar- of maandabonnement (prijzen verschillen per land). De betaling loopt via je Apple Account zodra de gratis proefperiode afloopt. Het abonnement wordt automatisch verlengd, tenzij je minstens 24 uur voor het einde van de periode opzegt. Beheer of zeg op in de instellingen van je Apple Account.
 
 Tidemark legt vast wat jij invult. De app stelt geen diagnose, stelt geen behandeling voor en geeft geen medisch advies. Maak je je zorgen over een klacht, neem dan contact op met je arts.
 
 Gebruiksvoorwaarden: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Privacybeleid: [link naar het gepubliceerde privacybeleid]
+Privacybeleid: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Eerste versie.
@@ -56,7 +65,7 @@ Eerste versie.
 ## Screenshot captions
 1. Je klachten op één pagina, klaar voor je afspraak
 2. Je check-in in 30 seconden per dag
-3. Registreer een opvlieger vanaf het toegangsscherm
+3. Registreer een opvlieger met één tik
 4. Weken in één oogopslag
 5. Jouw gegevens, jouw iCloud. Wij zien ze nooit
 6. Noteer na elk bezoek wat er besloten is
