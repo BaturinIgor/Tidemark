@@ -10,7 +10,7 @@ Raport objawów dla lekarza
 Zapisuj objawy perimenopauzy w 30 sekund dziennie i zabierz na wizytę przejrzyste podsumowanie na jednej stronie. Dane zostają na Twoim iPhonie i w Twoim iCloud.
 
 ## Keywords (100)
-perimenopauza,menopauza,klimakterium,przekwitanie,uderzenia gorąca,uderzenia ciepła,nocne poty,HTZ
+perimenopauza,menopauza,klimakterium,przekwitanie,uderzenia gorąca,ciepła,nocne poty,HTZ,miesiączka
 
 ## Description (4000)
 Idź na wizytę z faktami, a nie z mglistym wspomnieniem złych tygodni.
@@ -38,17 +38,26 @@ GOTOWA NA WIZYTĘ
 TWOJE DANE NALEŻĄ DO CIEBIE
 • Zapisane na iPhonie i zaszyfrowane w kopii w Twoim własnym iCloud. Nigdy ich nie widzimy
 • Bez konta, bez reklam, bez sprzedaży danych
+• Anonimowe statystyki użycia tylko po ich włączeniu, nigdy Twoje dane o zdrowiu
 • Eksportuj wszystko do pliku w każdej chwili i zaimportuj z powrotem
 • Usunięte dni zostają przez 30 dni w Ostatnio usuniętych
 • Opcjonalna blokada Face ID i synchronizacja z Apple Zdrowie
 
-ZA DARMO I W SUBSKRYPCJI
-Codzienne wpisy, historia, wzorce, kopia zapasowa, eksport i raport na ekranie są za darmo. Subskrypcja miesięczna lub roczna dodaje raport PDF do wydruku lub wysłania (ceny zależą od kraju). Płatność zostanie pobrana z konta Apple ID, a subskrypcja odnawia się automatycznie, jeśli nie anulujesz jej co najmniej 24 godziny przed końcem okresu. Zarządzaj nią lub anuluj w ustawieniach Apple ID.
+ZA DARMO LUB WIĘCEJ W SUBSKRYPCJI
+Codzienne wpisy, historia do 12 tygodni, wzorce, kopia zapasowa w iCloud, eksport do pliku i raport na ekranie są za darmo. Subskrypcja dodaje:
+• Raport PDF do wydruku, wysłania e-mailem lub przesłania
+• Stronę „Od ostatniej wizyty”, która porównuje Twoje własne wyniki przed wybraną datą i po niej
+• Historię i raporty z 6 i 12 miesięcy
+• Eksport do arkusza (CSV)
+• Objawy bez limitu, także te nazwane przez Ciebie
+• Dodatkowe motywy i ikony aplikacji
+
+Nowi subskrybenci dostają 7 dni za darmo, a potem subskrypcję roczną lub miesięczną (ceny zależą od kraju). Płatność zostanie pobrana z Twojego Konta Apple po zakończeniu bezpłatnego okresu próbnego, a subskrypcja odnawia się automatycznie, jeśli nie anulujesz jej co najmniej 24 godziny przed końcem okresu. Zarządzaj nią lub anuluj w ustawieniach Konta Apple.
 
 Tidemark zapisuje to, co podajesz. Aplikacja nie stawia diagnozy, nie proponuje leczenia i nie udziela porad medycznych. Jeśli niepokoi Cię jakiś objaw, skontaktuj się z lekarzem.
 
 Warunki korzystania: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Polityka prywatności: [link do opublikowanej polityki]
+Polityka prywatności: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Pierwsza wersja.
@@ -56,7 +65,7 @@ Pierwsza wersja.
 ## Screenshot captions
 1. Twoje objawy na jednej stronie, gotowe na wizytę
 2. Wpis w 30 sekund dziennie
-3. Zapisz uderzenie gorąca z ekranu blokady
+3. Zapisz uderzenie gorąca jednym dotknięciem
 4. Tygodnie na pierwszy rzut oka
 5. Twoje dane, Twój iCloud. Nigdy ich nie widzimy
 6. Zapisz, co postanowiono po każdej wizycie

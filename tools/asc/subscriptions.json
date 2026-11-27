@@ -1,0 +1,131 @@
+{
+  "group": "Tidemark report",
+  "products": [
+    {
+      "productId": "app.tidemark.report.yearly",
+      "referenceName": "Report yearly",
+      "period": "ONE_YEAR",
+      "level": 1,
+      "usd": "39.99",
+      "freeTrial": "ONE_WEEK"
+    },
+    {
+      "productId": "app.tidemark.report.monthly",
+      "referenceName": "Report monthly",
+      "period": "ONE_MONTH",
+      "level": 2,
+      "usd": "6.99",
+      "freeTrial": "ONE_WEEK"
+    }
+  ],
+  "localizations": {
+    "en-US": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, yearly",
+      "monthly": "Tidemark Pro, monthly",
+      "description": "PDF report, long history, CSV export and more"
+    },
+    "en-GB": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, yearly",
+      "monthly": "Tidemark Pro, monthly",
+      "description": "PDF report, long history, CSV export and more"
+    },
+    "de-DE": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, jährlich",
+      "monthly": "Tidemark Pro, monatlich",
+      "description": "PDF-Bericht, langer Verlauf, CSV und mehr"
+    },
+    "fr-FR": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, annuel",
+      "monthly": "Tidemark Pro, mensuel",
+      "description": "Rapport PDF, long historique, CSV et plus"
+    },
+    "es-ES": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, anual",
+      "monthly": "Tidemark Pro, mensual",
+      "description": "Informe PDF, historial largo, CSV y más"
+    },
+    "it": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, annuale",
+      "monthly": "Tidemark Pro, mensile",
+      "description": "Resoconto PDF, lunga cronologia, CSV e altro"
+    },
+    "nl-NL": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, jaarlijks",
+      "monthly": "Tidemark Pro, maandelijks",
+      "description": "Pdf-rapport, lange geschiedenis, CSV en meer"
+    },
+    "pt-BR": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, anual",
+      "monthly": "Tidemark Pro, mensal",
+      "description": "Relatório PDF, histórico longo, CSV e mais"
+    },
+    "sv": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, varje år",
+      "monthly": "Tidemark Pro, varje månad",
+      "description": "PDF-rapport, lång historik, CSV med mera"
+    },
+    "no": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, årlig",
+      "monthly": "Tidemark Pro, månedlig",
+      "description": "PDF-rapport, lang historikk, CSV og mer"
+    },
+    "da": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, årlig",
+      "monthly": "Tidemark Pro, månedlig",
+      "description": "PDF-rapport, lang historik, CSV og mere"
+    },
+    "fi": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, vuosi",
+      "monthly": "Tidemark Pro, kuukausi",
+      "description": "PDF-raportti, pitkä historia, CSV ja muuta"
+    },
+    "pl": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, rocznie",
+      "monthly": "Tidemark Pro, miesięcznie",
+      "description": "Raport PDF, długa historia, CSV i więcej"
+    },
+    "ja": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro（年間プラン）",
+      "monthly": "Tidemark Pro（月間プラン）",
+      "description": "PDFレポート、長期の履歴、CSV書き出しなど"
+    },
+    "ko": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, 연간",
+      "monthly": "Tidemark Pro, 월간",
+      "description": "PDF 리포트, 긴 기록 내역, CSV 내보내기 등"
+    },
+    "zh-Hans": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro（每年）",
+      "monthly": "Tidemark Pro（每月）",
+      "description": "PDF 报告、长期历史、CSV 导出等"
+    },
+    "tr": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, yıllık",
+      "monthly": "Tidemark Pro, aylık",
+      "description": "PDF rapor, uzun geçmiş, CSV ve dahası"
+    },
+    "ru": {
+      "group": "Tidemark Pro",
+      "yearly": "Tidemark Pro, на год",
+      "monthly": "Tidemark Pro, на месяц",
+      "description": "PDF-отчет, история за год, CSV и другое"
+    }
+  }
+}

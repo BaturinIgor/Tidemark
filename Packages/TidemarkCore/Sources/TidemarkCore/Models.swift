@@ -92,11 +92,60 @@ public struct Symptom: Hashable, Codable, Sendable, Identifiable {
         .init(id: "bladder_urgency", label: "Needing to pee often", group: "Intimate and urinary"),
     ]
 
-    /// The daily check-in shows at most this many symptoms so it stays at about 30 seconds.
+    /// Without Pro the daily check-in shows at most this many symptoms, so it stays at about 30 seconds.
+    /// Pro removes the limit (`trackingLimit(isPro:)`).
     public static let dailyLimit = 8
 
+    /// Nil means no limit.
+    public static func trackingLimit(isPro: Bool) -> Int? { isPro ? nil : dailyLimit }
+
+    /// Catalog name in the user's language, or the user's own name for a custom symptom.
     public static func label(for id: String) -> String {
-        catalog.first { $0.id == id }?.label ?? id
+        catalog.first { $0.id == id }?.label ?? CustomSymptomNames.shared.name(for: id) ?? id
+    }
+}
+
+/// A symptom the user named herself (Pro). The name is health data: it stays in the store, the backup
+/// and her own exports, and never goes to logs or analytics. Definitions are never deleted, so days
+/// rated under one always keep their label.
+public struct CustomSymptom: Codable, Equatable, Hashable, Sendable, Identifiable {
+    public static let idPrefix = "custom_"
+    public static let maxNameLength = 40
+
+    public let id: String
+    public var name: String
+
+    public init(id: String = CustomSymptom.idPrefix + UUID().uuidString.lowercased(), name: String) {
+        self.id = id
+        self.name = name
+    }
+
+    public static func isCustom(_ id: String) -> Bool { id.hasPrefix(idPrefix) }
+
+    /// Trimmed, single line, at most `maxNameLength` characters. Nil when nothing is left.
+    public static func cleanName(_ raw: String) -> String? {
+        let single = raw.components(separatedBy: .newlines).joined(separator: " ")
+        let trimmed = single.trimmingCharacters(in: .whitespaces)
+        guard !trimmed.isEmpty else { return nil }
+        return String(trimmed.prefix(maxNameLength))
+    }
+}
+
+/// Labels for custom symptoms, so every screen can keep calling `Symptom.label(for:)`.
+/// The app refreshes it whenever the profile is loaded or saved.
+public final class CustomSymptomNames: @unchecked Sendable {
+    public static let shared = CustomSymptomNames()
+    private let lock = NSLock()
+    private var names: [String: String] = [:]
+
+    public func update(_ symptoms: [CustomSymptom]) {
+        lock.lock(); defer { lock.unlock() }
+        names = Dictionary(symptoms.map { ($0.id, $0.name) }, uniquingKeysWith: { _, last in last })
+    }
+
+    public func name(for id: String) -> String? {
+        lock.lock(); defer { lock.unlock() }
+        return names[id]
     }
 }
 

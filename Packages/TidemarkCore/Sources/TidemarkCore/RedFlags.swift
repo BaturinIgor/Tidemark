@@ -7,12 +7,16 @@ public enum RedFlag: String, Sendable, Equatable {
     case heavyBleeding
     case bleedingAfterTwelveMonths
 
-    public var message: String {
-        switch self {
+    /// The prompt in the user's region terms: UK users are pointed to their GP.
+    public func message(region: Region) -> String {
+        let gp = region == .unitedKingdom
+        return switch self {
         case .heavyBleeding:
-            L10n.text("Very heavy bleeding shouldn't wait for your appointment. Contact your doctor now.")
+            gp ? L10n.text("Heavy bleeding shouldn't wait for your appointment. Contact your GP now.")
+               : L10n.text("Heavy bleeding shouldn't wait for your appointment. Contact your doctor now.")
         case .bleedingAfterTwelveMonths:
-            L10n.text("Bleeding after 12 months without a period shouldn't wait for your appointment. Contact your doctor now.")
+            gp ? L10n.text("Bleeding after 12 months without a period shouldn't wait for your appointment. Contact your GP now.")
+               : L10n.text("Bleeding after 12 months without a period shouldn't wait for your appointment. Contact your doctor now.")
         }
     }
 }

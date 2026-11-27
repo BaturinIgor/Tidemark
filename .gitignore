@@ -22,3 +22,7 @@ Packages/*/Package.resolved
 *.p12
 *.mobileprovision
 Secrets.xcconfig
+
+# Firebase: the app's config file is not committed (tools/analytics/README.md)
+tools/analytics/GoogleService-Info.plist
+App/GoogleService-Info.plist

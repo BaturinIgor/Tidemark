@@ -38,17 +38,26 @@ BEREIT FÜR DEN TERMIN
 DEINE DATEN GEHÖREN DIR
 • Gespeichert auf deinem iPhone und verschlüsselt in deiner eigenen iCloud gesichert. Wir sehen sie nie
 • Kein Konto, keine Werbung, kein Datenverkauf
+• Anonyme Nutzungsstatistiken nur, wenn du sie einschaltest, niemals deine Gesundheitsdaten
 • Exportiere jederzeit alles in eine Datei und importiere es wieder
 • Gelöschte Tage bleiben 30 Tage unter „Zuletzt gelöscht“
 • Optional Sperre mit Face ID und Abgleich mit Apple Health
 
-KOSTENLOS UND IM ABO
-Tägliches Erfassen, Verlauf, Muster, Backup, Export und der Bericht auf dem Bildschirm sind kostenlos. Ein Abo ergänzt den PDF-Bericht zum Drucken oder Senden, monatlich oder jährlich (Preise je nach Land). Die Zahlung erfolgt über deine Apple-ID. Das Abo verlängert sich automatisch, wenn du nicht mindestens 24 Stunden vor Ende des Zeitraums kündigst. Verwalten oder kündigen kannst du in den Einstellungen deiner Apple-ID.
+KOSTENLOS ODER MEHR IM ABO
+Tägliches Erfassen, Verlauf bis 12 Wochen, Muster, iCloud-Backup, Export in eine Datei und der Bericht auf dem Bildschirm sind kostenlos. Ein Abo ergänzt:
+• Den PDF-Bericht zum Drucken, Mailen oder Hochladen
+• Die Seite „Seit deinem letzten Termin“, die deine eigenen Werte vor und nach einem Datum vergleicht
+• Verlauf und Berichte über 6 und 12 Monate
+• Tabellen-Export (CSV)
+• Unbegrenzt viele Symptome, auch selbst benannte
+• Zusätzliche Farbschemata und App-Symbole
+
+Wenn du neu abonnierst, sind die ersten 7 Tage kostenlos, danach gilt ein Jahres- oder Monatsabo (Preise je nach Land). Die Zahlung erfolgt nach Ende des kostenlosen Testzeitraums über deinen Apple Account. Das Abo verlängert sich automatisch, wenn du nicht mindestens 24 Stunden vor Ende des Zeitraums kündigst. Verwalten oder kündigen kannst du in den Einstellungen deines Apple Accounts.
 
 Tidemark hält fest, was du angibst. Die App stellt keine Diagnosen, schlägt keine Behandlung vor und gibt keinen medizinischen Rat. Wenn dir ein Symptom Sorgen macht, wende dich an deine Ärztin oder deinen Arzt.
 
 Nutzungsbedingungen: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Datenschutzerklärung: [Link zur veröffentlichten Datenschutzerklärung]
+Datenschutzerklärung: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Erste Version.
@@ -56,7 +65,7 @@ Erste Version.
 ## Screenshot captions
 1. Deine Beschwerden auf einer Seite, bereit für den Termin
 2. Check-in in 30 Sekunden am Tag
-3. Hitzewallung vom Sperrbildschirm aus erfassen
+3. Hitzewallung mit einem Tippen erfassen
 4. Wochen auf einen Blick
 5. Deine Daten, deine iCloud. Wir sehen sie nie
 6. Nach jedem Termin festhalten, was entschieden wurde

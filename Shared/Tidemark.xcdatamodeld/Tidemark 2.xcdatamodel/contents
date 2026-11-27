@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="2">
+    <entity name="CDRating" representedClassName="CDRating" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date"/>
+        <attribute name="deviceID" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
+        <attribute name="symptomID" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+    </entity>
+    <entity name="CDDay" representedClassName="CDDay" syncable="YES" codeGenerationType="class">
+        <attribute name="bleeding" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date"/>
+        <attribute name="deviceID" optional="YES" attributeType="String"/>
+        <attribute name="factors" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="impact" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+    </entity>
+    <entity name="CDEpisode" representedClassName="CDEpisode" syncable="YES" codeGenerationType="class">
+        <attribute name="at" optional="YES" attributeType="Date" allowsCloudEncryption="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="intensity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
+        <attribute name="kind" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+    </entity>
+    <entity name="CDQuestionnaire" representedClassName="CDQuestionnaire" syncable="YES" codeGenerationType="class">
+        <attribute name="answers" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+    </entity>
+    <entity name="CDMedication" representedClassName="CDMedication" syncable="YES" codeGenerationType="class">
+        <attribute name="deletedAt" optional="YES" attributeType="Date"/>
+        <attribute name="howTaken" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="kind" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="started" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="stopped" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+    </entity>
+    <entity name="CDQuestion" representedClassName="CDQuestion" syncable="YES" codeGenerationType="class">
+        <attribute name="asked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+    </entity>
+    <entity name="CDVisit" representedClassName="CDVisit" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date"/>
+        <attribute name="followUp" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="outcome" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="takenSeriously" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+        <attribute name="clinician" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="decisions" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="reason" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+    </entity>
+    <entity name="CDProfile" representedClassName="CDProfile" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" allowsCloudEncryption="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="region" optional="YES" attributeType="String"/>
+        <attribute name="reminderMinutes" optional="YES" attributeType="Integer 16" defaultValueString="1260" usesScalarValueType="YES"/>
+        <attribute name="trackedSymptoms" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+        <attribute name="trackingStarted" optional="YES" attributeType="String"/>
+        <attribute name="customSymptoms" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+    </entity>
+</model>

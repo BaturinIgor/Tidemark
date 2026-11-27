@@ -1,0 +1,13 @@
+Tidemark has no login or account. All logged data stays on the device and in the user's private iCloud database; we run no server.
+
+To see the full app without logging for a week: on the iPhone, open https://baturinigor.github.io/tidemark-legal/review-sample.json in Safari and download it (8 weeks of made-up data; the same file is attached as a zip), then in the app open Settings › Your data › "Import from a Tidemark file" and choose it. The Today, History and Report tabs then show real-looking data.
+
+Subscription (Tidemark Pro, auto-renewable, 7-day free trial for new subscribers): it unlocks the PDF report (Report › "Save PDF to print or send"), the "since your last visit" comparison page (Report tab), history and reports over 6 and 12 months (History and Report period pickers), CSV export (Settings › Your data), unlimited and own symptoms (Settings › My symptoms), and themes and app icons (Settings › Appearance). Everything else is free. Locked items show a "Pro" badge and open the paywall; "Restore purchase" is on the paywall and in Settings.
+
+Usage analytics (Google Analytics for Firebase) is opt-in: off unless the user turns it on during setup or in Settings › Privacy. It records only screens and button taps, never symptoms, notes or any other health data. No IDFA, no tracking, no ATT prompt.
+
+Apple Health: the app only writes symptom samples (Settings › Apple Health, off by default). It does not read Health data.
+
+The app records what the user reports. It does not diagnose, give a likelihood of any condition, or suggest treatment. The "contact your doctor" prompts appear only when the user logs heavy bleeding or bleeding after 12 months without a period, and only point the user to her own doctor (GP in the UK).
+
+The Menopause Rating Scale questionnaire is used under licence from its copyright holder.

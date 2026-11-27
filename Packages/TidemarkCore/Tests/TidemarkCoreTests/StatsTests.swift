@@ -73,6 +73,17 @@ struct CycleTests {
         let heavy = CheckIn(day: DayKey(year: 2026, month: 11, day: 18), bleeding: .heavy)
         #expect(RedFlags.check(today: heavy, cycle: CycleSummary(periods: [], cycleLengths: [], spottingDays: 0)) == [.heavyBleeding])
     }
+
+    @Test("The bleeding prompts use the region's term and match the option the user tapped")
+    func flagWordingFollowsRegion() {
+        for flag in [RedFlag.heavyBleeding, .bleedingAfterTwelveMonths] {
+            #expect(flag.message(region: .unitedKingdom).contains("GP"))
+            #expect(!flag.message(region: .unitedKingdom).contains("doctor"))
+            #expect(flag.message(region: .unitedStates).contains("doctor"))
+        }
+        // The option is "Heavy", so the prompt must not say "very heavy".
+        #expect(!RedFlag.heavyBleeding.message(region: .unitedStates).localizedCaseInsensitiveContains("very"))
+    }
 }
 
 @Suite("Treatment check")

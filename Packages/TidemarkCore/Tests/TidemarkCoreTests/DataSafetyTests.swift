@@ -46,12 +46,27 @@ struct DataSafetyTests {
         }
     }
 
-    @Test("D5: CSV escapes commas and quotes in notes")
-    func csvEscaping() {
-        let csv = ExportCodec.csv(sampleFile())
-        #expect(csv.hasPrefix("date,symptom,severity,impact,bleeding,factors,note\n"))
-        #expect(csv.contains("\"Woke at 3, \"\"soaked\"\", couldn't sleep\""))
-        #expect(csv.contains("2026-11-18,Night sweats,3,2,1,alcohol;stress,"))
+    @Test("D5: an export without custom symptoms is byte for byte the old format")
+    func profileWithoutCustomSymptomsKeepsOldFormat() throws {
+        let json = String(decoding: try ExportCodec.encode(sampleFile()), as: UTF8.self)
+        #expect(!json.contains("customSymptoms"))
+        // A file written before custom symptoms existed still decodes.
+        let old = #"{"region":"UK","age":46,"trackedSymptomIDs":["fatigue"]}"#
+        let profile = try JSONDecoder().decode(Profile.self, from: Data(old.utf8))
+        #expect(profile.customSymptoms.isEmpty)
+    }
+
+    @Test("D5: custom symptoms and their ratings survive export and import")
+    func customSymptomsRoundTrip() throws {
+        var file = sampleFile()
+        let custom = CustomSymptom(id: "custom_test", name: "Tingling, \"pins\" in hands")
+        file.profile.customSymptoms = [custom]
+        file.profile.trackedSymptomIDs.append(custom.id)
+        file.checkIns[0].ratings[custom.id] = .mild
+        let data = try ExportCodec.encode(file)
+        let restored = try ExportCodec.decode(data)
+        #expect(restored == file)
+        #expect(try ExportCodec.encode(restored) == data)
     }
 
     @Test("D8: two devices editing different fields offline keep both edits")

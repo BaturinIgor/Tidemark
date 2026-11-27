@@ -62,6 +62,20 @@ final class PersistenceController: @unchecked Sendable {
             }
         }
         loadError = failure
+        #if DEBUG
+        // Before release: run a Debug build once with `-initCloudKitSchema` (Edit Scheme › Arguments) to create
+        // every record type and field in the CloudKit Development environment, then deploy it to Production
+        // in the CloudKit Console (docs/apple-setup.md). Touches only CloudKit Development, never local data.
+        if mode == .app, failure == nil, ProcessInfo.processInfo.arguments.contains("-initCloudKitSchema"),
+           let cloud = container as? NSPersistentCloudKitContainer {
+            do {
+                try cloud.initializeCloudKitSchema(options: [])
+                log.notice("CloudKit schema initialized in Development")
+            } catch {
+                log.error("CloudKit schema init failed: \(error.localizedDescription, privacy: .public)")
+            }
+        }
+        #endif
         container.viewContext.automaticallyMergesChangesFromParent = true
         // D8: newest value wins per attribute, not per record.
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy

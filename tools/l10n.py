@@ -163,7 +163,13 @@ def main():
     if cmd == "build":
         strings = catalog("strings")
         for path in TARGETS:
-            write(path, strings)
+            if path.startswith("Packages/"):
+                # Xcode 26+ generates Swift symbols for "manual" strings in packages and fails on keys
+                # like "Hot flush" / "+ Hot flush". The core looks strings up by key, so it needs none.
+                core = {k: {"localizations": v["localizations"]} for k, v in strings["strings"].items()}
+                write(path, {**strings, "strings": core})
+            else:
+                write(path, strings)
         write("App/InfoPlist.xcstrings", catalog("infoplist"))
         print(f"{len(strings['strings'])} keys, {len(LANGS)} languages")
     elif cmd == "keys":

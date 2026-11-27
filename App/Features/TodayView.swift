@@ -37,12 +37,12 @@ struct TodayView: View {
             } else {
                 Card {
                     Text("How was today?").font(.headline)
-                    Button("Start today's check-in") { checkInDay = today }.buttonStyle(PrimaryButtonStyle())
+                    Button("Start today's check-in") { checkInDay = today; UsageAnalytics.shared.log(.checkInOpened) }.buttonStyle(PrimaryButtonStyle())
                 }
             }
 
             if !missed.isEmpty, !checkIns.isEmpty {
-                MissedDaysCard(days: missed) { checkInDay = $0 }
+                MissedDaysCard(days: missed) { checkInDay = $0; UsageAnalytics.shared.log(.missedDayOpened) }
             }
 
             QuickLogCard(today: today) { quickLog = $0 }
@@ -65,7 +65,7 @@ struct TodayView: View {
                     HStack {
                         Text("Last 7 days").font(.headline)
                         Spacer()
-                        NavigationLink("Your week") { WeeklySummaryView() }.font(.subheadline.weight(.semibold))
+                        NavigationLink("Your week") { WeeklySummaryView().analyticsScreen(.weeklySummary) }.font(.subheadline.weight(.semibold))
                     }
                     WeekStrip(checkIns: checkIns, ending: today)
                     Text("Overall burden per day. Darker means a harder day.").font(.caption).foregroundStyle(Theme.muted)
@@ -73,10 +73,10 @@ struct TodayView: View {
             }
         }
         .navigationBarHidden(true)
-        .sheet(item: $checkInDay) { day in CheckInView(day: day) }
-        .sheet(isPresented: $showQuestionnaire) { QuestionnaireView() }
+        .sheet(item: $checkInDay) { day in CheckInView(day: day).analyticsScreen(.checkIn) }
+        .sheet(isPresented: $showQuestionnaire) { QuestionnaireView().analyticsScreen(.questionnaire) }
         .sheet(item: $quickLog) { kind in
-            QuickLogSheet(kind: kind).presentationDetents([.height(380)])
+            QuickLogSheet(kind: kind).analyticsScreen(.quickLog).presentationDetents([.height(380)])
         }
     }
 
@@ -85,7 +85,7 @@ struct TodayView: View {
             Text("Your first check-in").font(.headline)
             Text("Rate how today felt for your \(model.profile?.trackedSymptomIDs.count ?? 0) symptoms. It takes about 30 seconds.")
                 .font(.subheadline).foregroundStyle(Theme.secondary)
-            Button("Start check-in") { checkInDay = .today }.buttonStyle(PrimaryButtonStyle())
+            Button("Start check-in") { checkInDay = .today; UsageAnalytics.shared.log(.checkInOpened) }.buttonStyle(PrimaryButtonStyle())
             Text("Rate today only, not the worst day of the week. Missed a day? You can fill it in later.")
                 .font(.caption).foregroundStyle(Theme.muted)
         }
@@ -258,7 +258,7 @@ struct AfterVisitCard: View {
             Text("A few taps. Your next report will show what changed after it.").font(.subheadline).foregroundStyle(Theme.secondary)
             Button("Add visit notes") { open = true }.buttonStyle(PrimaryButtonStyle(height: 46))
         }
-        .sheet(isPresented: $open) { AfterVisitView(visit: visit) }
+        .sheet(isPresented: $open) { AfterVisitView(visit: visit).analyticsScreen(.afterVisit) }
     }
 }
 
@@ -306,6 +306,7 @@ struct QuickLogSheet: View {
             DatePicker("Time", selection: $time, in: ...Date(), displayedComponents: [.date, .hourAndMinute])
             Button("Save") {
                 model.repository.logEpisode(kind, intensity: intensity, at: time)
+                UsageAnalytics.shared.log(.quickLogSaved)
                 model.dataChanged()
                 dismiss()
             }
@@ -327,11 +328,21 @@ enum DataExport {
         return url
     }
 
+    /// Pro: three spreadsheet files (days, quick logs, medicines), shared together.
     @MainActor
-    static func makeCSV(model: AppModel) -> URL? {
-        guard let file = model.repository.exportFile(appVersion: "") else { return nil }
-        let url = FileManager.default.temporaryDirectory.appendingPathComponent("Tidemark export \(DayKey.today).csv")
-        try? ExportCodec.csv(file).write(to: url, atomically: true, encoding: .utf8)
-        return url
+    static func makeCSV(model: AppModel) -> [URL] {
+        guard let file = model.repository.exportFile(appVersion: "") else { return [] }
+        let files = CSVExport.make(file)
+        let folder = FileManager.default.temporaryDirectory.appendingPathComponent("Tidemark CSV \(DayKey.today)", isDirectory: true)
+        try? FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+        let parts = [(String(localized: "Tidemark days"), files.days),
+                     (String(localized: "Tidemark quick logs"), files.quickLogs),
+                     (String(localized: "Tidemark medicines"), files.medicines)]
+        return parts.compactMap { name, text in
+            let url = folder.appendingPathComponent("\(name) \(DayKey.today).csv")
+            // UTF-8 with a byte order mark, so Excel shows accented letters and other scripts correctly.
+            guard (try? Data(("\u{FEFF}" + text).utf8).write(to: url, options: .atomic)) != nil else { return nil }
+            return url
+        }
     }
 }

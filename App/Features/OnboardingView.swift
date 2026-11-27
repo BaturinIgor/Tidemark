@@ -13,6 +13,8 @@ struct OnboardingView: View {
     @State private var hasDate = true
     @State private var visitDate = Calendar.current.date(byAdding: .day, value: 14, to: Date()) ?? Date()
     @State private var clinician = ""
+    /// Opt-in: off until she turns it on (Tidemark is a health app, so we never assume consent).
+    @State private var shareUsage = false
     @State private var checkingBackup = true
     @State private var backupFound = false
 
@@ -21,7 +23,14 @@ struct OnboardingView: View {
             if checkingBackup {
                 ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if backupFound {
-                RestoreView(onRestore: { model.waitForRestore() }, onStartFresh: { backupFound = false })
+                RestoreView(onRestore: {
+                    UsageAnalytics.shared.log(.restoreChosen)
+                    model.waitForRestore()
+                }, onStartFresh: {
+                    UsageAnalytics.shared.log(.startFreshChosen)
+                    backupFound = false
+                })
+                .analyticsScreen(.restore)
             } else {
                 steps
             }
@@ -31,6 +40,7 @@ struct OnboardingView: View {
             backupFound = DesignFlags.has("-design-backup-found") ? true : await model.backup.hasExistingBackup()
             checkingBackup = false
         }
+        .onChange(of: step) { _, new in UsageAnalytics.shared.log(.onboardingStep, .step(new + 1)) }
     }
 
     private var steps: some View {
@@ -47,13 +57,14 @@ struct OnboardingView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     switch step {
-                    case 0: welcome
-                    case 1: symptoms
-                    default: visit
+                    case 0: welcome.analyticsScreen(.onboardingWelcome)
+                    case 1: symptoms.analyticsScreen(.onboardingSymptoms)
+                    default: visit.analyticsScreen(.onboardingVisit)
                     }
                 }
                 .padding(24)
             }
+            .keyboardDismissable()
         }
     }
 
@@ -73,8 +84,12 @@ struct OnboardingView: View {
                     ForEach(Region.allCases, id: \.self) { option in
                         let selected = option == region
                         Button { region = option } label: {
-                            Text(option.displayName)
-                                .font(.body.weight(selected ? .semibold : .regular))
+                            // Sized for the bold label, so selecting a region never re-wraps it.
+                            ZStack(alignment: .leading) {
+                                Text(option.displayName).font(.body.weight(.semibold)).hidden().accessibilityHidden(true)
+                                Text(option.displayName).font(.body.weight(selected ? .semibold : .regular))
+                            }
+                                .multilineTextAlignment(.leading)
                                 .frame(maxWidth: .infinity, minHeight: 48, alignment: .leading)
                                 .padding(.horizontal, 14)
                                 .foregroundStyle(selected ? Theme.accentInk : Theme.ink)
@@ -177,6 +192,17 @@ struct OnboardingView: View {
                 }
             }
             Card {
+                Toggle(isOn: $shareUsage) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Help improve Tidemark").font(.headline)
+                        Text("Share anonymous usage: which screens you open and which buttons you tap. Never your health data.")
+                            .font(.subheadline).foregroundStyle(Theme.secondary)
+                    }
+                }
+                .tint(Theme.accent)
+                Text("You can change this anytime in Settings › Privacy.").font(.footnote).foregroundStyle(Theme.muted)
+            }
+            Card {
                 Text("Daily reminder").font(.headline)
                 Text("Most people check in before bed. It takes 30 seconds.").font(.subheadline).foregroundStyle(Theme.secondary)
             }
@@ -196,6 +222,8 @@ struct OnboardingView: View {
             model.repository.save(visit: Visit(day: DayKey(visitDate), clinician: clinician.trimmingCharacters(in: .whitespaces)))
         }
         model.completeOnboarding(profile)
+        UsageAnalytics.shared.setConsent(shareUsage)
+        UsageAnalytics.shared.log(.onboardingCompleted, .count(ordered.count), .enabled(reminder))
         guard reminder else { return }
         Task {
             if await Reminders.requestPermission() {

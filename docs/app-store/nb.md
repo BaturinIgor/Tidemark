@@ -38,17 +38,26 @@ KLAR TIL TIMEN
 DATAENE DINE ER DINE
 • Lagret på iPhonen og sikkerhetskopiert, kryptert, til din egen iCloud. Vi ser dem aldri
 • Ingen konto, ingen reklame, ikke noe salg av data
+• Anonym bruksstatistikk bare hvis du slår det på, aldri helsedataene dine
 • Eksporter alt til en fil når som helst, og importer det igjen
 • Slettede dager ligger 30 dager i Nylig slettet
 • Valgfri lås med Face ID og synkronisering med Apple Helse
 
-GRATIS OG ABONNEMENT
-Daglig registrering, historikk, mønstre, sikkerhetskopi, eksport og rapporten på skjermen er gratis. Et måneds- eller årsabonnement gir deg PDF-rapporten til utskrift eller sending (prisene varierer fra land til land). Betalingen belastes Apple-ID-en din og fornyes automatisk med mindre du sier opp minst 24 timer før perioden er over. Administrer eller si opp i innstillingene for Apple-ID-en.
+GRATIS, ELLER MER MED ABONNEMENT
+Daglig registrering, historikk opptil 12 uker, mønstre, sikkerhetskopi i iCloud, eksport til fil og rapporten på skjermen er gratis. Et abonnement gir deg:
+• PDF-rapporten til utskrift, e-post eller opplasting
+• Sammenligningssiden «Siden forrige time», med dine egne tall før og etter en dato
+• Historikk og rapporter over 6 og 12 måneder
+• Eksport som regneark (CSV)
+• Ubegrenset antall plager, også dem du gir navn selv
+• Flere temaer og appikoner
+
+Nye abonnenter får 7 dager gratis, deretter et års- eller månedsabonnement (prisene varierer fra land til land). Betalingen belastes Apple-kontoen din når prøveperioden er over, og abonnementet fornyes automatisk med mindre du sier opp minst 24 timer før perioden er over. Administrer eller si opp i innstillingene for Apple-kontoen.
 
 Tidemark registrerer det du oppgir. Appen stiller ikke diagnoser, foreslår ikke behandling og gir ikke medisinske råd. Hvis en plage bekymrer deg, kontakt legen din.
 
 Vilkår for bruk: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Personvernerklæring: [lenke til den publiserte erklæringen]
+Personvernerklæring: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Første versjon.
@@ -56,7 +65,7 @@ Første versjon.
 ## Screenshot captions
 1. Plagene dine på én side, klare til timen
 2. Registrer på 30 sekunder om dagen
-3. Registrer en hetetokt fra låseskjermen
+3. Registrer en hetetokt med ett trykk
 4. Ukene dine med ett blikk
 5. Dine data, din iCloud. Vi ser dem aldri
 6. Noter hva som ble bestemt etter hver time

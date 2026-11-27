@@ -45,17 +45,26 @@ READY FOR THE APPOINTMENT
 YOUR DATA STAYS YOURS
 • Stored on your iPhone and backed up, encrypted, to your own iCloud. We never see it
 • No account, no ads, no data sales
+• Anonymous usage statistics only if you turn them on, never your health data
 • Export everything to a file at any time, and import it back
 • Deleted days stay in Recently deleted for 30 days
 • Optional Face ID lock and Apple Health sync
 
-FREE AND PAID
-Daily logging, history, patterns, backup, export and the on-screen report are free. A subscription adds the PDF report you can print or send: $6.99 a month or $39.99 a year (prices vary by country). Payment is charged to your Apple ID and renews automatically unless cancelled at least 24 hours before the end of the period. Manage or cancel in your Apple ID settings.
+FREE, OR MORE WITH A SUBSCRIPTION
+Daily logging, history up to 12 weeks, patterns, iCloud backup, export to a file and the on-screen report are free. A subscription adds:
+• The PDF report to print, email or upload
+• A "since your last visit" page comparing your own numbers before and after a date
+• History and reports over 6 and 12 months
+• Spreadsheet (CSV) export
+• Unlimited symptoms, including ones you name yourself
+• Extra themes and app icons
+
+New subscribers get 7 days free, then $39.99 a year or $6.99 a month (prices vary by country). Payment is charged to your Apple Account when the free trial ends, and the subscription renews automatically unless cancelled at least 24 hours before the end of the period. Manage or cancel in your Apple Account settings.
 
 Tidemark records what you report. It does not diagnose, suggest treatment or give medical advice. If you are worried about a symptom, contact your doctor.
 
 Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Privacy Policy: [link to the published privacy policy]
+Privacy Policy: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New (version 1.0)
 
@@ -73,7 +82,7 @@ First release.
 
 1. Your symptoms, one page, ready for your appointment
 2. Check in in 30 seconds a day
-3. Log a hot flush from the Lock Screen
+3. Log a hot flush in one tap
 4. See weeks at a glance
 5. Your data, your iCloud. We never see it
 6. Note what was decided after each visit

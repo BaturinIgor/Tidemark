@@ -38,17 +38,26 @@ PRONTA PARA A CONSULTA
 SEUS DADOS SÃO SEUS
 • Salvos no seu iPhone e com backup criptografado no seu próprio iCloud. Nós nunca vemos
 • Sem conta, sem anúncios, sem venda de dados
+• Estatísticas de uso anônimas só se você ativar, nunca seus dados de saúde
 • Exporte tudo para um arquivo quando quiser e importe de volta
 • Os dias apagados ficam 30 dias em Apagados recentemente
 • Bloqueio com Face ID e sincronização com o Apple Saúde opcionais
 
-GRÁTIS E ASSINATURA
-Registro diário, histórico, padrões, backup, exportação e relatório na tela são grátis. Uma assinatura mensal ou anual adiciona o relatório em PDF para imprimir ou enviar (os preços variam por país). O pagamento é cobrado no seu ID Apple e renova automaticamente, a menos que seja cancelado pelo menos 24 horas antes do fim do período. Gerencie ou cancele nos ajustes do seu ID Apple.
+GRÁTIS, OU MAIS COM ASSINATURA
+Registro diário, histórico de até 12 semanas, padrões, backup no iCloud, exportação para arquivo e relatório na tela são grátis. A assinatura adiciona:
+• O relatório em PDF para imprimir, enviar por e-mail ou fazer upload
+• Uma página “Desde sua última consulta” que compara seus próprios números antes e depois de uma data
+• Histórico e relatórios de 6 e 12 meses
+• Exportação de planilha (CSV)
+• Sintomas ilimitados, incluindo os que você criar e nomear
+• Temas e ícones extras
+
+Novos assinantes ganham 7 dias grátis e depois uma assinatura anual ou mensal (os preços variam por país). O pagamento é cobrado na sua Conta Apple quando o teste grátis termina, e a assinatura renova automaticamente, a menos que seja cancelada pelo menos 24 horas antes do fim do período. Gerencie ou cancele nos ajustes da sua Conta Apple.
 
 O Tidemark registra o que você informa. Ele não faz diagnóstico, não sugere tratamento e não dá orientação médica. Se um sintoma preocupar você, fale com o seu médico.
 
 Termos de Uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
-Política de Privacidade: [link para a política publicada]
+Política de Privacidade: https://baturinigor.github.io/tidemark-legal/privacy.html
 
 ## What's New
 Primeira versão.
@@ -56,7 +65,7 @@ Primeira versão.
 ## Screenshot captions
 1. Seus sintomas em uma página, prontos para a consulta
 2. Registre em 30 segundos por dia
-3. Registre um fogacho pela Tela Bloqueada
+3. Registre um fogacho com um toque
 4. Suas semanas de relance
 5. Seus dados, seu iCloud. Nós nunca vemos
 6. Anote o que foi decidido depois de cada consulta

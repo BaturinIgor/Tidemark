@@ -47,11 +47,33 @@ public struct Profile: Codable, Equatable, Sendable {
     public var region: Region
     public var age: Int?
     public var trackedSymptomIDs: [String]
+    /// Symptoms the user named herself (Pro). Added in 1.0; files without it decode as empty.
+    public var customSymptoms: [CustomSymptom]
 
-    public init(region: Region, age: Int?, trackedSymptomIDs: [String]) {
+    public init(region: Region, age: Int?, trackedSymptomIDs: [String], customSymptoms: [CustomSymptom] = []) {
         self.region = region
         self.age = age
         self.trackedSymptomIDs = trackedSymptomIDs
+        self.customSymptoms = customSymptoms
+    }
+
+    private enum CodingKeys: String, CodingKey { case region, age, trackedSymptomIDs, customSymptoms }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        region = try c.decode(Region.self, forKey: .region)
+        age = try c.decodeIfPresent(Int.self, forKey: .age)
+        trackedSymptomIDs = try c.decodeIfPresent([String].self, forKey: .trackedSymptomIDs) ?? []
+        customSymptoms = try c.decodeIfPresent([CustomSymptom].self, forKey: .customSymptoms) ?? []
+    }
+
+    /// Without custom symptoms the file is byte for byte what earlier builds wrote.
+    public func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(region, forKey: .region)
+        try c.encodeIfPresent(age, forKey: .age)
+        try c.encode(trackedSymptomIDs, forKey: .trackedSymptomIDs)
+        if !customSymptoms.isEmpty { try c.encode(customSymptoms, forKey: .customSymptoms) }
     }
 }
 
@@ -174,33 +196,5 @@ public enum ExportCodec {
             throw ExportError.unsupportedVersion(version)
         }
         return try decoder.decode(ExportFile.self, from: data)
-    }
-
-    /// One row per day per symptom, easy to open in a spreadsheet.
-    public static func csv(_ file: ExportFile) -> String {
-        let labels = Dictionary(Symptom.catalog.map { ($0.id, $0.label) }, uniquingKeysWith: { a, _ in a })
-        var lines = ["date,symptom,severity,impact,bleeding,factors,note"]
-        for checkIn in file.checkIns {
-            let factors = checkIn.factors.map(\.rawValue).sorted().joined(separator: ";")
-            let impact = checkIn.impact.map { String($0.rawValue) } ?? ""
-            for (id, severity) in checkIn.ratings.sorted(by: { $0.key < $1.key }) {
-                let fields = [
-                    checkIn.day.description,
-                    labels[id] ?? id,
-                    String(severity.rawValue),
-                    impact,
-                    String(checkIn.bleeding.rawValue),
-                    factors,
-                    checkIn.note,
-                ]
-                lines.append(fields.map(escape).joined(separator: ","))
-            }
-        }
-        return lines.joined(separator: "\n") + "\n"
-    }
-
-    static func escape(_ field: String) -> String {
-        guard field.contains(where: { $0 == "," || $0 == "\"" || $0 == "\n" }) else { return field }
-        return "\"" + field.replacingOccurrences(of: "\"", with: "\"\"") + "\""
     }
 }
